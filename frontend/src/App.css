@@ -1,0 +1,5 @@
+/* SahiRate — minimal app-level styles (most styling via tailwind + design tokens) */
+.App {
+  min-height: 100vh;
+  background: #FFFFFF;
+}
