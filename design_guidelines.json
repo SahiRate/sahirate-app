@@ -1,0 +1,96 @@
+{
+  "project_name": "SahiRate",
+  "theme": "Light mode by default with Dark mode toggle. The primary aesthetic is 'Premium SaaS / Swiss High-Contrast' using crisp White backgrounds, Deep Navy structural elements, and Orange kinetic triggers.",
+  "colors": {
+    "primary": "#0A192F",
+    "secondary": "#FFFFFF",
+    "accent": "#FF5722",
+    "background_app": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "text": {
+      "main": "#0F172A",
+      "muted": "#64748B",
+      "inverse": "#FFFFFF"
+    },
+    "guidelines": "Use White/Off-white for the primary content background to ensure data readability. Use Deep Navy for Hero sections, Footers, and structural navigation to anchor the SaaS feel. Use Orange EXCLUSIVELY for kinetic triggers (Primary CTAs, upward price trend indicators, active navigation states)."
+  },
+  "typography": {
+    "headings": {
+      "font": "Outfit, sans-serif",
+      "weight": "font-bold to font-black",
+      "spacing": "tracking-tight",
+      "guidelines": "Outfit brings a geometric, tech-startup feel. Never center-align hero text by default; use left alignment for a strong editorial look. Limit maximum size to text-5xl or text-6xl."
+    },
+    "body": {
+      "font": "Inter, sans-serif",
+      "weight": "font-normal",
+      "guidelines": "Use Inter for dense data tables and body text for maximum legibility."
+    },
+    "data_points": {
+      "font": "JetBrains Mono, monospace",
+      "guidelines": "Use monospace fonts for prices, percentages, and metrics to ensure vertical alignment in tables and cards."
+    }
+  },
+  "grids_and_layouts": {
+    "marketing_pages": "Use the 'Tetris' Bento Grid with wide gaps (gap-8). Asymmetrical layouts. Generous padding (py-24, py-32). Break the standard horizontal row layout.",
+    "dashboard_data": "High Density Grid for material comparisons. Strict F-Pattern layout. Right-aligned numeric columns. Sticky first column for dealer/material names.",
+    "container": "Max-width containers (max-w-7xl) with mx-auto and generous horizontal padding (px-6 md:px-12)."
+  },
+  "components": {
+    "cards": "Flat solid background (bg-white), 1px subtle border (border-slate-200), NO soft muddy shadows by default. On hover: slight lift (-translate-y-1) and crisp ambient shadow (shadow-lg).",
+    "headers": "Crystal Glassmorphism: backdrop-blur-xl bg-white/70 (light) or bg-navy/80 (dark) with a delicate 1px inner bottom stroke (border-b border-slate-200/50). Never use fully transparent headers.",
+    "data_tables": "Selective column display, sticky identification column on the left, right-aligned prices. Emphasize row hover states. Minimal vertical borders, subtle horizontal dividers.",
+    "buttons": "Slightly rounded (rounded-md). Primary: bg-orange-500 text-white hover:bg-orange-600 shadow-sm. Secondary: border border-slate-200 text-slate-800 hover:bg-slate-50. Never rely solely on color for state changes.",
+    "search": "AI-powered natural language search bar should be prominent, resembling Apple's Spotlight or Notion's CMD+K dialog. Use large text input, clear icon, and instant dropdown results."
+  },
+  "visual_enhancers": {
+    "motion": "Use Framer Motion. Micro-interactions on all buttons and table rows. Smooth entrance staggered animations for bento grid and directory lists. Use 'layout' animations for filtering lists.",
+    "textures": "Subtle noise overlay on Deep Navy hero sections to kill the 'digital flatness'.",
+    "data_visualization": "Use Recharts for the 365 Days Price History and price comparison charts. Clean tooltips, subtle gridlines, remove axes if they clutter."
+  },
+  "image_urls": {
+    "hero_backgrounds": [
+      {
+        "url": "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea",
+        "description": "Concrete building under construction. Use with heavy Deep Navy gradient overlay (bg-navy/80) to ensure text contrast for the hero."
+      }
+    ],
+    "material_categories": [
+      {
+        "category": "Cement",
+        "url": "https://images.unsplash.com/photo-1774946103680-3d34a461a581",
+        "description": "Warehouse stacks of cement bags."
+      },
+      {
+        "category": "TMT Steel",
+        "url": "https://images.unsplash.com/photo-1623428454598-1bfe414bac03",
+        "description": "Close up of steel rebars."
+      }
+    ],
+    "user_personas": [
+      {
+        "url": "https://images.unsplash.com/photo-1659353588681-a3584fce131d",
+        "description": "Engineer using a tablet (tech-forward construction vibe)."
+      }
+    ]
+  },
+  "accessibility": {
+    "contrast": "Ensure APCA/WCAG AA compliance. Dark text on light backgrounds. Orange buttons MUST have white text.",
+    "testing": "All interactive elements MUST include data-testid attribute (e.g., data-testid='price-compare-btn', data-testid='dealer-contact-btn')."
+  },
+  "instructions_to_main_agent": [
+    "Do NOT build a marketplace checkout; focus on directories and price comparison.",
+    "Use standard HTML/Tailwind for marketing sections (hero, features) instead of rigid Shadcn cards.",
+    "Use Shadcn for complex interactions (Tables, Dropdowns, Dialogs, Command for Search).",
+    "Use Lucide-react for standard icons.",
+    "For the daily price updates, design a ticker or grid that looks like a stock market interface but for building materials."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not converge toward generic outputs. Use overlapping elements and Z-index depth.",
+    "Do not apply `transition: all` universally as it breaks specific transforms.",
+    "Do not center-align the app container via `.App { text-align: center; }`. Preserve natural reading flow.",
+    "Never use AI emojis (🤖🧠) for icons.",
+    "Every interaction needs micro-animations (hover, active, focus).",
+    "Missing images must be sourced from the provided URLs, NEVER use placeholder text/domains."
+  ]
+}
