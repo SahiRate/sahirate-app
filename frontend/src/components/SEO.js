@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { useEffect } from "react";
-
 const SITE_URL = "https://www.sahirate.in";
 
 function SEO({
