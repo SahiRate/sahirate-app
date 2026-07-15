@@ -7,6 +7,7 @@ import AISearchDialog from "@/components/AISearchDialog";
 import Home from "@/pages/Home";
 import MaterialsList from "@/pages/MaterialsList";
 import MaterialDetail from "@/pages/MaterialDetail";
+import SEO from "@/components/SEO";
 import DealersList from "@/pages/DealersList";
 import DealerDetail from "@/pages/DealerDetail";
 import LivePrices from "@/pages/LivePrices";
@@ -18,9 +19,10 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar onOpenSearch={openSearch} />
-        <main data-testid="app-main">
+     <BrowserRouter>
+    <SEO />
+    <Navbar onOpenSearch={openSearch} />
+          <main data-testid="app-main">
           <Routes>
             <Route path="/" element={<Home onOpenSearch={openSearch} />} />
             <Route path="/materials" element={<MaterialsList />} />
