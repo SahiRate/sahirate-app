@@ -52,22 +52,25 @@ export default function DealersList() {
     });
   }, [dealers, query, verifiedOnly, deliveryOnly]);
 
+
   return (
     <>
       <SEO
- title="Building Material Dealers Near You | SahiRate"
- description="Find verified building material dealers and suppliers near your location."
- url="https://www.sahirate.in/dealers"
-/>
+        title="Building Material Dealers Near You | SahiRate"
+        description="Find verified building material dealers and suppliers near your location."
+        url="https://www.sahirate.in/dealers"
+      />
 
       <section className="relative overflow-hidden bg-[#0A192F]">
         <div className="absolute right-[-180px] top-[-180px] h-[520px] w-[520px] rounded-full bg-[#FF6B00]/20 blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10">
+
           <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/20 bg-orange-500/10 px-5 py-2 text-orange-300">
             <Sparkles size={15} />
             Verified Dealer Network
           </div>
+
 
           <h1
             className="mt-8 font-extrabold text-white"
@@ -82,18 +85,25 @@ export default function DealersList() {
             </span>
           </h1>
 
+
           <p className="mt-8 max-w-2xl text-lg leading-9 text-slate-300">
             Compare verified dealers, customer ratings,
             delivery availability and contact suppliers directly.
           </p>
+
         </div>
       </section>
 
+
+
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
+
           <div className="grid gap-4 lg:grid-cols-[1fr_auto_auto]">
 
+
             <div className="relative">
+
               <Search
                 size={20}
                 className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
@@ -102,55 +112,68 @@ export default function DealersList() {
               <input
                 type="text"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e)=>setQuery(e.target.value)}
                 placeholder="Search dealer or area..."
                 className="h-14 w-full rounded-xl border border-slate-200 pl-14 pr-5 outline-none focus:border-[#FF6B00]"
               />
+
             </div>
 
+
+
             <button
-              type="button"
-              onClick={() => setVerifiedOnly(!verifiedOnly)}
+              onClick={()=>setVerifiedOnly(!verifiedOnly)}
               className={
                 verifiedOnly
-                  ? "h-14 rounded-xl border px-6 border-[#0A192F] bg-[#0A192F] text-white"
-                  : "h-14 rounded-xl border px-6 border-slate-200 text-slate-700"
+                ? "h-14 rounded-xl border px-6 border-[#0A192F] bg-[#0A192F] text-white"
+                : "h-14 rounded-xl border px-6 border-slate-200 text-slate-700"
               }
             >
-              <ShieldCheck
-                size={18}
-                className="mr-2 inline"
-              />
+
+              <ShieldCheck size={18} className="mr-2 inline"/>
               Verified
+
             </button>
+
+
 
             <button
-              type="button"
-              onClick={() => setDeliveryOnly(!deliveryOnly)}
+              onClick={()=>setDeliveryOnly(!deliveryOnly)}
               className={
                 deliveryOnly
-                  ? "h-14 rounded-xl border px-6 border-[#0A192F] bg-[#0A192F] text-white"
-                  : "h-14 rounded-xl border px-6 border-slate-200 text-slate-700"
+                ? "h-14 rounded-xl border px-6 border-[#0A192F] bg-[#0A192F] text-white"
+                : "h-14 rounded-xl border px-6 border-slate-200 text-slate-700"
               }
             >
-              <Truck
-                size={18}
-                className="mr-2 inline"
-              />
+
+              <Truck size={18} className="mr-2 inline"/>
               Delivery
+
             </button>
 
+
           </div>
+
         </div>
       </section>
+
+
+
+
       <section className="bg-[#F8FAFC] py-20">
+
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
 
+
           {loading ? (
+
             <div className="py-20 text-center text-slate-500">
               Loading dealers...
             </div>
+
+
           ) : filtered.length === 0 ? (
+
 
             <div className="rounded-3xl border border-slate-200 bg-white px-10 py-20 text-center">
 
@@ -167,13 +190,17 @@ export default function DealersList() {
                 We couldn't find any dealer matching your search.
               </p>
 
+
             </div>
+
 
           ) : (
 
+
             <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
-              {filtered.map((dealer) => (
+
+              {filtered.map((dealer)=>(
 
                 <Link
                   key={dealer.id}
@@ -181,9 +208,12 @@ export default function DealersList() {
                   className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
                 >
 
+
                   <div className="p-8">
 
+
                     <div className="flex items-start justify-between">
+
 
                       <div>
 
@@ -197,13 +227,16 @@ export default function DealersList() {
 
                       </div>
 
-                      <ArrowRight
-                        className="text-[#FF6B00] transition group-hover:translate-x-1"
-                      />
+
+                      <ArrowRight className="text-[#FF6B00]" />
+
 
                     </div>
 
+
+
                     <div className="mt-8 flex items-center gap-5 text-sm">
+
 
                       <div className="flex items-center gap-2">
 
@@ -218,21 +251,26 @@ export default function DealersList() {
 
                       </div>
 
+
                       <span className="text-slate-500">
                         {dealer.reviews_count ?? 0} Reviews
                       </span>
+
 
                       <span className="text-slate-500">
                         {dealer.years_in_business ?? 0} Years
                       </span>
 
+
                     </div>
+
+
 
                     <div className="mt-8 flex flex-wrap gap-2">
 
                       {(dealer.materials_offered || [])
-                        .slice(0, 5)
-                        .map((item) => (
+                        .slice(0,5)
+                        .map(item=>(
 
                           <span
                             key={item}
@@ -243,55 +281,60 @@ export default function DealersList() {
 
                         ))}
 
-                      {(dealer.materials_offered || []).length > 5 && (
-
-                        <span className="rounded-full bg-slate-100 px-3 py-2 text-xs text-slate-500">
-                          +{dealer.materials_offered.length - 5}
-                        </span>
-
-                      )}
-
                     </div>
 
-                    <div className="mt-8 flex items-center justify-between gap-4">
 
-                      <div className="flex flex-wrap gap-3">
+
+                    <div className="mt-8 flex items-center justify-between">
+
+                      <div className="flex gap-3">
 
                         {dealer.verified && (
-                          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-700">
-                            <ShieldCheck size={15} />
+                          <span className="rounded-full bg-emerald-50 px-3 py-2 text-xs text-emerald-700">
+                            <ShieldCheck size={15} className="inline mr-1"/>
                             Verified
                           </span>
                         )}
 
+
                         {dealer.delivery && (
-                          <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-2 text-xs font-semibold text-blue-700">
-                            <Truck size={15} />
-                            Home Delivery
+                          <span className="rounded-full bg-blue-50 px-3 py-2 text-xs text-blue-700">
+                            <Truck size={15} className="inline mr-1"/>
+                            Delivery
                           </span>
                         )}
 
                       </div>
 
-                      <div className="flex shrink-0 items-center gap-2 font-semibold text-[#FF6B00]">
-                        View Profile
-                        <ArrowRight size={18} />
-                      </div>
+
+
+                      <span className="font-semibold text-[#FF6B00]">
+                        View Profile →
+                      </span>
+
 
                     </div>
 
+
                   </div>
+
 
                 </Link>
 
               ))}
 
+
             </div>
+
 
           )}
 
+
         </div>
+
       </section>
+
+
     </>
   );
 }
