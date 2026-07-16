@@ -116,21 +116,7 @@ export default function DealersList() {
                 className="h-14 w-full rounded-xl border border-slate-200 pl-14 pr-5 outline-none transition focus:border-[#FF6B00]"
               />
             </div>
-
-            <button
-  type="button"
-  onClick={() => setVerifiedOnly((value) => !value)}
-  className={
-    verifiedOnly
-      ? "h-14 rounded-xl border px-6 transition border-[#0A192F] bg-[#0A192F] text-white"
-      : "h-14 rounded-xl border px-6 transition border-slate-200 text-slate-700 hover:border-slate-400"
-  }
->
-              <ShieldCheck size={18} className="mr-2 inline" />
-              Verified
-            </button>
-
-            <button
+        <button
   type="button"
   onClick={() => setDeliveryOnly((value) => !value)}
   className={
@@ -142,10 +128,6 @@ export default function DealersList() {
   <Truck size={18} className="mr-2 inline" />
   Delivery
 </button>
-            >
-              <Truck size={18} className="mr-2 inline" />
-              Delivery
-            </button>
           </div>
         </div>
       </section>
