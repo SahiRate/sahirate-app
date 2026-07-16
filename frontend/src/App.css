@@ -1,5 +1,163 @@
-/* SahiRate — minimal app-level styles (most styling via tailwind + design tokens) */
-.App {
-  min-height: 100vh;
-  background: #FFFFFF;
+/* ---------- App ---------- */
+
+.App{
+  min-height:100vh;
+  background:#F8FAFC;
+}
+
+/* ---------- Main ---------- */
+
+main{
+  min-height:calc(100vh - 160px);
+}
+
+/* ---------- Glass ---------- */
+
+.glass{
+
+  background:rgba(255,255,255,.75);
+
+  backdrop-filter:blur(20px);
+
+  -webkit-backdrop-filter:blur(20px);
+
+  border:1px solid rgba(255,255,255,.35);
+
+}
+
+/* ---------- Gradient ---------- */
+
+.primary-gradient{
+
+  background:linear-gradient(
+      135deg,
+      #0A192F 0%,
+      #12335E 55%,
+      #FF6B00 100%
+  );
+
+}
+
+/* ---------- Hero ---------- */
+
+.hero-title{
+
+  font-family:"Plus Jakarta Sans",sans-serif;
+
+  font-size:clamp(2.5rem,5vw,4.5rem);
+
+  line-height:1.1;
+
+  font-weight:800;
+
+  color:#0A192F;
+
+}
+
+.hero-subtitle{
+
+  font-size:1.15rem;
+
+  line-height:1.9;
+
+  color:#64748B;
+
+  max-width:720px;
+
+}
+
+/* ---------- Section ---------- */
+
+.section-title{
+
+  font-family:"Plus Jakarta Sans",sans-serif;
+
+  font-size:clamp(2rem,4vw,3rem);
+
+  color:#0A192F;
+
+  font-weight:800;
+
+}
+
+.section-subtitle{
+
+  margin-top:18px;
+
+  color:#64748B;
+
+  line-height:1.8;
+
+  max-width:760px;
+
+}
+
+/* ---------- Cards ---------- */
+
+.hover-card{
+
+  transition:.3s ease;
+
+}
+
+.hover-card:hover{
+
+  transform:translateY(-8px);
+
+  box-shadow:0 22px 55px rgba(15,23,42,.10);
+
+}
+
+/* ---------- Images ---------- */
+
+img{
+
+  user-select:none;
+
+}
+
+/* ---------- Animation ---------- */
+
+.fade-up{
+
+  animation:fadeUp .6s ease both;
+
+}
+
+@keyframes fadeUp{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:768px){
+
+.hero-title{
+
+font-size:2.5rem;
+
+}
+
+.hero-subtitle{
+
+font-size:1rem;
+
+}
+
 }

@@ -39,7 +39,9 @@ export default function AISearchDialog({ open, onOpenChange }) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl p-0 overflow-hidden border-slate-200" data-testid="ai-search-dialog">
+      <DialogContent
+  className="max-w-3xl p-0 overflow-hidden border-slate-200 rounded-2xl"
+  data-testid="ai-search-dialog">
         <div className="border-b border-slate-200 p-4 flex items-center gap-3">
           <Sparkles className="w-5 h-5 text-[#FF5722]" />
           <input
@@ -49,7 +51,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && submit()}
             placeholder="Ask anything about materials, prices or dealers in Deoghar..."
-            className="flex-1 outline-none text-base placeholder:text-slate-400"
+            className="flex-1 bg-transparent outline-none text-base placeholder:text-slate-400"
           />
           <button
             data-testid="ai-search-submit"
@@ -87,7 +89,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
           {loading && (
             <div className="flex flex-col items-center py-12 gap-3 text-slate-500">
               <Loader2 className="w-6 h-6 animate-spin text-[#FF5722]" />
-              <div className="text-sm">Analysing prices across Deoghar dealers...</div>
+              <div className="text-sm">Searching live prices and verified dealers...</div>
             </div>
           )}
 
@@ -101,7 +103,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
             <div className="space-y-6 fade-in-up" data-testid="ai-search-result">
               <div>
                 <div className="text-xs uppercase font-mono tracking-widest text-[#FF5722] mb-2">
-                  SahiRate AI · GPT-5.2
+                  SahiRate AI Assistant
                 </div>
                 <p className="text-[15px] leading-relaxed text-slate-800 whitespace-pre-wrap">
                   {result.answer}

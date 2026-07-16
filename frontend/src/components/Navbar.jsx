@@ -1,7 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
-import { Sparkles } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
+import { Menu, Sparkles, X } from "lucide-react";
+import { useState } from "react";
 
-const NAV = [
+const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/materials", label: "Materials" },
   { to: "/dealers", label: "Dealers" },
@@ -9,53 +10,120 @@ const NAV = [
 ];
 
 export default function Navbar({ onOpenSearch }) {
-  const loc = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-40 glass-header">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group" data-testid="nav-logo">
-          <div className="w-9 h-9 rounded-lg bg-[#0A192F] flex items-center justify-center">
-            <span className="text-white font-black text-lg" style={{ fontFamily: "Outfit" }}>S</span>
-          </div>
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-slate-200">
+      <div className="max-w-7xl mx-auto h-20 px-6 lg:px-10 flex items-center justify-between">
+
+        {/* Logo */}
+
+        <Link
+          to="/"
+          className="flex items-center gap-3"
+        >
+          <img
+            src="/logo.png"
+            alt="SahiRate"
+            className="h-12 w-auto"
+          />
+
           <div className="leading-none">
-            <div className="font-bold text-lg tracking-tight text-[#0A192F]" style={{ fontFamily: "Outfit" }}>
+
+            <div
+              className="text-2xl font-extrabold text-[#0A192F]"
+              style={{ fontFamily: "Plus Jakarta Sans" }}
+            >
               SahiRate
             </div>
-            <div className="text-[10px] uppercase tracking-widest text-slate-500 font-mono">
-              Deoghar · Jharkhand
+
+            <div
+              className="text-xs tracking-[0.25em] uppercase text-slate-500 mt-1"
+            >
+              India's Building Material Intelligence Platform
             </div>
+
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
-          {NAV.map(n => {
-            const active = loc.pathname === n.to || (n.to !== "/" && loc.pathname.startsWith(n.to));
-            return (
-              <Link
-                key={n.to}
-                to={n.to}
-                data-testid={`nav-${n.label.toLowerCase().replace(" ", "-")}`}
-                className={`px-4 py-2 text-sm rounded-md transition-colors ${
-                  active
-                    ? "text-[#FF5722] font-semibold"
-                    : "text-slate-700 hover:text-[#0A192F]"
-                }`}
-              >
-                {n.label}
-              </Link>
-            );
-          })}
+        {/* Desktop */}
+
+        <nav className="hidden lg:flex items-center gap-10">
+
+          {NAV_ITEMS.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                isActive
+                  ? "font-semibold text-[#FF6B00]"
+                  : "font-medium text-slate-700 hover:text-[#FF6B00] transition"
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+
         </nav>
 
-        <button
-          onClick={onOpenSearch}
-          data-testid="nav-ai-search-btn"
-          className="inline-flex items-center gap-2 bg-[#FF5722] text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-[#e64a1c] transition-colors shadow-sm"
-        >
-          <Sparkles className="w-4 h-4" />
-          Ask AI
-        </button>
+        {/* Right */}
+
+        <div className="flex items-center gap-3">
+
+          <button
+            onClick={onOpenSearch}
+            className="hidden md:flex items-center gap-2 bg-[#FF6B00] hover:bg-[#eb5d00] transition text-white px-5 py-3 rounded-xl font-semibold shadow-lg"
+          >
+            <Sparkles size={18} />
+
+            Ask AI
+          </button>
+
+          <button
+            className="lg:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X /> : <Menu />}
+          </button>
+
+        </div>
       </div>
+
+      {/* Mobile */}
+
+      {mobileOpen && (
+
+        <div className="lg:hidden border-t border-slate-200 bg-white">
+
+          <div className="px-6 py-5 flex flex-col gap-5">
+
+            {NAV_ITEMS.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                onClick={() => setMobileOpen(false)}
+                className="text-slate-700 font-medium"
+              >
+                {item.label}
+              </NavLink>
+            ))}
+
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                onOpenSearch();
+              }}
+              className="bg-[#FF6B00] text-white rounded-xl py-3 font-semibold"
+            >
+              Ask AI
+            </button>
+
+          </div>
+
+        </div>
+
+      )}
+
     </header>
   );
 }
