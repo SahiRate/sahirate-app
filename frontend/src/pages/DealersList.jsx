@@ -142,7 +142,8 @@ export default function DealersList() {
 
           </div>
         </div>
-      </section>      <section className="bg-[#F8FAFC] py-20">
+      </section>
+      <section className="bg-[#F8FAFC] py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
 
           {loading ? (
@@ -290,6 +291,7 @@ export default function DealersList() {
           )}
 
         </div>
-      </section>    </>
+      </section>
+    </>
   );
 }
