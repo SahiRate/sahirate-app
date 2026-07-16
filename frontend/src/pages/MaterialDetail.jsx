@@ -16,7 +16,7 @@ import {
   Building2
 } from "lucide-react";
 
-import SEO from "@/seo/SEO";
+ import SEO from "../components/SEO";
 import { fetchMaterial } from "@/lib/api";
 
 function TrendPill({ trend, previous, current }) {

@@ -10,7 +10,7 @@ import {
   Building2,
 } from "lucide-react";
 
-import SEO from "@/seo/SEO";
+import SEO from "../components/SEO";
 import { fetchDealers } from "@/lib/api";
 
 export default function DealersList() {
@@ -55,10 +55,10 @@ export default function DealersList() {
   return (
     <>
       <SEO
-        title="Verified Building Material Dealers | SahiRate"
-        description="Find trusted building material dealers in Deoghar."
-        path="/dealers"
-      />
+ title="Building Material Dealers Near You | SahiRate"
+ description="Find verified building material dealers and suppliers near your location."
+ url="https://www.sahirate.in/dealers"
+/>
 
       <section className="relative overflow-hidden bg-[#0A192F]">
         <div className="absolute right-[-180px] top-[-180px] h-[520px] w-[520px] rounded-full bg-[#FF6B00]/20 blur-[120px]" />

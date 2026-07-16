@@ -10,8 +10,7 @@ import {
   Sparkles,
   TrendingUp
 } from "lucide-react";
-
-import SEO from "@/seo/SEO";
+import SEO from "../components/SEO";
 import { fetchMaterials } from "@/lib/api";
 
 export default function MaterialsList() {
@@ -91,10 +90,10 @@ export default function MaterialsList() {
     <>
 
       <SEO
-        title="Building Materials Price List | SahiRate"
-        description="Compare cement, TMT bars, sand, bricks and all building material prices from verified dealers in Deoghar."
-        path="/materials"
-      />
+ title="Building Materials Price List | SahiRate"
+ description="Check latest cement, steel, sand and construction material prices from trusted sources."
+ url="https://www.sahirate.in/materials"
+/>
 
       {/* ================================================= */}
       {/* HERO */}
