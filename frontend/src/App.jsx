@@ -9,7 +9,7 @@ import Home from "@/pages/Home";
 import MaterialsList from "@/pages/MaterialsList";
 import MaterialDetail from "@/pages/MaterialDetail";
 import SEO from "@/seo/SEO";
-import DealersList from "@/pages/DealersList";
+//import DealersList from "@/pages/DealersList";
 import DealerDetail from "@/pages/DealerDetail";
 import LivePrices from "@/pages/LivePrices";
 import { Toaster } from "@/components/ui/sonner";
@@ -28,7 +28,7 @@ function App() {
   <Route path="/" element={<Home onOpenSearch={openSearch} />} />
   <Route path="/materials" element={<MaterialsList />} />
   <Route path="/materials/:slug" element={<MaterialDetail />} />
-  <Route path="/dealers" element={<DealersList />} />
+  {/* <Route path="/dealers" element={<DealersList />} /> */}
   <Route path="/dealers/:id" element={<DealerDetail />} />
   <Route
     path="/prices"
