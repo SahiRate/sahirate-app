@@ -9,6 +9,12 @@ import {
   MapPin,
   ChevronRight
 } from "lucide-react";
+import SEO from "../components/SEO";
+<SEO
+ title="SahiRate - Building Material Prices in Jharkhand"
+ description="Check latest cement, steel, sand and construction material prices near you."
+ url="https://www.sahirate.in/"
+/>
 
 import { fetchDailyPrices, fetchMaterials } from "@/lib/api";
 
