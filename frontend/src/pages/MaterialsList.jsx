@@ -24,20 +24,25 @@ export default function MaterialsList() {
   useEffect(() => {
 
     fetchMaterials()
+  .then((data) => {
 
-      .then((data) => {
+    console.log("Materials API:", data);
 
-        setMaterials(data);
+    setMaterials(Array.isArray(data) ? data.filter(Boolean) : []);
 
-        setLoading(false);
+    setLoading(false);
 
-      })
+  })
 
-      .catch(() => {
+  .catch((err) => {
 
-        setLoading(false);
+    console.error(err);
 
-      });
+    setMaterials([]);
+
+    setLoading(false);
+
+  });
 
   }, []);
 
@@ -48,7 +53,9 @@ export default function MaterialsList() {
     if (search.trim()) {
 
       data = data.filter((m) =>
-        m.name.toLowerCase().includes(search.toLowerCase())
+        (m?.name || "")
+  .toLowerCase()
+  .includes(search.toLowerCase())
       );
 
     }
@@ -77,7 +84,9 @@ export default function MaterialsList() {
 
       default:
 
-        data.sort((a, b) => a.name.localeCompare(b.name));
+        data.sort((a, b) =>
+  (a?.name || "").localeCompare(b?.name || "")
+);
 
     }
 
