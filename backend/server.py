@@ -60,7 +60,18 @@ class MaterialUpdate(BaseModel):
     name: str
     unit: str
     category: str
-    description: str    
+    description: str 
+
+class DealerCreate(BaseModel):
+    id: str
+    name: str
+    area: str
+    phone: str
+    rating: float
+    verified: bool
+    delivery: bool
+    reviews_count: int
+    prices: list       
 
 async def get_current_admin(
     credentials: HTTPAuthorizationCredentials = Depends(security),
@@ -385,6 +396,77 @@ async def delete_material(
     return {
         "message": "Material deleted successfully"
     }    
+
+@api.post("/admin/dealers")
+async def create_dealer(
+    dealer: DealerCreate,
+    admin=Depends(get_current_admin),
+):
+    existing = await db.dealers.find_one({"id": dealer.id})
+
+    if existing:
+        raise HTTPException(
+            status_code=400,
+            detail="Dealer ID already exists",
+        )
+
+    await db.dealers.insert_one(dealer.model_dump())
+
+    return {
+        "message": "Dealer created successfully"
+    }
+
+class DealerUpdate(BaseModel):
+    name: str
+    area: str
+    phone: str
+    rating: float
+    verified: bool
+    delivery: bool
+    reviews_count: int
+    prices: list
+
+
+
+@api.put("/admin/dealers/{dealer_id}")
+async def update_dealer(
+    dealer_id: str,
+    dealer: DealerUpdate,
+    admin=Depends(get_current_admin),
+):
+    result = await db.dealers.update_one(
+        {"id": dealer_id},
+        {
+            "$set": dealer.model_dump()
+        },
+    )
+
+    if result.matched_count == 0:
+        raise HTTPException(
+            status_code=404,
+            detail="Dealer not found",
+        )
+
+    return {
+        "message": "Dealer updated successfully"
+    }
+
+@api.delete("/admin/dealers/{dealer_id}")
+async def delete_dealer(
+    dealer_id: str,
+    admin=Depends(get_current_admin),
+):
+    result = await db.dealers.delete_one({"id": dealer_id})
+
+    if result.deleted_count == 0:
+        raise HTTPException(
+            status_code=404,
+            detail="Dealer not found",
+        )
+
+    return {
+        "message": "Dealer deleted successfully"
+    }
 
 app.add_middleware(
     CORSMiddleware,
