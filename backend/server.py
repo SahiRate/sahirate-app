@@ -314,6 +314,7 @@ async def change_password(
         "message": "Password changed successfully"
     }
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=os.environ.get("CORS_ORIGINS", "*").split(","),
