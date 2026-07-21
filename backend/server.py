@@ -1,7 +1,10 @@
 """SahiRate — AI-powered Building Material Price Intelligence backend."""
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Depends, status
 from fastapi.responses import JSONResponse
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
+from jose import jwt, JWTError
+from passlib.context import CryptContext
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, Field
@@ -27,11 +30,63 @@ api = APIRouter(prefix="/api")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("sahirate")
+# ============ AUTH CONFIG ============
 
-# ============ MODELS ============
-class SearchQuery(BaseModel):
-    query: str = Field(..., min_length=1, max_length=500)
+SECRET_KEY = os.getenv("SECRET_KEY", "change-this-in-production")
+ALGORITHM = "HS256"
 
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+security = HTTPBearer(
+    scheme_name="BearerAuth",
+    description="Enter JWT token returned by /api/admin/login",
+)
+
+class AdminLogin(BaseModel):
+    email: str
+    password: str
+
+class ChangePasswordRequest(BaseModel):
+    current_password: str
+    new_password: str
+
+async def get_current_admin(
+    credentials: HTTPAuthorizationCredentials = Depends(security),
+):
+    token = credentials.credentials
+
+    try:
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM],
+        )
+
+        email = payload.get("email")
+
+        if not email:
+            raise HTTPException(
+                status_code=401,
+                detail="Invalid token",
+            )
+
+    except JWTError:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid token",
+        )
+
+    admin = await db.admins.find_one(
+    {"email": email},
+    {"_id": 0},
+)
+
+    if not admin:
+        raise HTTPException(
+            status_code=401,
+            detail="Admin not found",
+        )
+
+    return admin
 
 # ============ SEED ============
 async def seed_if_empty():
@@ -47,6 +102,16 @@ async def seed_if_empty():
         random.seed(42)
         dealers = build_dealers()
         await db.dealers.insert_many([{**d} for d in dealers])
+
+    admin_exists = await db.admins.find_one({"email": "admin@sahirate.in"})
+
+    if not admin_exists:
+        await db.admins.insert_one({
+            "email": "admin@sahirate.in",
+            "password": pwd_context.hash("admin123"),
+            "role": "admin",
+        })
+        logger.info("Default admin created.")
 
 
 @app.on_event("startup")
@@ -145,12 +210,21 @@ async def daily_prices():
     stats = compute_material_stats(dealers)
     material_map = {m["slug"]: m for m in MATERIALS}
     board = []
+
     for slug, s in stats.items():
         mat = material_map[slug]
-        # trend of the day (majority)
-        trends = [p["trend"] for d in dealers for p in d["prices"] if p["material_slug"] == slug]
-        up = trends.count("up"); down = trends.count("down")
+
+        trends = [
+            p["trend"]
+            for d in dealers
+            for p in d["prices"]
+            if p["material_slug"] == slug
+        ]
+
+        up = trends.count("up")
+        down = trends.count("down")
         overall = "up" if up > down else ("down" if down > up else "flat")
+
         board.append({
             "slug": slug,
             "name": mat["name"],
@@ -161,7 +235,9 @@ async def daily_prices():
             "trend": overall,
             "dealer_count": s["dealer_count"],
         })
+
     board.sort(key=lambda x: x["name"])
+
     return {
         "city": "Deoghar",
         "state": "Jharkhand",
@@ -170,131 +246,80 @@ async def daily_prices():
     }
 
 
-# ============ AI SEARCH ============
-@api.post("/search")
-async def ai_search(q: SearchQuery):
-    """Natural language search over materials & dealers using GPT-5.2."""
-    from emergentintegrations.llm.chat import LlmChat, UserMessage
 
-    materials = await db.materials.find({}, {"_id": 0}).to_list(100)
-    dealers = await db.dealers.find({}, {"_id": 0}).to_list(500)
-    stats = compute_material_stats(dealers)
+@api.post("/admin/login")
+async def admin_login(data: AdminLogin):
+    admin = await db.admins.find_one({"email": data.email})
 
-    # Compact context for the LLM (cheap + fast)
-    ctx_materials = [
+    if not admin:
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+
+    if not pwd_context.verify(data.password, admin["password"]):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+
+    token = jwt.encode(
         {
-            "slug": m["slug"],
-            "name": m["name"],
-            "unit": m["unit"],
-            "stats": stats.get(m["slug"], {}),
-            "brands": m.get("brands", []),
-        }
-        for m in materials
-    ]
-    ctx_dealers = [
-        {
-            "id": d["id"],
-            "name": d["name"],
-            "area": d["area"],
-            "rating": d["rating"],
-            "verified": d["verified"],
-            "delivery": d["delivery"],
-            "materials": [p["material_slug"] for p in d["prices"]],
-            "cheapest_prices": {p["material_slug"]: p["price"] for p in d["prices"]},
-        }
-        for d in dealers
-    ]
-
-    system = (
-        "You are SahiRate's AI concierge for building material prices in Deoghar, Jharkhand. "
-        "Answer the user's construction/material question concisely using ONLY the provided data. "
-        "When quoting a price, always include the unit and mention the cheapest dealer (name + area). "
-        "If the user asks a general construction question that our data cannot answer directly, "
-        "provide a short helpful reply and suggest which SahiRate section to explore. "
-        "Keep answers under 120 words, use plain text, no markdown headers."
+            "email": data.email,
+            "role": "admin"
+        },
+        SECRET_KEY,
+        algorithm=ALGORITHM,
     )
-    context = (
-        f"CITY: Deoghar, Jharkhand\n"
-        f"MATERIALS_STATS: {ctx_materials}\n\n"
-        f"DEALERS: {ctx_dealers}\n"
-    )
-    prompt = f"{context}\n\nUser question: {q.query}"
-
-    api_key = os.environ.get("EMERGENT_LLM_KEY")
-    if not api_key:
-        raise HTTPException(status_code=500, detail="LLM key not configured")
-
-    ai_used = True
-    try:
-        chat = LlmChat(
-            api_key=api_key,
-            session_id=f"search-{datetime.now(timezone.utc).timestamp()}",
-            system_message=system,
-        ).with_model("openai", "gpt-5.2")
-        reply = await chat.send_message(UserMessage(text=prompt))
-    except Exception as e:
-        logger.warning(f"LLM search fallback (using rule-based): {e}")
-        ai_used = False
-        # Rule-based fallback so UX still works when LLM key has no budget
-        ql = q.query.lower()
-        matched_slug = None
-        for m in materials:
-            if m["slug"] in ql or m["name"].lower() in ql:
-                matched_slug = m["slug"]; break
-        if matched_slug:
-            mat = next(m for m in materials if m["slug"] == matched_slug)
-            s = stats.get(matched_slug, {})
-            cheapest = None
-            for d in dealers:
-                for p in d["prices"]:
-                    if p["material_slug"] == matched_slug:
-                        if cheapest is None or p["price"] < cheapest[1]:
-                            cheapest = (d, p["price"])
-            if cheapest:
-                d, price = cheapest
-                reply = (
-                    f"For {mat['name']} in Deoghar, current prices range from ₹{s.get('min')} to "
-                    f"₹{s.get('max')} {mat['unit']} across {s.get('dealer_count')} dealers. "
-                    f"The cheapest today is {d['name']} in {d['area']} at ₹{price}. "
-                    f"Average price is ₹{s.get('avg')}."
-                )
-            else:
-                reply = f"No dealer data found for {mat['name']}."
-        else:
-            reply = (
-                "I can help you compare cement, TMT steel, bricks, sand, stone chips and aggregate prices "
-                "across 15+ verified dealers in Deoghar. Try asking about a specific material — e.g. "
-                "'cheapest TMT steel' or 'brick prices near Baidyanath Chowk'."
-            )
-
-    # Also compute simple keyword matches to return as structured hits
-    ql = q.query.lower()
-    material_hits = [m for m in materials if ql in m["name"].lower() or ql in m["slug"]]
-    dealer_hits = [d for d in dealers if ql in d["name"].lower() or ql in d["area"].lower()][:6]
-
-    # strip heavy fields from dealer_hits
-    dealer_hits_lite = [
-        {"id": d["id"], "name": d["name"], "area": d["area"], "rating": d["rating"], "verified": d["verified"]}
-        for d in dealer_hits
-    ]
-    material_hits_lite = [
-        {"slug": m["slug"], "name": m["name"], "unit": m["unit"]} for m in material_hits
-    ]
 
     return {
-        "query": q.query,
-        "answer": reply,
-        "ai_powered": ai_used,
-        "materials": material_hits_lite,
-        "dealers": dealer_hits_lite,
+    "token": token,
+    "admin": {
+        "email": data.email,
+        "role": "admin"
+    }
+}
+
+@api.get("/admin/me")
+async def admin_me(
+    admin=Depends(get_current_admin),
+):
+    admin_data = admin.copy()
+    admin_data.pop("password", None)
+
+    return {
+        "admin": admin_data
     }
 
+@api.post("/admin/change-password")
+async def change_password(
+    data: ChangePasswordRequest,
+    admin=Depends(get_current_admin),
+):
+    if not pwd_context.verify(
+        data.current_password,
+        admin["password"],
+    ):
+        raise HTTPException(
+            status_code=400,
+            detail="Current password is incorrect",
+        )
 
-app.include_router(api)
+    new_hash = pwd_context.hash(data.new_password)
+
+    await db.admins.update_one(
+        {"email": admin["email"]},
+        {
+            "$set": {
+                "password": new_hash,
+            }
+        },
+    )
+
+    return {
+        "message": "Password changed successfully"
+    }
+
 app.add_middleware(
     CORSMiddleware,
-    allow_credentials=True,
     allow_origins=os.environ.get("CORS_ORIGINS", "*").split(","),
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(api)

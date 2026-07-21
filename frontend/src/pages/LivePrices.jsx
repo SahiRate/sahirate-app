@@ -82,7 +82,7 @@ export default function LivePrices({ onOpenSearch }) {
             data-testid="live-board"
           >
 
-            {data.board.map((b) => (
+            {(data?.board ?? []).map((b) => (
 
               <Link
                 key={b.slug}
