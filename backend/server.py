@@ -47,7 +47,20 @@ class AdminLogin(BaseModel):
 
 class ChangePasswordRequest(BaseModel):
     current_password: str
-    new_password: str
+    new_password: str    
+
+class MaterialCreate(BaseModel):
+    slug: str
+    name: str
+    unit: str
+    category: str
+    description: str
+
+class MaterialUpdate(BaseModel):
+    name: str
+    unit: str
+    category: str
+    description: str    
 
 async def get_current_admin(
     credentials: HTTPAuthorizationCredentials = Depends(security),
@@ -314,6 +327,64 @@ async def change_password(
         "message": "Password changed successfully"
     }
 
+@api.post("/admin/materials")
+async def create_material(
+    material: MaterialCreate,
+    admin=Depends(get_current_admin),
+):
+    existing = await db.materials.find_one({"slug": material.slug})
+
+    if existing:
+        raise HTTPException(
+            status_code=400,
+            detail="Material slug already exists",
+        )
+
+    await db.materials.insert_one(material.model_dump())
+
+    return {
+        "message": "Material created successfully"
+    }
+
+@api.put("/admin/materials/{slug}")
+async def update_material(
+    slug: str,
+    material: MaterialUpdate,
+    admin=Depends(get_current_admin),
+):
+    result = await db.materials.update_one(
+        {"slug": slug},
+        {
+            "$set": material.model_dump()
+        },
+    )
+
+    if result.matched_count == 0:
+        raise HTTPException(
+            status_code=404,
+            detail="Material not found",
+        )
+
+    return {
+        "message": "Material updated successfully"
+    }
+
+@api.delete("/admin/materials/{slug}")
+async def delete_material(
+    slug: str,
+    admin=Depends(get_current_admin),
+):
+    result = await db.materials.delete_one({"slug": slug})
+
+    if result.deleted_count == 0:
+        raise HTTPException(
+            status_code=404,
+            detail="Material not found",
+        )
+
+    return {
+        "message": "Material deleted successfully"
+    }    
 
 app.add_middleware(
     CORSMiddleware,
