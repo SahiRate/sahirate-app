@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "";
+const BACKEND_URL =
+  import.meta.env.VITE_BACKEND_URL || "http://127.0.0.1:8000";
 
 export const API = `${BACKEND_URL}/api`;
 
@@ -10,6 +11,12 @@ export const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+});
+
+
+api.interceptors.request.use((config) => {
+  console.log("API Request:", config.baseURL + config.url);
+  return config;
 });
 
 api.interceptors.response.use(
@@ -35,5 +42,8 @@ export const fetchDealer = (id) =>
 export const fetchDailyPrices = () =>
   api.get("/prices/daily").then((r) => r.data);
 
-export const aiSearch = (query) =>
-  api.post("/search", { query }).then((r) => r.data);
+export const aiSearch = async () => {
+  return {
+    answer: "AI Search is not available yet.",
+  };
+};

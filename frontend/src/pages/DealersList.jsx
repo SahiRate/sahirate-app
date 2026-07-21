@@ -23,10 +23,15 @@ export default function DealersList() {
   useEffect(() => {
     fetchDealers()
       .then((data) => {
-        setDealers(Array.isArray(data) ? data : []);
-      })
-      .catch(() => setDealers([]))
-      .finally(() => setLoading(false));
+  console.log("Dealers Count:", data.length);
+  console.log("Dealers Data:", data);
+  setDealers(Array.isArray(data) ? data : []);
+})
+.catch((err) => {
+  console.error("Dealers API Error:", err);
+  setDealers([]);
+})
+.finally(() => setLoading(false));
   }, []);
 
   const filtered = useMemo(() => {
@@ -200,39 +205,33 @@ export default function DealersList() {
             <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
 
-              {filtered.map((dealer)=>(
+          {filtered.map((dealer) => (
 
-                <Link
-                  key={dealer.id}
-                  to={`/dealers/${dealer.id}`}
-                  className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                >
+  <Link
+    key={dealer.id}
+    to={`/dealers/${dealer.id}`}
+    className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+  >
 
+    <div className="p-8">
 
-                  <div className="p-8">
+      <div className="flex items-start justify-between">
 
+        <div>
 
-                    <div className="flex items-start justify-between">
+          <h3 className="text-2xl font-bold text-[#0A192F]">
+            {dealer.name}
+          </h3>
 
+          <div className="mt-2 text-slate-500">
+            {dealer.area || "Deoghar"}, Deoghar
+          </div>
 
-                      <div>
+        </div>
 
-                        <h3 className="text-2xl font-bold text-[#0A192F]">
-                          {dealer.name}
-                        </h3>
+        <ArrowRight className="text-[#FF6B00]" />
 
-                        <div className="mt-2 text-slate-500">
-                          {dealer.area || "Deoghar"}, Deoghar
-                        </div>
-
-                      </div>
-
-
-                      <ArrowRight className="text-[#FF6B00]" />
-
-
-                    </div>
-
+      </div>
 
 
                     <div className="mt-8 flex items-center gap-5 text-sm">
