@@ -15,8 +15,8 @@
   },
 
   "engines": {
-  "node": "20.x"
-  },
+  "node": "24.x"
+},
 
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
