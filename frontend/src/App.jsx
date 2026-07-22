@@ -23,9 +23,7 @@ function App() {
     <SEO />
     <ScrollToTop />
 
-<h1 style={{ color: "red", fontSize: "40px" }}>
-  TEST APP
-</h1>
+
 
     <WelcomeOverlay />
 

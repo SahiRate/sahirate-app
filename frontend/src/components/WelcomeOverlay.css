@@ -5,34 +5,46 @@
   width: 100%;
   max-width: 1000px;
   max-height: 92vh;
-.welcome-card {
-  position: relative;
+
+  overflow: hidden;
+  border-radius: 28px;
+  background: #fff;
+
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.28);
+
+  animation: popup 0.45s ease;
 }
 
 .welcome-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 36px;
-  height: 36px;
+  top: 16px;
+  right: 16px;
+
+  width: 38px;
+  height: 38px;
+
   border: none;
   border-radius: 50%;
+
   background: rgba(255, 255, 255, 0.95);
-  font-size: 22px;
+  color: #222;
+
+  font-size: 24px;
+  font-weight: bold;
+
   cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .welcome-close:hover {
-  transform: scale(1.05);
-}
-  overflow: hidden;
-
-  border-radius: 28px;
   background: #fff;
-
-  box-shadow: 0 25px 80px rgba(0,0,0,.28);
-
-  animation: popup .45s ease;
+  transform: scale(1.08);
 }
