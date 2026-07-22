@@ -1,5 +1,6 @@
 """SahiRate — AI-powered Building Material Price Intelligence backend."""
 from fastapi import FastAPI, APIRouter, HTTPException, Depends, status
+from routes.materials import router as materials_router
 from fastapi.responses import JSONResponse
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
@@ -154,15 +155,15 @@ async def root():
     return {"service": "SahiRate", "status": "ok", "city": "Deoghar, Jharkhand"}
 
 
-@api.get("/materials")
-async def list_materials():
-    """List all material categories with aggregated stats."""
-    materials = await db.materials.find({}, {"_id": 0}).to_list(100)
-    dealers = await db.dealers.find({}, {"_id": 0}).to_list(500)
-    stats = compute_material_stats(dealers)
-    for m in materials:
-        m["stats"] = stats.get(m["slug"], {"min": None, "max": None, "avg": None, "dealer_count": 0})
-    return materials
+# @api.get("/materials")
+# async def list_materials():
+#     """List all material categories with aggregated stats."""
+#     materials = await db.materials.find({}, {"_id": 0}).to_list(100)
+#     dealers = await db.dealers.find({}, {"_id": 0}).to_list(500)
+#     stats = compute_material_stats(dealers)
+#     for m in materials:
+#         m["stats"] = stats.get(m["slug"], {"min": None, "max": None, "avg": None, "dealer_count": 0})
+#     return materials
 
 
 @api.get("/materials/{slug}")
@@ -485,4 +486,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+api.include_router(materials_router)
 app.include_router(api)

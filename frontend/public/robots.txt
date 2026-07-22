@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: www.sahirate.in
 Sitemap: https://www.sahirate.in/sitemap.xml
