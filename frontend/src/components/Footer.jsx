@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import {
-  Facebook,
   Instagram,
-  Linkedin,
   Mail,
   MapPin,
   Phone,
   Twitter,
+  Youtube,
 } from "lucide-react";
 
 export default function Footer() {
@@ -80,13 +79,21 @@ export default function Footer() {
 
             <div className="space-y-4">
 
-              <Link to="/">About</Link>
+           <Link to="/about" className="block hover:text-[#FF6B00]">
+  About
+</Link>
 
-              <Link to="/">Contact</Link>
+<Link to="/contact" className="block hover:text-[#FF6B00]">
+  Contact
+</Link>
 
-              <Link to="/">Privacy Policy</Link>
+<Link to="/privacy-policy" className="block hover:text-[#FF6B00]">
+  Privacy Policy
+</Link>
 
-              <Link to="/">Terms & Conditions</Link>
+<Link to="/terms-and-conditions" className="block hover:text-[#FF6B00]">
+  Terms & Conditions
+</Link>   
 
             </div>
 
@@ -120,11 +127,12 @@ export default function Footer() {
 
                 <Mail size={18} />
 
-                <span>
-
-                  support@sahirate.in
-
-                </span>
+                <a
+                href="mailto:sahirateindia@gmail.com"
+                className="hover:text-[#FF6B00] transition"
+              >
+                sahirateindia@gmail.com
+              </a>
 
               </div>
 
@@ -144,15 +152,37 @@ export default function Footer() {
 
             <div className="flex gap-4 mt-8">
 
-              <Facebook size={20} />
+  <a
+    href="https://www.instagram.com/sahirateindia"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-[#FF6B00] transition"
+    aria-label="Instagram"
+  >
+    <Instagram size={20} />
+  </a>
 
-              <Instagram size={20} />
+  <a
+    href="https://x.com/sahirateindia"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-[#FF6B00] transition"
+    aria-label="X"
+  >
+    <Twitter size={20} />
+  </a>
 
-              <Twitter size={20} />
+  <a
+    href="https://www.youtube.com/@SahiRateIndia"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-[#FF6B00] transition"
+    aria-label="YouTube"
+  >
+    <Youtube size={20} />
+  </a>
 
-              <Linkedin size={20} />
-
-            </div>
+</div>
 
           </div>
 

@@ -19,6 +19,8 @@ export default function Home({ onOpenSearch }) {
   const [board, setBoard] = useState([]);
   const [materials, setMaterials] = useState([]);
 
+  const [showAiComingSoon, setShowAiComingSoon] = useState(false);
+
 
   useEffect(() => {
 
@@ -122,17 +124,13 @@ export default function Home({ onOpenSearch }) {
           <div className="mt-12 flex flex-wrap gap-4">
 
 
-            <button
-              onClick={onOpenSearch}
-              className="flex items-center gap-2 rounded-xl bg-[#FF6B00] px-7 py-4 text-white font-semibold shadow-xl hover:bg-[#eb5d00] transition"
-            >
-
-              <Sparkles size={20}/>
-
-              Ask AI
-
-            </button>
-
+                    <button
+            onClick={() => setShowAiComingSoon(true)}
+            className="flex items-center gap-2 rounded-xl bg-[#FF6B00] px-7 py-4 text-white font-semibold shadow-xl hover:bg-[#eb5d00] transition"
+          >
+            <Sparkles size={20}/>
+            Ask AI
+          </button>
 
 
             <Link
@@ -672,12 +670,12 @@ export default function Home({ onOpenSearch }) {
 
 
               <div
-                key={step.phase}
-                className="rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition"
-              >
+  key={step.phase}
+  className="rounded-3xl border border-white/15 bg-[#132640] p-8 shadow-lg hover:bg-[#18314f] transition duration-300"
+>
 
 
-                <div className="text-[#FF6B00] font-bold uppercase tracking-widest">
+                <div className="text-[#FF8A33] font-extrabold uppercase tracking-[0.18em] text-sm">
 
                   {step.phase}
 
@@ -685,7 +683,7 @@ export default function Home({ onOpenSearch }) {
 
 
 
-                <h3 className="mt-5 text-2xl font-bold">
+                <h3 className="mt-4 text-[30px] font-extrabold text-white leading-tight">
 
                   {step.city}
 
@@ -693,7 +691,7 @@ export default function Home({ onOpenSearch }) {
 
 
 
-                <p className="mt-5 text-slate-300 leading-8">
+                <p className="mt-4 text-[16px] leading-7 text-slate-200">
 
                   {step.desc}
 
@@ -887,22 +885,17 @@ export default function Home({ onOpenSearch }) {
 
 
 
-
-
-
               <div className="flex flex-wrap gap-4">
 
 
                 <button
-                  onClick={onOpenSearch}
+                  onClick={() => setShowAiComingSoon(true)}
                   className="px-8 py-4 rounded-xl bg-[#FF6B00] hover:bg-[#eb5d00] text-white font-semibold transition shadow-xl"
                 >
 
                   Ask AI
 
                 </button>
-
-
 
 
                 <Link
@@ -933,7 +926,51 @@ export default function Home({ onOpenSearch }) {
 
       </section>
 
+{showAiComingSoon && (
+  <div
+  className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm px-6"
+  onClick={() => setShowAiComingSoon(false)}
+>
+    <div
+  className="w-full max-w-lg rounded-3xl bg-white p-8 shadow-2xl"
+  onClick={(e) => e.stopPropagation()}
+>
 
+      <div className="flex items-center gap-4">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100">
+          <Sparkles className="h-7 w-7 text-[#FF6B00]" />
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-bold text-[#0A192F]">
+            AI Assistant
+          </h2>
+
+          <p className="text-[#FF6B00] font-semibold">
+            Coming Soon
+          </p>
+        </div>
+      </div>
+
+      <p className="mt-6 text-slate-600 leading-8">
+        We're currently testing our AI Assistant to ensure every response is
+        accurate, reliable, and genuinely useful.
+
+        <br /><br />
+
+        It will be available soon as part of the next SahiRate release.
+      </p>
+
+      <button
+        onClick={() => setShowAiComingSoon(false)}
+        className="mt-8 w-full rounded-xl bg-[#FF6B00] py-3 text-white font-semibold hover:bg-[#eb5d00] transition"
+      >
+        Got it
+      </button>
+
+    </div>
+  </div>
+)}
 
     </>
 

@@ -14,6 +14,9 @@ import DealerDetail from "@/pages/DealerDetail";
 import LivePrices from "@/pages/LivePrices";
 import { Toaster } from "@/components/ui/sonner";
 import WelcomeOverlay from "./components/WelcomeOverlay";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const openSearch = () => setSearchOpen(true);
@@ -29,42 +32,46 @@ function App() {
 
     <Navbar onOpenSearch={openSearch} />
 
-    <main className="min-h-screen" data-testid="app-main">
-      <Routes>
-        <Route path="/" element={<Home onOpenSearch={openSearch} />} />
-        <Route path="/materials" element={<MaterialsList />} />
-        <Route path="/materials/:slug" element={<MaterialDetail />} />
-        <Route path="/dealers" element={<DealersList />} />
-        <Route path="/dealers/:id" element={<DealerDetail />} />
-        <Route
-          path="/prices"
-          element={<LivePrices onOpenSearch={openSearch} />}
-        />
-
-        <Route
-          path="*"
-          element={
-            <div className="min-h-[60vh] flex flex-col items-center justify-center px-6">
-              <h1 className="text-5xl font-black text-[#0A192F]">
-                404
-              </h1>
-
-              <p className="mt-3 text-slate-600">
-                Page not found.
-              </p>
-            </div>
-          }
-        />
-      </Routes>
-    </main>
-
-    <Footer />
-
-        <AISearchDialog
-      open={searchOpen}
-      onOpenChange={setSearchOpen}
+<main className="min-h-screen" data-testid="app-main">
+  <Routes>
+    <Route path="/" element={<Home onOpenSearch={openSearch} />} />
+    <Route path="/materials" element={<MaterialsList />} />
+    <Route path="/materials/:slug" element={<MaterialDetail />} />
+    <Route path="/dealers" element={<DealersList />} />
+    <Route path="/dealers/:id" element={<DealerDetail />} />
+    <Route
+      path="/prices"
+      element={<LivePrices onOpenSearch={openSearch} />}
     />
+    <Route path="/about" element={<About />} />
+    {/* 👇 Contact route */}
+    <Route path="/contact" element={<Contact />} />
+<Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
+    {/* 👇 404 route bhi Routes ke andar hi rahega */}
+    <Route
+      path="*"
+      element={
+        <div className="min-h-[60vh] flex flex-col items-center justify-center px-6">
+          <h1 className="text-5xl font-black text-[#0A192F]">
+            404
+          </h1>
+
+          <p className="mt-3 text-slate-600">
+            Page not found.
+          </p>
+        </div>
+      }
+    />
+  </Routes>
+</main>
+
+<Footer />
+
+<AISearchDialog
+  open={searchOpen}
+  onOpenChange={setSearchOpen}
+/>
     <Toaster />
   </div>
   );

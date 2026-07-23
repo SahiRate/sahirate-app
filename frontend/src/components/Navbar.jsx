@@ -1,5 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import { Menu, Sparkles, X } from "lucide-react";
+import {
+  Menu,
+  Sparkles,
+  X,
+  ChartNoAxesCombined,
+  ChevronRight,
+} from "lucide-react";
 import { useState } from "react";
 
 const NAV_ITEMS = [
@@ -7,29 +13,26 @@ const NAV_ITEMS = [
   { to: "/materials", label: "Materials" },
   { to: "/dealers", label: "Dealers" },
   { to: "/prices", label: "Live Prices" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export default function Navbar({ onOpenSearch }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto h-20 px-6 lg:px-10 flex items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-6 lg:px-10">
 
         {/* Logo */}
-
-        <Link
-          to="/"
-          className="flex items-center gap-3"
-        >
+        <Link to="/" className="flex items-center gap-4">
           <img
             src="/logo.png"
             alt="SahiRate"
-            className="h-12 w-auto"
+            className="h-14 w-auto"
           />
 
-          <div className="leading-none">
-
+          <div className="leading-tight">
             <div
               className="text-2xl font-extrabold text-[#0A192F]"
               style={{ fontFamily: "Plus Jakarta Sans" }}
@@ -37,72 +40,91 @@ export default function Navbar({ onOpenSearch }) {
               SahiRate
             </div>
 
-            <div
-              className="text-xs tracking-[0.25em] uppercase text-slate-500 mt-1"
-            >
+            <div className="mt-1 max-w-[250px] text-[11px] leading-[1.25] uppercase tracking-[0.16em] text-slate-500">
               India's Building Material Intelligence Platform
             </div>
-
           </div>
         </Link>
 
-        {/* Desktop */}
-
-        <nav className="hidden lg:flex items-center gap-10">
-
+        {/* Desktop Navigation */}
+        <nav className="hidden flex-1 items-center justify-center gap-10 lg:flex">
           {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                isActive
+                item.label === "Live Prices"
+                  ? `flex items-center gap-3 whitespace-nowrap rounded-xl px-4 py-2 font-semibold transition ${
+                      isActive
+                        ? "border border-orange-200 bg-orange-100 text-[#FF6B00]"
+                        : "border border-transparent text-[#FF6B00] hover:border-orange-200 hover:bg-orange-50"
+                    }`
+                  : isActive
                   ? "font-semibold text-[#FF6B00]"
-                  : "font-medium text-slate-700 hover:text-[#FF6B00] transition"
+                  : "font-medium text-slate-700 transition hover:text-[#FF6B00]"
               }
             >
+              {item.label === "Live Prices" && (
+                <ChartNoAxesCombined className="h-5 w-5" />
+              )}
+
               {item.label}
             </NavLink>
           ))}
-
         </nav>
-
-        {/* Right */}
-
-        <div className="flex items-center gap-3">
+                {/* Right */}
+        <div className="flex items-center gap-5">
+          <div className="hidden h-10 w-px bg-slate-200 lg:block" />
 
           <button
             onClick={onOpenSearch}
-            className="hidden md:flex items-center gap-2 bg-[#FF6B00] hover:bg-[#eb5d00] transition text-white px-5 py-3 rounded-xl font-semibold shadow-lg"
+            className="hidden items-center gap-3 rounded-2xl border border-orange-200 bg-white px-6 py-2.5 shadow-sm transition-all duration-200 hover:bg-orange-50 hover:shadow-md lg:flex"
           >
-            <Sparkles size={18} />
+            <Sparkles
+              size={22}
+              className="text-[#FF6B00]"
+            />
 
-            Ask AI
+            <div className="text-left leading-tight">
+              <div className="font-bold text-[#FF6B00]">
+                Ask SahiAI
+              </div>
+
+              <div className="text-xs text-slate-500">
+                AI Assistant
+              </div>
+            </div>
+
+            <ChevronRight
+              size={18}
+              className="text-[#FF6B00]"
+            />
           </button>
 
+          {/* Mobile Menu Button */}
           <button
             className="lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X /> : <Menu />}
           </button>
-
         </div>
       </div>
 
-      {/* Mobile */}
-
+      {/* Mobile Menu */}
       {mobileOpen && (
-
-        <div className="lg:hidden border-t border-slate-200 bg-white">
-
-          <div className="px-6 py-5 flex flex-col gap-5">
-
+        <div className="border-t border-slate-200 bg-white lg:hidden">
+          <div className="flex flex-col gap-5 px-6 py-5">
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
-                className="text-slate-700 font-medium"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-semibold text-[#FF6B00]"
+                    : "font-medium text-slate-700"
+                }
               >
                 {item.label}
               </NavLink>
@@ -113,17 +135,14 @@ export default function Navbar({ onOpenSearch }) {
                 setMobileOpen(false);
                 onOpenSearch();
               }}
-              className="bg-[#FF6B00] text-white rounded-xl py-3 font-semibold"
+              className="flex items-center justify-center gap-2 rounded-xl border border-orange-200 bg-white py-3 font-semibold text-[#FF6B00] transition hover:bg-orange-50"
             >
-              Ask AI
+              <Sparkles size={18} />
+              Ask SahiAI
             </button>
-
           </div>
-
         </div>
-
       )}
-
     </header>
   );
 }
