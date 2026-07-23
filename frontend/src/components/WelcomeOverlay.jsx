@@ -8,7 +8,7 @@ export default function WelcomeOverlay() {
   const STORAGE_KEY = "sahirate-welcome-dismissed";
 
   useEffect(() => {
-    const dismissed = localStorage.getItem(STORAGE_KEY);
+    const dismissed = sessionStorage.getItem(STORAGE_KEY);
 
     if (!dismissed) {
       setIsOpen(true);
@@ -30,7 +30,7 @@ export default function WelcomeOverlay() {
   }, []);
 
   const handleClose = () => {
-    localStorage.setItem(STORAGE_KEY, "true");
+    sessionStorage.setItem(STORAGE_KEY, "true");
     document.body.style.overflow = "";
     setIsOpen(false);
   };
