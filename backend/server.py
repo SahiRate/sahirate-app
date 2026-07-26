@@ -6,6 +6,7 @@ import random
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
+from routes.admin import router as admin_router
 
 from dotenv import load_dotenv
 from fastapi import (
@@ -27,6 +28,7 @@ from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 
 from routes.materials import router as materials_router
+from routes.admin import router as admin_router
 from seed_data import (
     MATERIALS,
     build_dealers,
@@ -160,12 +162,14 @@ async def seed_if_empty():
 
 # ==========================================================
 
+# ==========================================================
 # APP EVENTS
 # ==========================================================
 
 @app.on_event("startup")
 async def on_startup():
     app.state.mongodb = db
+    app.state.secret_key = SECRET_KEY
 
     configure_auth(
         database=db,
@@ -339,52 +343,6 @@ async def daily_prices():
     # ==========================================================
 # ADMIN AUTH
 # ==========================================================
-@api.post("/admin/login")
-async def admin_login(data: AdminLogin):
-
-    admin = await db.admins.find_one(
-        {"email": data.email}
-    )
-
-    print("LOGIN EMAIL:", data.email)
-    print("ADMIN FOUND:", admin is not None)
-
-    if not admin:
-        raise HTTPException(
-            status_code=401,
-            detail="Invalid email or password",
-        )
-
-    is_valid = pwd_context.verify(
-        data.password,
-        admin["password"],
-    )
-
-    print("PASSWORD VALID:", is_valid)
-
-    if not is_valid:
-        raise HTTPException(
-            status_code=401,
-            detail="Invalid email or password",
-        )
-
-    token = jwt.encode(
-        {
-            "email": admin["email"],
-            "role": admin["role"],
-        },
-        SECRET_KEY,
-        algorithm=ALGORITHM,
-    )
-
-    return {
-        "token": token,
-        "admin": {
-            "email": admin["email"],
-            "role": admin["role"],
-        },
-    }
-
 
 # ==========================================================
 # ADMIN MATERIALS
@@ -554,6 +512,7 @@ app.add_middleware(
 # ==========================================================
 # ROUTERS
 # ==========================================================
+api.include_router(admin_router)
 
 api.include_router(materials_router)
 
