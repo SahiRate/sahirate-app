@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 from routes.admin import router as admin_router
+from routes.dealers import router as dealers_router
 
 from dotenv import load_dotenv
 from fastapi import (
@@ -194,86 +195,6 @@ async def root():
         "city": "Deoghar",
         "state": "Jharkhand",
     }
-
-
-@api.get("/dealers")
-async def list_dealers(
-    material: Optional[str] = None,
-    area: Optional[str] = None,
-):
-    query = {}
-
-    if material:
-        query["prices.material_slug"] = material
-
-    if area:
-        query["area"] = area
-
-    dealers = await db.dealers.find(
-        query,
-        {"_id": 0},
-    ).to_list(500)
-
-    material_map = {
-        m["slug"]: m["name"]
-        for m in MATERIALS
-    }
-
-    for dealer in dealers:
-        dealer["materials_offered"] = [
-            material_map.get(
-                price["material_slug"],
-                price["material_slug"],
-            )
-            for price in dealer["prices"]
-        ]
-
-    dealers.sort(
-        key=lambda x: (
-            -x["rating"],
-            -x["reviews_count"],
-        )
-    )
-
-    return dealers
-
-
-@api.get("/dealers/{dealer_id}")
-async def dealer_detail(dealer_id: str):
-
-    dealer = await db.dealers.find_one(
-        {"id": dealer_id},
-        {"_id": 0},
-    )
-
-    if not dealer:
-        raise HTTPException(
-            status_code=404,
-            detail="Dealer not found",
-        )
-
-    material_map = {
-        m["slug"]: m
-        for m in MATERIALS
-    }
-
-    for price in dealer["prices"]:
-        material = material_map.get(
-            price["material_slug"],
-            {},
-        )
-
-        price["material_name"] = material.get(
-            "name",
-            price["material_slug"],
-        )
-
-        price["unit"] = material.get(
-            "unit",
-            "",
-        )
-
-    return dealer
 
 
 @api.get("/prices/daily")
@@ -516,7 +437,10 @@ api.include_router(admin_router)
 
 api.include_router(materials_router)
 
+api.include_router(dealers_router)
+
 app.include_router(api)
+
 
 # ==========================================================
 # HEALTH CHECK
