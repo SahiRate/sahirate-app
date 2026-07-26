@@ -1,8 +1,15 @@
 from fastapi import APIRouter, HTTPException, Request, Depends
 from jose import jwt
 from passlib.context import CryptContext
-from pydantic import BaseModel
 from middleware.auth import get_current_admin
+
+from schemas import (
+    MaterialCreate,
+    MaterialUpdate,
+    DealerCreate,
+    DealerUpdate,
+)
+from schemas.admin import AdminLogin
 
 router = APIRouter(
     prefix="/admin",
@@ -14,10 +21,6 @@ pwd_context = CryptContext(
     deprecated="auto",
 )
 
-
-class AdminLogin(BaseModel):
-    email: str
-    password: str
 
 
 @router.post("/login")
@@ -71,20 +74,6 @@ async def admin_login(
 # ==========================================================
 # ADMIN MATERIALS
 # ==========================================================
-class MaterialCreate(BaseModel):
-    slug: str
-    name: str
-    unit: str
-    category: str
-    description: str
-
-
-class MaterialUpdate(BaseModel):
-    name: str
-    unit: str
-    category: str
-    description: str
-
 
 @router.post("/materials")
 async def create_material(
@@ -142,9 +131,7 @@ async def delete_material(
 ):
     db = request.app.state.mongodb
 
-    result = await db.materials.delete_one(
-        {"slug": slug}
-    )
+    result = await db.materials.delete_one({"slug": slug})
 
     if result.deleted_count == 0:
         raise HTTPException(
@@ -154,4 +141,75 @@ async def delete_material(
 
     return {
         "message": "Material deleted successfully"
+    }
+
+
+@router.post("/dealers")
+async def create_dealer(
+    dealer: DealerCreate,
+    request: Request,
+    admin=Depends(get_current_admin),
+):
+    db = request.app.state.mongodb
+
+    if await db.dealers.find_one({"id": dealer.id}):
+        raise HTTPException(
+            status_code=400,
+            detail="Dealer ID already exists",
+        )
+
+    await db.dealers.insert_one(dealer.model_dump())
+
+    return {
+        "message": "Dealer created successfully"
+    }
+
+
+@router.put("/dealers/{dealer_id}")
+async def update_dealer(
+    dealer_id: str,
+    dealer: DealerUpdate,
+    request: Request,
+    admin=Depends(get_current_admin),
+):
+    db = request.app.state.mongodb
+
+    result = await db.dealers.update_one(
+        {"id": dealer_id},
+        {
+            "$set": dealer.model_dump()
+        },
+    )
+
+    if result.matched_count == 0:
+        raise HTTPException(
+            status_code=404,
+            detail="Dealer not found",
+        )
+
+    return {
+        "message": "Dealer updated successfully"
+    }
+
+
+@router.delete("/dealers/{dealer_id}")
+async def delete_dealer(
+    dealer_id: str,
+    request: Request,
+    admin=Depends(get_current_admin),
+):
+    db = request.app.state.mongodb
+
+    result = await db.dealers.delete_one(
+        {"id": dealer_id}
+    )
+
+    if result.deleted_count == 0:
+        raise HTTPException(
+            status_code=404,
+            detail="Dealer not found",
+        )
+
+    return {
+        "message": "Dealer deleted successfully"
     }
