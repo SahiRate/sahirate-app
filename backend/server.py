@@ -14,11 +14,13 @@ from fastapi import (
     FastAPI,
     HTTPException,
 )
-from fastapi.security import (
-    HTTPAuthorizationCredentials,
-    HTTPBearer,
+from jose import jwt
+
+from middleware.auth import (
+    configure_auth,
+    get_current_admin,
 )
-from jose import JWTError, jwt
+
 from motor.motor_asyncio import AsyncIOMotorClient
 from passlib.context import CryptContext
 from pydantic import BaseModel
@@ -74,10 +76,7 @@ pwd_context = CryptContext(
     deprecated="auto",
 )
 
-security = HTTPBearer(
-    scheme_name="BearerAuth",
-    description="JWT Bearer Token",
-)
+
 
 # ==========================================================
 # SCHEMAS
@@ -132,48 +131,6 @@ class DealerUpdate(BaseModel):
 
 
 # ==========================================================
-# AUTH
-# ==========================================================
-
-async def get_current_admin(
-    credentials: HTTPAuthorizationCredentials = Depends(security),
-):
-    token = credentials.credentials
-
-    try:
-        payload = jwt.decode(
-            token,
-            SECRET_KEY,
-            algorithms=[ALGORITHM],
-        )
-
-        email = payload.get("email")
-
-        if not email:
-            raise HTTPException(
-                status_code=401,
-                detail="Invalid token",
-            )
-
-    except JWTError:
-        raise HTTPException(
-            status_code=401,
-            detail="Invalid token",
-        )
-
-    admin = await db.admins.find_one(
-        {"email": email},
-        {"_id": 0},
-    )
-
-    if not admin:
-        raise HTTPException(
-            status_code=401,
-            detail="Admin not found",
-        )
-
-    return admin
-
 
 # ==========================================================
 # DATABASE SEED
@@ -201,14 +158,20 @@ async def seed_if_empty():
         )
         logger.info("Default admin created.")
 
-
 # ==========================================================
+
 # APP EVENTS
 # ==========================================================
 
 @app.on_event("startup")
 async def on_startup():
     app.state.mongodb = db
+
+    configure_auth(
+        database=db,
+        secret_key=SECRET_KEY,
+    )
+
     await seed_if_empty()
 
 
@@ -376,7 +339,6 @@ async def daily_prices():
     # ==========================================================
 # ADMIN AUTH
 # ==========================================================
-
 @api.post("/admin/login")
 async def admin_login(data: AdminLogin):
 
@@ -384,16 +346,23 @@ async def admin_login(data: AdminLogin):
         {"email": data.email}
     )
 
+    print("LOGIN EMAIL:", data.email)
+    print("ADMIN FOUND:", admin is not None)
+
     if not admin:
         raise HTTPException(
             status_code=401,
             detail="Invalid email or password",
         )
 
-    if not pwd_context.verify(
+    is_valid = pwd_context.verify(
         data.password,
         admin["password"],
-    ):
+    )
+
+    print("PASSWORD VALID:", is_valid)
+
+    if not is_valid:
         raise HTTPException(
             status_code=401,
             detail="Invalid email or password",
@@ -414,50 +383,6 @@ async def admin_login(data: AdminLogin):
             "email": admin["email"],
             "role": admin["role"],
         },
-    }
-
-
-@api.get("/admin/me")
-async def admin_me(
-    admin=Depends(get_current_admin),
-):
-
-    data = admin.copy()
-    data.pop("password", None)
-
-    return {
-        "admin": data,
-    }
-
-
-@api.post("/admin/change-password")
-async def change_password(
-    data: ChangePasswordRequest,
-    admin=Depends(get_current_admin),
-):
-
-    if not pwd_context.verify(
-        data.current_password,
-        admin["password"],
-    ):
-        raise HTTPException(
-            status_code=400,
-            detail="Current password is incorrect",
-        )
-
-    await db.admins.update_one(
-        {"email": admin["email"]},
-        {
-            "$set": {
-                "password": pwd_context.hash(
-                    data.new_password
-                )
-            }
-        },
-    )
-
-    return {
-        "message": "Password changed successfully"
     }
 
 
