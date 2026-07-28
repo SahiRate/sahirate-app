@@ -12,6 +12,7 @@ import {
 
 import SEO from "../components/SEO";
 import { fetchDailyPrices, fetchMaterials } from "@/lib/api";
+import SahiRateWordmark from "../assets/sahirate-wordmark.png";
 
 
 export default function Home({ onOpenSearch }) {
@@ -80,7 +81,7 @@ export default function Home({ onOpenSearch }) {
 
             <Sparkles className="w-4 h-4" />
 
-            🇮🇳 India's Building Material Intelligence Platform
+            🇮🇳 India's Trusted Building Material Intelligence Platform
 
           </div>
 
@@ -107,18 +108,26 @@ export default function Home({ onOpenSearch }) {
 
 
           <p className="mt-8 max-w-2xl text-lg leading-9 text-slate-300">
-
-            Compare live building material prices from verified dealers,
-            discover market trends, and make smarter construction decisions.
-
-            Starting from
-
-            <span className="text-white font-semibold">
-              {" "}Deoghar, Jharkhand
-            </span>.
-
-          </p>
-
+          <span className="font-semibold text-white">
+            Building Material kharidne se pehle
+          </span>{" "}
+          <span className="font-semibold text-[#FFB27A]">
+            uska Sahi Rate
+          </span>{" "}
+          janiye,{" "}
+          <span className="font-semibold text-[#FFB27A]">
+            verified dealers
+          </span>{" "}
+          ke rates compare kijiye aur{" "}
+          <span className="font-semibold text-[#FFB27A]">
+            smarter construction decisions
+          </span>{" "}
+          lijiye — trusted market data aur local insights ke saath.
+          <br />
+          <span className="mt-3 inline-block text-white font-medium">
+            <strong>Starting from Deoghar, Jharkhand.</strong> Expanding across India.
+          </span>
+        </p>
 
 
           <div className="mt-12 flex flex-wrap gap-4">
@@ -138,7 +147,7 @@ export default function Home({ onOpenSearch }) {
               className="flex items-center gap-2 rounded-xl border border-white/20 px-7 py-4 text-white hover:bg-white/10 transition"
             >
 
-              Compare Materials
+              📊 Explore Materials
 
               <ArrowRight size={18}/>
 
@@ -302,15 +311,15 @@ export default function Home({ onOpenSearch }) {
                   fontSize:"clamp(2rem,4vw,3.3rem)"
                 }}
               >
-                Compare Every Building Material
+                Compare Building Materials with Confidence
               </h2>
 
 
 
               <p className="mt-5 max-w-2xl text-slate-600 leading-8">
 
-                Daily updated prices from verified dealers.
-                Everything you need before starting construction.
+                Daily updated prices, verified dealers and market insights —
+                everything you need to make smarter construction decisions.
 
               </p>
 
@@ -325,7 +334,9 @@ export default function Home({ onOpenSearch }) {
               className="hidden lg:flex items-center gap-2 text-[#FF6B00] font-semibold"
             >
 
-              View All
+              Explore All Materials
+
+              <ArrowRight size={18}/>
 
               <ChevronRight size={18}/>
 
@@ -411,19 +422,16 @@ export default function Home({ onOpenSearch }) {
 
 
                     <span className="text-slate-500 mb-1">
-                      Avg Price
+                      Average Market Price
                     </span>
 
 
                   </div>
 
 
-
-
-
                   <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#FF6B00]">
 
-                    Compare Dealers
+                    View Price Details
 
                     <ArrowRight size={16}/>
 
@@ -479,6 +487,24 @@ export default function Home({ onOpenSearch }) {
               Construction decisions backed by data.
 
             </h2>
+
+            <h2 className="mx-auto max-w-4xl text-center leading-tight">
+
+            <span className="block text-4xl md:text-5xl font-bold text-white font-['Noto_Sans_Devanagari']">
+              बेहतर निर्माण की शुरुआत,
+            </span>
+
+            <img
+              src={SahiRateWordmark}
+              alt="SahiRate"
+              className="mx-auto mt-5 h-12 md:h-16 w-auto"
+            />
+
+            <span className="mt-2 block text-3xl md:text-4xl font-bold text-white font-['Noto_Sans_Devanagari']">
+              से।
+            </span>
+
+          </h2>
 
 
 
@@ -893,7 +919,7 @@ export default function Home({ onOpenSearch }) {
                   className="px-8 py-4 rounded-xl bg-[#FF6B00] hover:bg-[#eb5d00] text-white font-semibold transition shadow-xl"
                 >
 
-                  Ask AI
+                  ✨ Ask SahiAI
 
                 </button>
 

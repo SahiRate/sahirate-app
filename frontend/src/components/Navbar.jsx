@@ -25,7 +25,7 @@ export default function Navbar({ onOpenSearch }) {
       <div className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-6 lg:px-10">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-4">
+        <Link to="/" className="flex items-center gap-3">
           <img
             src="/logo.png"
             alt="SahiRate"
@@ -41,13 +41,13 @@ export default function Navbar({ onOpenSearch }) {
             </div>
 
             <div className="mt-1 max-w-[250px] text-[11px] leading-[1.25] uppercase tracking-[0.16em] text-slate-500">
-              India's Building Material Intelligence Platform
+              Har Material ka Sahi Rate
             </div>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden flex-1 items-center justify-center gap-10 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-8 lg:flex">
           {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.to}
@@ -78,7 +78,7 @@ export default function Navbar({ onOpenSearch }) {
 
           <button
             onClick={onOpenSearch}
-            className="hidden items-center gap-3 rounded-2xl border border-orange-200 bg-white px-6 py-2.5 shadow-sm transition-all duration-200 hover:bg-orange-50 hover:shadow-md lg:flex"
+            className="hidden items-center gap-3 rounded-2xl border border-orange-200 bg-white px-6 py-2.5 shadow-sm hover:-translate-y-0.5 hover:bg-orange-50 hover:shadow-md lg:flex"
           >
             <Sparkles
               size={22}
@@ -91,7 +91,7 @@ export default function Navbar({ onOpenSearch }) {
               </div>
 
               <div className="text-xs text-slate-500">
-                AI Assistant
+                Powered by AI
               </div>
             </div>
 
@@ -106,7 +106,7 @@ export default function Navbar({ onOpenSearch }) {
             className="lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X /> : <Menu />}
+            {mobileOpen ? <X /> : <Menu size={28} />}
           </button>
         </div>
       </div>
