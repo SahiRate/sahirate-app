@@ -107,7 +107,7 @@ export default function Home({ onOpenSearch }) {
 
 
 
-          <p className="mt-8 max-w-2xl text-lg leading-9 text-slate-300">
+          <p className="mt-8 max-w-[42rem] text-lg leading-9 text-slate-300">
           <span className="font-semibold text-white">
             Building Material kharidne se pehle
           </span>{" "}
