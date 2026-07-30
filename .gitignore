@@ -43,3 +43,6 @@ Thumbs.db
 
 # --- Test reports (transient) ---
 test_reports/
+
+.vercel
+.env*
