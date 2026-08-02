@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import SahiRateLogo from "../assets/sahirate-logo.png";
 import {
   Instagram,
   Mail,
@@ -7,200 +6,236 @@ import {
   Phone,
   Twitter,
   Youtube,
+  ArrowRight,
 } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 bg-[#06111D] text-slate-300">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Company */}
+    <footer className="mt-20 bg-[#06111D] text-slate-300">
+
+      <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10">
+
+        <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1fr_1.15fr]">
+
+          {/* Left */}
+
           <div>
-            <img
-              src={SahiRateLogo}
-              alt="SahiRate"
-              className="mb-6 h-16 w-auto lg:h-20"
-              draggable="false"
-            />
 
-            <h3 className="mb-3 text-xl font-semibold leading-snug text-white">
-              India's Trusted Building Material
-              <br />
-              Intelligence Platform
-            </h3>
+            
 
-            <p className="max-w-sm leading-8 text-slate-400">
-              SahiRate helps builders, contractors, architects, dealers and homeowners
-              make smarter construction decisions with transparent material prices,
-              trusted dealer information and AI-powered market intelligence.
+            <h2 className="max-w-[520px] text-[22px] lg:text-[20px] font-extrabold leading-[1.2] tracking-[-0.01em] text-white">
+              India's Trusted Building Material Intelligence Platform
+            </h2>
+
+            <p className="mt-5 text-[17px] font-semibold tracking-[0.08em] text-[#FF6B00]">
+              Har Material Ka Sahi Rate
             </p>
+
+            <div className="mt-4 h-[3px] w-14 rounded-full bg-[#FF6B00]" />
+
+            <p className="mt-4 max-w-[440px] text-[17px] leading-[2.15] text-slate-300">
+            SahiRate empowers construction professionals and homeowners with
+            transparent material prices, trusted market insights and{" "}
+            <span className="font-semibold text-white">
+              SahiAI-powered intelligence
+            </span>
+            .
+          </p>
+
           </div>
 
           {/* Platform */}
+
           <div>
-            <h3 className="mb-6 font-bold text-white">
+
+            <h3 className="mb-8 text-sm font-semibold uppercase tracking-[0.28em] text-white">
               Platform
             </h3>
 
-            <div className="space-y-4">
-              <Link to="/" className="block transition hover:text-[#FF6B00]">
-                Home
-              </Link>
+            <div className="space-y-6">
 
-              <Link
-                to="/materials"
-                className="block transition hover:text-[#FF6B00]"
-              >
-                Materials
-              </Link>
+              {[
+                ["Home", "/"],
+                ["Materials", "/materials"],
+                ["Dealers", "/dealers"],
+                ["Live Prices", "/prices"],
+                ["Powered by SahiAI", "/"],
+              ].map(([title, link]) => (
 
-              <Link
-                to="/dealers"
-                className="block transition hover:text-[#FF6B00]"
-              >
-                Dealers
-              </Link>
+                <Link
+                  key={title}
+                  to={link}
+                  className="group flex items-center justify-between border-b border-white/10 pb-3 text-lg text-slate-300 transition hover:text-[#FF6B00]"
+                >
+                  {title}
 
-              <Link
-                to="/prices"
-                className="block transition hover:text-[#FF6B00]"
-              >
-                Live Prices
-              </Link>
+                  <ArrowRight
+                    size={18}
+                    className="transition group-hover:translate-x-1"
+                  />
+                </Link>
+
+              ))}
+
             </div>
+
           </div>
 
           {/* Company */}
+
           <div>
-            <h3 className="mb-6 font-bold text-white">
+
+            <h3 className="mb-8 text-sm font-semibold uppercase tracking-[0.28em] text-white">
               Company
             </h3>
 
-            <div className="space-y-4">
-              <Link
-                to="/about"
-                className="block transition hover:text-[#FF6B00]"
-              >
-                About
-              </Link>
+            <div className="space-y-6">
 
-              <Link
-                to="/contact"
-                className="block transition hover:text-[#FF6B00]"
-              >
-                Contact
-              </Link>
+              {[
+                ["About", "/about"],
+                ["Contact", "/contact"],
+                ["Careers", "/careers"],
+                ["Privacy Policy", "/privacy-policy"],
+                ["Terms & Conditions", "/terms-and-conditions"],
+              ].map(([title, link]) => (
 
-              <Link
-                to="/privacy-policy"
-                className="block transition hover:text-[#FF6B00]"
-              >
-                Privacy Policy
-              </Link>
+                <Link
+                  key={title}
+                  to={link}
+                  className="group flex items-center justify-between border-b border-white/10 pb-3 text-lg text-slate-300 transition hover:text-[#FF6B00]"
+                >
+                  {title}
 
-              <Link
-                to="/terms-and-conditions"
-                className="block transition hover:text-[#FF6B00]"
-              >
-                Terms & Conditions
-              </Link>
+                  <ArrowRight
+                    size={18}
+                    className="transition group-hover:translate-x-1"
+                  />
+                </Link>
+
+              ))}
+
             </div>
+
           </div>
 
           {/* Contact */}
+
           <div>
-            <h3 className="mb-6 font-bold text-white">
+
+            <h3 className="mb-8 text-sm font-semibold uppercase tracking-[0.28em] text-white">
               Contact
             </h3>
 
-            <div className="space-y-5">
-              <div className="flex items-start gap-3">
+            <div className="space-y-8">
+
+              <div className="flex gap-4">
+
                 <MapPin
-                  size={18}
-                  className="mt-1 shrink-0"
+                  className="mt-1 shrink-0 text-white"
+                  size={24}
                 />
 
-                <span>
-                  Deoghar, Jharkhand,
-                  <br />
-                  India
+                <span className="text-lg leading-8 whitespace-nowrap">
+                  Deoghar, Jharkhand, India
                 </span>
+
               </div>
 
-              <div className="flex items-start gap-3">
+              <div className="flex gap-4">
+
                 <Mail
-                  size={18}
-                  className="mt-1 shrink-0"
+                  className="mt-1 shrink-0 text-white"
+                  size={24}
                 />
 
                 <a
                   href="mailto:sahirateindia@gmail.com"
-                  className="break-all transition hover:text-[#FF6B00]"
+                  className="text-lg transition hover:text-[#FF6B00]"
                 >
                   sahirateindia@gmail.com
                 </a>
+
               </div>
 
-              <div className="flex items-start gap-3">
+              <div className="flex gap-4">
+
                 <Phone
-                  size={18}
-                  className="mt-1 shrink-0"
+                  className="mt-1 shrink-0 text-white"
+                  size={24}
                 />
 
-                <span>Phone Support Coming Soon</span>
+                <span className="text-lg">
+                  Phone Support Coming Soon
+                </span>
+
               </div>
+
             </div>
 
-            <p className="mt-8 mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+            <h4 className="mt-6 mb-5 text-sm uppercase tracking-[0.28em] text-slate-500">
               Connect With Us
-            </p>
+            </h4>
 
-            <div className="flex items-center gap-3">
-              <a
-                href="https://www.instagram.com/sahirateindia"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-[#FF6B00] hover:bg-white/5 hover:text-[#FF6B00]"
-              >
-                <Instagram size={20} />
-              </a>
+            <div className="flex gap-5">
 
-              <a
-                href="https://x.com/sahirateindia"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="X"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-[#FF6B00] hover:bg-white/5 hover:text-[#FF6B00]"
-              >
-                <Twitter size={20} />
-              </a>
+              {[Instagram, Twitter, Youtube].map((Icon, i) => (
 
-              <a
-                href="https://www.youtube.com/@SahiRateIndia"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-[#FF6B00] hover:bg-white/5 hover:text-[#FF6B00]"
-              >
-                <Youtube size={20} />
-              </a>
+                <a
+                  key={i}
+                  href="#"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 transition hover:border-[#FF6B00] hover:bg-[#FF6B00]"
+                >
+                  <Icon size={24} />
+                </a>
+
+              ))}
+
             </div>
+
           </div>
+
         </div>
+
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between px-6 py-6 text-center md:flex-row md:text-left lg:px-10">
-          <p className="text-sm text-slate-500">
-            © {new Date().getFullYear()} SahiRate. All Rights Reserved.
+      {/* Bottom */}
+
+      <div
+          className="border-t"
+          style={{
+            borderImage:
+              "linear-gradient(to right, transparent, rgba(255,107,0,.65), transparent) 1",
+          }}
+        >
+
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-4 px-6 py-7 text-sm md:grid-cols-3 lg:px-10">
+
+          {/* Left */}
+          <p className="text-center text-slate-500 md:justify-self-start md:text-left">
+            © {new Date().getFullYear()}
+            <span className="font-semibold text-white">
+              {" "}
+              SahiRate
+            </span>
+            . All Rights Reserved.
           </p>
 
-          <p className="mt-3 text-sm font-medium tracking-wide text-slate-400 md:mt-0">
-            Har Material ka Sahi Rate.
+          {/* Center */}
+          <p className="justify-self-center text-center text-[15px] tracking-wide text-slate-500">
+            Powered by{" "}
+            <span className="font-semibold text-[#FF6B00]">
+              SahiAI
+            </span>
           </p>
+
+          {/* Right */}
+          <p className="text-center text-slate-400 md:justify-self-end md:text-right">
+            Har Material ka Sahi Rate
+          </p>
+
         </div>
-      </div>
+              </div>
+
     </footer>
   );
 }

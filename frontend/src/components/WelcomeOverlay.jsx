@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./WelcomeOverlay.css";
+
+import backgroundImage from "../assets/construction-bg.jpg";
 import welcomeImage from "../assets/welcome.png";
 
-export default function WelcomeOverlay() {
-  const [isOpen, setIsOpen] = useState(false);
+const STORAGE_KEY = "sahirate-welcome-dismissed";
 
-  const STORAGE_KEY = "sahirate-welcome-dismissed";
+export default function WelcomeOverlay({ onClose }) {
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem(STORAGE_KEY);
@@ -15,46 +17,66 @@ export default function WelcomeOverlay() {
       document.body.style.overflow = "hidden";
     }
 
-    const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        handleClose();
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeOverlay();
       }
     };
 
-    window.addEventListener("keydown", handleEsc);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener("keydown", handleEsc);
+      window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
   }, []);
 
-  const handleClose = () => {
+  const closeOverlay = () => {
     sessionStorage.setItem(STORAGE_KEY, "true");
+
     document.body.style.overflow = "";
+
     setIsOpen(false);
+
+    if (onClose) {
+      setTimeout(() => {
+        onClose();
+      }, 250);
+    }
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="welcome-overlay">
+    <div
+      className="welcome-overlay"
+      role="presentation"
+    >
       <div
         className="welcome-backdrop"
-        onClick={handleClose}
-      ></div>
+        onClick={closeOverlay}
+        aria-hidden="true"
+      >
+        <img
+          src={backgroundImage}
+          alt=""
+          className="welcome-bg"
+          draggable={false}
+        />
+      </div>
 
-      <div
+      <section
         className="welcome-card"
         role="dialog"
         aria-modal="true"
-        aria-label="Welcome to SahiRate"
+        aria-labelledby="welcome-title"
+        onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
         <button
+          type="button"
           className="welcome-close"
-          onClick={handleClose}
-          aria-label="Close"
+          onClick={closeOverlay}
+          aria-label="Close welcome message"
         >
           ×
         </button>
@@ -62,11 +84,13 @@ export default function WelcomeOverlay() {
         <div className="welcome-content">
           <img
             src={welcomeImage}
+            id="welcome-title"
             alt="Welcome to SahiRate"
             className="welcome-poster"
+            draggable={false}
           />
         </div>
-      </div>
+      </section>
     </div>
   );
 }
