@@ -7,6 +7,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+      sans: ["Inter", "sans-serif"],
+      heading: ["Plus Jakarta Sans", "sans-serif"],
+      logo: ["Plus Jakarta Sans", "sans-serif"],
+      hindi: ["Noto Sans Devanagari", "sans-serif"],
+    },
+    
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

@@ -64,25 +64,15 @@ h6 {
   letter-spacing: -0.02em;
 }
 
-p {
-  color: var(--text-light);
-  line-height: 1.8;
-}
+/* ---------- SahiRate Brand Typography ---------- */
 
-a {
-
-  text-decoration: none;
-
-  color: inherit;
-
-}
-
-img {
-
-  display: block;
-
-  max-width: 100%;
-
+.font-brand {
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-feature-settings: "liga" 1, "kern" 1;
+  text-rendering: geometricPrecision;
 }
 
 /* SahiRate Logo Font */
