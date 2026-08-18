@@ -2,106 +2,326 @@ import {
   Target,
   Eye,
   Rocket,
+  MapPin,
+  Building2,
+  Globe2,
   ArrowRight,
 } from "lucide-react";
 
-const cards = [
+const visionCards = [
   {
-    icon: Target,
+    number: "01",
     title: "Mission",
-    description:
-      "Bring price transparency to India's construction ecosystem so every purchasing decision is based on trusted information instead of guesswork.",
+    icon: Target,
+    text: "Bring price transparency to India's construction ecosystem so every purchasing decision is based on trusted information, not guesswork.",
   },
   {
-    icon: Eye,
+    number: "02",
     title: "Vision",
-    description:
-      "Become India's most trusted construction intelligence platform connecting buyers, suppliers, and market insights in one place.",
+    icon: Eye,
+    text: "Become India's most trusted construction intelligence platform connecting buyers, suppliers, and market insights in one place.",
   },
   {
-    icon: Rocket,
+    number: "03",
     title: "Future",
-    description:
-      "Expand beyond price discovery into complete construction procurement intelligence powered by SahiAI.",
+    icon: Rocket,
+    text: "Expand beyond price discovery into complete construction procurement intelligence powered by SahiAI.",
   },
 ];
 
-export default function VisionSection() {
+const expansionPhases = [
+  {
+    number: "1",
+    phase: "Phase 1 – Launch",
+    location: "Deoghar",
+    icon: Rocket,
+    points: [
+      "Pilot Market",
+      "Dealer Onboarding",
+      "Product Testing",
+    ],
+  },
+  {
+    number: "2",
+    phase: "Phase 2 – Regional",
+    location: "Godda, Dumka, Banka",
+    icon: MapPin,
+    points: [
+      "District Level Expansion",
+      "Brand Building",
+    ],
+  },
+  {
+    number: "3",
+    phase: "Phase 3 – State",
+    location: "Bhagalpur, Munger",
+    icon: Building2,
+    points: [
+      "Bihar–Jharkhand Corridor",
+      "Full Feature Launch",
+    ],
+  },
+  {
+    number: "4",
+    phase: "Phase 4 – National",
+    location: "Pan-India Platform",
+    icon: Globe2,
+    points: [
+      "Enterprise Partnerships",
+      "Complete Ecosystem",
+    ],
+  },
+];
+
+export default function OurVision() {
   return (
-    <section className="relative overflow-hidden bg-slate-900 pt-24 pb-20 text-white">
+    <section className="relative overflow-hidden bg-[#061426] py-24 lg:py-28">
 
-      {/* Background Glow */}
+      {/* =====================================================
+          BACKGROUND
+      ===================================================== */}
 
-      <div className="absolute left-1/2 top-16 h-96 w-96 -translate-x-1/2 rounded-full bg-orange-500/10 blur-[150px]" />
+      <div className="pointer-events-none absolute inset-0">
 
-      <div className="relative mx-auto max-w-[1400px] px-8 lg:px-10">
+        {/* Orange glow */}
+        <div
+          className="
+            absolute
+            left-[8%]
+            top-[30%]
+            h-[420px]
+            w-[420px]
+            rounded-full
+            bg-orange-500/[0.06]
+            blur-[120px]
+          "
+        />
 
-        {/* Heading */}
+        <div
+          className="
+            absolute
+            right-[5%]
+            top-[15%]
+            h-[360px]
+            w-[360px]
+            rounded-full
+            bg-blue-500/[0.05]
+            blur-[120px]
+          "
+        />
 
-        <div className="mx-auto max-w-4xl text-center">
+        {/* Subtle construction grid */}
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.035]
+            [background-image:linear-gradient(rgba(255,255,255,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.8)_1px,transparent_1px)]
+            [background-size:80px_80px]
+          "
+        />
 
-          <span className="inline-flex items-center rounded-full border border-orange-500/20 bg-orange-500/10 px-5 py-2.5 text-[13px] font-semibold tracking-[0.16em] text-orange-300">
-            OUR VISION
+      </div>
+
+
+      {/* =====================================================
+          MAIN CONTAINER
+      ===================================================== */}
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+
+
+        {/* =====================================================
+            SECTION LABEL
+        ===================================================== */}
+
+        <div className="flex justify-center">
+
+          <span
+            className="
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              border
+              border-orange-500/30
+              bg-orange-500/[0.06]
+              px-5
+              py-2
+              text-[11px]
+              font-bold
+              uppercase
+              tracking-[0.25em]
+              text-orange-400
+            "
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
+            Our Vision
           </span>
 
-          <h2 className="mt-5 text-[40px] font-black leading-[1.08] tracking-[-0.04em] md:text-[52px] lg:text-[60px]">
+        </div>
+
+
+        {/* =====================================================
+            HERO HEADING
+        ===================================================== */}
+
+        <div className="mx-auto mt-7 max-w-5xl text-center">
+
+          <h2
+            className="
+              text-[2.5rem]
+              font-extrabold
+              leading-[1.08]
+              tracking-[-0.045em]
+              text-white
+              sm:text-[3.5rem]
+              lg:text-[4.5rem]
+            "
+          >
             Building India's Most Trusted
-            Construction Intelligence Platform
+            <br />
+
+            <span className="text-orange-500">
+              Construction Intelligence Platform
+            </span>
           </h2>
 
-          <p className="mx-auto mt-7 max-w-[820px] text-[18px] leading-8 text-slate-300 md:text-[20px]">
-            We believe every builder, contractor, architect, dealer, developer,
-            and homeowner deserves transparent market information.
-            <span className="font-semibold text-white"> SahiRate </span>
-            combines trusted data with
-            <span className="font-semibold text-orange-300">
-              {" "}SahiAI
+
+          <p
+            className="
+              mx-auto
+              mt-7
+              max-w-3xl
+              text-base
+              leading-8
+              text-slate-300
+              sm:text-lg
+            "
+          >
+            We believe every builder, contractor, architect, dealer,
+            developer, and homeowner deserves transparent market
+            information.{" "}
+            <span className="font-semibold text-white">
+              SahiRate
             </span>{" "}
-            to make construction purchasing more informed, transparent, and
-            reliable across India.
+            combines trusted data with{" "}
+            <span className="font-semibold text-orange-400">
+              SahiAI
+            </span>{" "}
+            to make construction purchasing more informed,
+            transparent, and reliable across India.
           </p>
 
         </div>
 
-        {/* Cards */}
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
+        {/* =====================================================
+            MISSION / VISION / FUTURE
+        ===================================================== */}
 
-          {cards.map((item) => {
-            const Icon = item.icon;
+        <div
+          className="
+            mx-auto
+            mt-14
+            grid
+            max-w-6xl
+            gap-5
+            md:grid-cols-3
+          "
+        >
+
+          {visionCards.map((card) => {
+            const Icon = card.icon;
 
             return (
               <div
-                key={item.title}
-                className="group flex h-full flex-col rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-orange-400/40 hover:bg-white/10 hover:shadow-[0_24px_64px_rgba(0,0,0,0.35)]"
+                key={card.number}
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-[24px]
+                  border
+                  border-white/10
+                  bg-white/[0.035]
+                  p-7
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-orange-500/40
+                  hover:bg-white/[0.055]
+                  hover:shadow-[0_20px_60px_rgba(0,0,0,0.25)]
+                "
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-500/15 transition-all duration-300 group-hover:bg-orange-500/20">
 
-                  <Icon
-                    size={30}
-                    className="text-orange-400 transition-transform duration-300 group-hover:scale-110"
-                  />
-
+                {/* Number */}
+                <div
+                  className="
+                    absolute
+                    right-6
+                    top-5
+                    text-sm
+                    font-bold
+                    text-white/25
+                  "
+                >
+                  {card.number}
                 </div>
 
-                <h3 className="mt-6 text-[30px] font-bold tracking-[-0.03em]">
-                  {item.title}
+
+                {/* Icon */}
+                <div
+                  className="
+                    flex
+                    h-14
+                    w-14
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-orange-500/30
+                    bg-orange-500/[0.07]
+                    text-orange-500
+                    transition-all
+                    duration-300
+                    group-hover:border-orange-500/60
+                    group-hover:bg-orange-500/10
+                  "
+                >
+                  <Icon size={27} strokeWidth={1.8} />
+                </div>
+
+
+                {/* Title */}
+                <h3
+                  className="
+                    mt-6
+                    text-2xl
+                    font-bold
+                    tracking-[-0.025em]
+                    text-white
+                  "
+                >
+                  {card.title}
                 </h3>
 
-                <p className="mt-4 flex-grow text-[17px] leading-[1.75] text-slate-300">
-                  {item.description}
+
+                {/* Accent */}
+                <div className="mt-4 h-[2px] w-12 bg-orange-500" />
+
+
+                {/* Description */}
+                <p
+                  className="
+                    mt-5
+                    text-sm
+                    leading-7
+                    text-slate-300
+                  "
+                >
+                  {card.text}
                 </p>
-
-                <div className="mt-8 flex items-center gap-2 font-semibold text-orange-300 transition-all duration-300 group-hover:gap-3">
-
-                  Learn More
-
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-
-                </div>
 
               </div>
             );
@@ -109,7 +329,202 @@ export default function VisionSection() {
 
         </div>
 
+
+        {/* =====================================================
+            EXPANSION PLAN TITLE
+        ===================================================== */}
+
+        <div className="mt-16 flex items-center justify-center gap-4">
+
+          <div className="hidden h-px w-24 bg-gradient-to-r from-transparent to-orange-500/60 sm:block" />
+
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+              text-xs
+              font-bold
+              uppercase
+              tracking-[0.22em]
+              text-orange-400
+            "
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
+            Expansion Plan
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
+          </div>
+
+          <div className="hidden h-px w-24 bg-gradient-to-l from-transparent to-orange-500/60 sm:block" />
+
+        </div>
+
+
+        {/* =====================================================
+            EXPANSION TIMELINE
+        ===================================================== */}
+
+        <div className="relative mx-auto mt-10 max-w-6xl">
+
+          {/* Desktop timeline */}
+          <div
+            className="
+              pointer-events-none
+              absolute
+              left-[8%]
+              right-[8%]
+              top-[34px]
+              hidden
+              h-px
+              bg-gradient-to-r
+              from-orange-500/20
+              via-orange-500
+              to-orange-500/20
+              lg:block
+            "
+          />
+
+
+          <div
+            className="
+              grid
+              gap-8
+              lg:grid-cols-4
+              lg:gap-5
+            "
+          >
+
+            {expansionPhases.map((phase) => {
+              const Icon = phase.icon;
+
+              return (
+                <div
+                  key={phase.number}
+                  className="relative text-center lg:text-left"
+                >
+
+                  {/* Timeline point */}
+                  <div className="relative z-10 mx-auto flex lg:mx-0">
+
+                    <div
+                      className="
+                        flex
+                        h-[68px]
+                        w-[68px]
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-orange-500/50
+                        bg-[#061426]
+                        text-orange-500
+                        shadow-[0_0_30px_rgba(255,107,0,0.12)]
+                      "
+                    >
+                      <Icon size={26} strokeWidth={1.8} />
+                    </div>
+
+                  </div>
+
+
+                  {/* Phase */}
+                  <h4
+                    className="
+                      mt-5
+                      text-base
+                      font-bold
+                      text-white
+                    "
+                  >
+                    {phase.phase}
+                  </h4>
+
+
+                  {/* Location */}
+                  <div
+                    className="
+                      mt-1
+                      text-base
+                      font-bold
+                      text-orange-500
+                    "
+                  >
+                    {phase.location}
+                  </div>
+
+
+                  {/* Points */}
+                  <div className="mt-3 space-y-1.5">
+
+                    {phase.points.map((point) => (
+                      <div
+                        key={point}
+                        className="
+                          flex
+                          items-start
+                          justify-center
+                          gap-2
+                          text-sm
+                          leading-6
+                          text-slate-300
+                          lg:justify-start
+                        "
+                      >
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-orange-500" />
+                        <span>{point}</span>
+                      </div>
+                    ))}
+
+                  </div>
+
+                </div>
+              );
+            })}
+
+          </div>
+
+        </div>
+
+
+        {/* =====================================================
+            BOTTOM TAGLINE
+        ===================================================== */}
+
+        <div
+          className="
+            mx-auto
+            mt-12
+            max-w-5xl
+            rounded-2xl
+            border
+            border-white/10
+            bg-white/[0.025]
+            px-6
+            py-5
+            text-center
+            shadow-[0_20px_60px_rgba(0,0,0,0.18)]
+            sm:px-10
+          "
+        >
+
+          <p className="text-base font-semibold text-white sm:text-xl">
+
+            Har Material ka Sahi Rate.
+
+            <span className="mx-2 text-slate-500">
+              Sahi Jankari.
+            </span>
+
+            <span className="text-orange-500">
+              Behtar Faisle.
+            </span>
+
+          </p>
+
+        </div>
+
       </div>
+
     </section>
   );
 }

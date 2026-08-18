@@ -1,75 +1,405 @@
-import FeatureCard from "./FeatureCard";
+import {
+  ShieldCheck,
+  Database,
+  Clock3,
+  BadgeCheck,
+} from "lucide-react";
 
 export default function WhySahiRate() {
   return (
-    <section className="relative overflow-hidden bg-slate-50 pt-24 pb-20">
+    <section className="relative overflow-hidden bg-[#F8FAFC] py-24 lg:py-28">
 
-      {/* Background Glow */}
+      {/* Subtle Background Accent */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-40
+          top-20
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-orange-100/50
+          blur-[110px]
+        "
+      />
 
-      <div className="absolute right-0 top-20 h-80 w-80 rounded-full bg-orange-100 blur-[120px]" />
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          bottom-0
+          h-[360px]
+          w-[360px]
+          rounded-full
+          bg-slate-200/60
+          blur-[100px]
+        "
+      />
 
-      <div className="relative mx-auto max-w-[1400px] px-8 lg:px-10">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
 
-        {/* Heading */}
+        {/* ================= HEADER ================= */}
 
         <div className="mx-auto max-w-4xl text-center">
 
-          <span className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-5 py-2.5 text-[13px] font-semibold tracking-[0.16em] text-orange-600">
-            WHY SAHIRATE
+          <span
+            className="
+              inline-flex
+              items-center
+              rounded-full
+              border
+              border-orange-200
+              bg-white
+              px-5
+              py-2
+              text-xs
+              font-bold
+              uppercase
+              tracking-[0.28em]
+              text-[#FF6B00]
+              shadow-sm
+            "
+          >
+            Why Trust SahiRate
           </span>
 
-          <h2 className="mt-5 text-[40px] font-black leading-[1.08] tracking-[-0.04em] text-slate-900 md:text-[52px] lg:text-[60px]">
-            Everything You Need to Make Better
-            Construction Decisions
+          <h2
+            className="
+              mt-7
+              font-extrabold
+              leading-[1.08]
+              tracking-[-0.045em]
+              text-[#0A192F]
+              text-[2.6rem]
+              sm:text-[3.4rem]
+              lg:text-[4.25rem]
+            "
+            style={{
+              fontFamily: "Plus Jakarta Sans",
+            }}
+          >
+            Information You Can Trust.
+            <br />
+            <span className="text-[#FF6B00]">
+              Decisions You Can Feel Good About.
+            </span>
           </h2>
 
-          <p className="mx-auto mt-7 max-w-[760px] text-[18px] leading-8 text-slate-600 md:text-[20px]">
-            <span className="font-semibold text-slate-900">
-              SahiRate
-            </span>{" "}
-            combines transparent pricing, market intelligence,
-            verified supplier information, and
-            <span className="font-semibold text-slate-900">
-              {" "}SahiAI
-            </span>{" "}
-            insights into one intelligent platform for builders,
-            contractors, architects, dealers, and homeowners.
+          <p
+            className="
+              mx-auto
+              mt-7
+              max-w-3xl
+              text-base
+              leading-8
+              text-slate-600
+              sm:text-lg
+            "
+          >
+            SahiRate combines verified market information, transparent
+            pricing, and SahiAI insights to help every construction
+            professional make smarter and more confident purchasing decisions.
           </p>
 
         </div>
 
-        {/* Feature Grid */}
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2">
+        {/* ================= 4 TRUST CARDS ================= */}
 
-          <FeatureCard
-            icon="prices"
-            title="Transparent Market Prices"
-            description="Access reliable and up-to-date building material prices before every purchase, helping you avoid overpaying."
-          />
+        <div
+          className="
+            mt-16
+            grid
+            gap-6
+            sm:grid-cols-2
+            lg:grid-cols-4
+          "
+        >
 
-          <FeatureCard
-            icon="ai"
-            title="Powered by SahiAI"
-            description="Receive intelligent recommendations, pricing signals, and market insights to make faster and smarter decisions."
-          />
+          {/* CARD 01 */}
 
-          <FeatureCard
-            icon="trends"
-            title="Price Trends & Analytics"
-            description="Track historical prices, identify market movement, and plan procurement with greater confidence."
-          />
+          <div
+            className="
+              group
+              rounded-[28px]
+              border
+              border-slate-200
+              bg-white
+              p-8
+              shadow-[0_10px_35px_rgba(15,23,42,0.04)]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:border-orange-200
+              hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]
+            "
+          >
 
-          <FeatureCard
-            icon="network"
-            title="Trusted Supplier Network"
-            description="Compare verified suppliers, evaluate pricing transparently, and choose reliable partners for every project."
-          />
+            <div
+              className="
+                flex
+                h-16
+                w-16
+                items-center
+                justify-center
+                rounded-[18px]
+                bg-orange-50
+                text-[#FF6B00]
+                transition-transform
+                duration-300
+                group-hover:scale-105
+              "
+            >
+              <ShieldCheck
+                size={32}
+                strokeWidth={1.8}
+              />
+            </div>
+
+            <h3
+              className="
+                mt-7
+                text-2xl
+                font-bold
+                leading-tight
+                tracking-[-0.03em]
+                text-[#0A192F]
+              "
+            >
+              Verified
+              <br />
+              Information
+            </h3>
+
+            <p
+              className="
+                mt-5
+                text-base
+                leading-7
+                text-slate-600
+              "
+            >
+              Material prices are collected from trusted market sources
+              and verified supplier networks.
+            </p>
+
+          </div>
+
+
+          {/* CARD 02 */}
+
+          <div
+            className="
+              group
+              rounded-[28px]
+              border
+              border-slate-200
+              bg-white
+              p-8
+              shadow-[0_10px_35px_rgba(15,23,42,0.04)]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:border-orange-200
+              hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]
+            "
+          >
+
+            <div
+              className="
+                flex
+                h-16
+                w-16
+                items-center
+                justify-center
+                rounded-[18px]
+                bg-orange-50
+                text-[#FF6B00]
+                transition-transform
+                duration-300
+                group-hover:scale-105
+              "
+            >
+              <Database
+                size={32}
+                strokeWidth={1.8}
+              />
+            </div>
+
+            <h3
+              className="
+                mt-7
+                text-2xl
+                font-bold
+                leading-tight
+                tracking-[-0.03em]
+                text-[#0A192F]
+              "
+            >
+              Reliable Market
+              <br />
+              Data
+            </h3>
+
+            <p
+              className="
+                mt-5
+                text-base
+                leading-7
+                text-slate-600
+              "
+            >
+              Continuously updated market information helps you make
+              informed purchasing decisions with confidence.
+            </p>
+
+          </div>
+
+
+          {/* CARD 03 */}
+
+          <div
+            className="
+              group
+              rounded-[28px]
+              border
+              border-slate-200
+              bg-white
+              p-8
+              shadow-[0_10px_35px_rgba(15,23,42,0.04)]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:border-orange-200
+              hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]
+            "
+          >
+
+            <div
+              className="
+                flex
+                h-16
+                w-16
+                items-center
+                justify-center
+                rounded-[18px]
+                bg-orange-50
+                text-[#FF6B00]
+                transition-transform
+                duration-300
+                group-hover:scale-105
+              "
+            >
+              <Clock3
+                size={32}
+                strokeWidth={1.8}
+              />
+            </div>
+
+            <h3
+              className="
+                mt-7
+                text-2xl
+                font-bold
+                leading-tight
+                tracking-[-0.03em]
+                text-[#0A192F]
+              "
+            >
+              Regular
+              <br />
+              Updates
+            </h3>
+
+            <p
+              className="
+                mt-5
+                text-base
+                leading-7
+                text-slate-600
+              "
+            >
+              Prices, trends, and insights are refreshed frequently
+              to reflect changing market conditions.
+            </p>
+
+          </div>
+
+
+          {/* CARD 04 */}
+
+          <div
+            className="
+              group
+              rounded-[28px]
+              border
+              border-slate-200
+              bg-white
+              p-8
+              shadow-[0_10px_35px_rgba(15,23,42,0.04)]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:border-orange-200
+              hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]
+            "
+          >
+
+            <div
+              className="
+                flex
+                h-16
+                w-16
+                items-center
+                justify-center
+                rounded-[18px]
+                bg-orange-50
+                text-[#FF6B00]
+                transition-transform
+                duration-300
+                group-hover:scale-105
+              "
+            >
+              <BadgeCheck
+                size={32}
+                strokeWidth={1.8}
+              />
+            </div>
+
+            <h3
+              className="
+                mt-7
+                text-2xl
+                font-bold
+                leading-tight
+                tracking-[-0.03em]
+                text-[#0A192F]
+              "
+            >
+              Built for
+              <br />
+              Professionals
+            </h3>
+
+            <p
+              className="
+                mt-5
+                text-base
+                leading-7
+                text-slate-600
+              "
+            >
+              Designed for builders, contractors, architects, dealers,
+              developers, and homeowners across India.
+            </p>
+
+          </div>
 
         </div>
 
       </div>
-
     </section>
   );
 }

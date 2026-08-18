@@ -37,13 +37,17 @@ async def list_dealers(
     }
 
     for dealer in dealers:
-        dealer["materials_offered"] = [
-            material_map.get(
-                price["material_slug"],
-                price["material_slug"],
+        dealer["materials_offered"] = sorted(
+            list(
+                {
+                    material_map.get(
+                        price["material_slug"],
+                        price["material_slug"],
+                    )
+                    for price in dealer["prices"]
+                }
             )
-            for price in dealer["prices"]
-        ]
+        )
 
     dealers.sort(
         key=lambda x: (
@@ -63,7 +67,7 @@ async def dealer_detail(
     db = request.app.state.mongodb
 
     dealer = await db.dealers.find_one(
-        {"id": dealer_id},
+        {"dealer_code": dealer_id},
         {"_id": 0},
     )
 

@@ -1,6 +1,6 @@
 import { ArrowRight, PlayCircle } from "lucide-react";
 import HeroStats from "./HeroStats";
-
+import { Link } from "react-router-dom";
 export default function HeroContent() {
   return (
     <div>
@@ -60,16 +60,17 @@ export default function HeroContent() {
 
       <div className="mt-8 flex flex-wrap gap-4">
 
-        <button className="group inline-flex items-center gap-2 rounded-[18px] bg-[#FF6B00] px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E55F00] hover:shadow-xl">
-
+        <Link
+          to="/prices"
+          className="group inline-flex items-center gap-2 rounded-[18px] bg-[#FF6B00] px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E55F00] hover:shadow-xl"
+        >
           Explore Live Prices
 
           <ArrowRight
             size={18}
             className="transition-transform duration-300 group-hover:translate-x-1"
           />
-
-        </button>
+        </Link>
 
         <button className="group inline-flex items-center gap-2 rounded-[18px] border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10">
 

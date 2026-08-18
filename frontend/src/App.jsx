@@ -31,7 +31,6 @@ function App() {
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem(STORAGE_KEY);
-
     setWelcomeClosed(!!dismissed);
   }, []);
 

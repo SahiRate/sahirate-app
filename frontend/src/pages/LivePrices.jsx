@@ -18,16 +18,47 @@ const TrendIcon = ({ trend }) => {
 
 export default function LivePrices({ onOpenSearch }) {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  useEffect(() => {
-    fetchDailyPrices().then(setData);
+      useEffect(() => {
+      let mounted = true;
 
-    const t = setInterval(() => {
-      fetchDailyPrices().then(setData);
-    }, 60000);
+      const loadPrices = async () => {
+        try {
+          setError("");
 
-    return () => clearInterval(t);
-  }, []);
+          const result = await fetchDailyPrices();
+
+          if (mounted) {
+            setData(result);
+          }
+        } catch (err) {
+          console.error("Live prices API error:", err);
+
+          if (mounted) {
+            setError(
+              err?.response?.data?.detail ||
+              err?.message ||
+              "Unable to load live prices."
+            );
+          }
+        } finally {
+          if (mounted) {
+            setLoading(false);
+          }
+        }
+      };
+
+      loadPrices();
+
+      const t = setInterval(loadPrices, 60000);
+
+      return () => {
+        mounted = false;
+        clearInterval(t);
+      };
+    }, []);
 
   return (
     <>
@@ -69,13 +100,31 @@ export default function LivePrices({ onOpenSearch }) {
         </div>
 
 
-        {!data ? (
+        {loading ? (
 
-          <div className="text-slate-500">
-            Loading live board...
-          </div>
+  <div className="text-slate-500">
+    Loading live board...
+  </div>
 
-        ) : (
+) : error ? (
+
+  <div className="rounded-xl border border-orange-200 bg-orange-50 p-5 text-orange-700">
+    <p className="font-semibold">
+      Live prices are currently unavailable.
+    </p>
+
+    <p className="mt-1 text-sm">
+      {error}
+    </p>
+  </div>
+
+) : !data?.board?.length ? (
+
+  <div className="rounded-xl border border-slate-200 bg-white p-6 text-slate-600">
+    No live price data is available yet.
+  </div>
+
+) : (
 
           <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"

@@ -165,7 +165,7 @@ export default function Footer() {
                 />
 
                 <span className="text-lg">
-                  Phone Support Coming Soon
+                  +91 78 70 560 445
                 </span>
 
               </div>

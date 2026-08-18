@@ -5,12 +5,12 @@ class MaterialCreate(BaseModel):
     slug: str
     name: str
     unit: str
-    category: str
     description: str
+    image: str = ""
 
 
 class MaterialUpdate(BaseModel):
     name: str
     unit: str
-    category: str
     description: str
+    image: str = ""

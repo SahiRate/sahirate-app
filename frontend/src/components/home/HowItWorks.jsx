@@ -1,134 +1,497 @@
+import { useState } from "react";
+import FeatureDetailModal from "./FeatureDetailModal";
 import {
   Search,
   BarChart3,
   BrainCircuit,
   ShoppingCart,
   ArrowRight,
+  ShieldCheck,
 } from "lucide-react";
 
 const steps = [
   {
-    icon: Search,
-    step: "01",
+    number: "01",
     title: "Search Material",
+    feature: "howSearch",
     description:
       "Quickly search any building material and access the latest market prices from trusted sources.",
+    icon: Search,
+    accent: "orange",
   },
   {
-    icon: BarChart3,
-    step: "02",
+    number: "02",
     title: "Compare Market Prices",
+    feature: "howCompare",
     description:
       "Compare prices across dealers and markets to identify the best value before purchasing.",
+    icon: BarChart3,
+    accent: "amber",
   },
   {
-    icon: BrainCircuit,
-    step: "03",
+    number: "03",
     title: "Get SahiAI Insights",
+    feature: "howAI",
     description:
       "Receive intelligent recommendations, price trends, and market signals powered by SahiAI.",
+    icon: BrainCircuit,
+    accent: "green",
   },
   {
-    icon: ShoppingCart,
-    step: "04",
+    number: "04",
     title: "Buy with Confidence",
+    feature: "howBuy",
     description:
       "Purchase with greater confidence using transparent pricing and reliable market intelligence.",
+    icon: ShoppingCart,
+    accent: "blue",
   },
 ];
 
+const accentStyles = {
+  orange: {
+    iconBg: "bg-orange-50",
+    iconText: "text-orange-500",
+    line: "border-orange-300",
+    dot: "bg-orange-500",
+    ribbon: "bg-orange-500",
+    underline: "bg-orange-500",
+  },
+  amber: {
+    iconBg: "bg-amber-50",
+    iconText: "text-amber-500",
+    line: "border-amber-300",
+    dot: "bg-amber-500",
+    ribbon: "bg-amber-500",
+    underline: "bg-amber-500",
+  },
+  green: {
+    iconBg: "bg-emerald-50",
+    iconText: "text-emerald-500",
+    line: "border-emerald-300",
+    dot: "bg-emerald-500",
+    ribbon: "bg-emerald-500",
+    underline: "bg-emerald-500",
+  },
+  blue: {
+    iconBg: "bg-blue-50",
+    iconText: "text-blue-500",
+    line: "border-blue-300",
+    dot: "bg-blue-500",
+    ribbon: "bg-blue-500",
+    underline: "bg-blue-500",
+  },
+};
+
 export default function HowItWorks() {
+  const [activeFeature, setActiveFeature] = useState(null);
   return (
-    <section className="relative overflow-hidden bg-white pt-24 pb-20">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
+      {/* Soft background glow */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-100/30 blur-3xl" />
+      </div>
 
-      {/* Background Glow */}
+      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
 
-      <div className="absolute left-1/2 top-16 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-100 blur-[120px]" />
+        {/* =====================================================
+            SECTION HEADER
+        ===================================================== */}
 
-      <div className="relative mx-auto max-w-[1400px] px-8 lg:px-10">
+        <div className="mx-auto max-w-5xl text-center">
 
-        {/* Heading */}
+          <div
+            className="
+              inline-flex
+              items-center
+              rounded-full
+              border
+              border-orange-200
+              bg-white
+              px-6
+              py-3
+              text-sm
+              font-semibold
+              uppercase
+              tracking-[0.22em]
+              text-orange-500
+              shadow-sm
+            "
+          >
+            How It Works
+          </div>
 
-        <div className="mx-auto max-w-4xl text-center">
-
-          <span className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-5 py-2.5 text-[13px] font-semibold tracking-[0.16em] text-orange-600">
-            HOW IT WORKS
-          </span>
-
-          <h2 className="mt-5 text-[40px] font-black leading-[1.08] tracking-[-0.04em] text-slate-900 md:text-[52px] lg:text-[60px]">
+          <h2
+            className="
+              mt-8
+              text-4xl
+              font-bold
+              leading-[1.05]
+              tracking-[-0.045em]
+              text-slate-950
+              sm:text-5xl
+              lg:text-[64px]
+            "
+          >
             Build Smarter in Four Simple Steps
           </h2>
 
-          <p className="mx-auto mt-7 max-w-[760px] text-[18px] leading-8 text-slate-600 md:text-[20px]">
-            From checking prices to making informed purchasing decisions,
-            <span className="font-semibold text-slate-900"> SahiRate </span>
-            makes the entire buying journey simple, transparent and powered by
-            <span className="font-semibold text-slate-900"> SahiAI</span>.
+          <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-orange-500" />
+
+          <p
+            className="
+              mx-auto
+              mt-7
+              max-w-4xl
+              text-lg
+              leading-8
+              text-slate-600
+              sm:text-xl
+            "
+          >
+            From checking prices to making informed purchasing decisions,{" "}
+            <span className="font-bold text-slate-900">
+              Sahi<span className="text-orange-500">Rate</span>
+            </span>{" "}
+            makes the entire buying journey simple, transparent and powered by{" "}
+            <span className="font-bold text-slate-900">SahiAI</span>.
           </p>
 
         </div>
 
-        {/* Steps */}
+        {/* =====================================================
+            JOURNEY
+        ===================================================== */}
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+                    <div className="relative mt-16 lg:mt-20">
 
-          {steps.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={item.step}
-                className="group flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-orange-300 hover:shadow-[0_24px_64px_rgba(15,23,42,0.14)]"
+                      {/* Desktop connector */}
+                      <div
+              className="
+                pointer-events-none
+                absolute
+                left-[8%]
+                right-[8%]
+                top-[92px]
+                hidden
+                h-[70px]
+                lg:block
+              "
+            >
+              <svg
+                viewBox="0 0 1000 80"
+                className="h-full w-full"
+                preserveAspectRatio="none"
               >
-                {/* Header */}
+                <path
+                  d="
+                    M 0 40
+                    C 85 40, 95 40, 125 40
+                    C 165 40, 175 15, 210 15
+                    C 245 15, 255 65, 290 65
+                    C 325 65, 335 40, 375 40
+                    C 415 40, 425 15, 460 15
+                    C 495 15, 505 65, 540 65
+                    C 575 65, 585 40, 625 40
+                    C 665 40, 675 15, 710 15
+                    C 745 15, 755 65, 790 65
+                    C 825 65, 835 40, 875 40
+                    C 915 40, 930 40, 1000 40
+                  "
+                  fill="none"
+                  stroke="#FED7AA"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
 
-                <div className="flex items-center justify-between">
+          <div className="grid gap-10 lg:grid-cols-4 lg:gap-8">
 
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 transition-colors duration-300 group-hover:bg-orange-100">
+            {steps.map((step) => {
+              const Icon = step.icon;
+              const styles = accentStyles[step.accent];
 
-                    <Icon
-                      className="text-orange-500 transition-transform duration-300 group-hover:scale-110"
-                      size={28}
+              return (
+                <div
+                  key={step.number}
+                  className="relative flex flex-col items-center"
+                >
+
+                  {/* =================================================
+                      ICON
+                  ================================================= */}
+
+                  <div className="relative z-10">
+
+                    <div
+                      className={`
+                        flex
+                        h-36
+                        w-36
+                        items-center
+                        justify-center
+                        rounded-full
+                        border-[3px]
+                        border-white
+                        bg-white
+                        shadow-[0_12px_35px_rgba(15,23,42,0.10)]
+                        ring-1
+                        ring-slate-100
+                      `}
+                    >
+                      <div
+                        className={`
+                          flex
+                          h-24
+                          w-24
+                          items-center
+                          justify-center
+                          rounded-full
+                          ${styles.iconBg}
+                        `}
+                      >
+                        <Icon
+                          size={52}
+                          strokeWidth={1.8}
+                          className={styles.iconText}
+                        />
+                      </div>
+                    </div>
+
+                    {/* connector dot */}
+                    <div
+                      className={`
+                        absolute
+                        -bottom-5
+                        left-1/2
+                        h-5
+                        w-5
+                        -translate-x-1/2
+                        rounded-full
+                        border-4
+                        border-white
+                        ${styles.dot}
+                        shadow-sm
+                      `}
                     />
 
                   </div>
 
-                  <span className="text-5xl font-extrabold text-slate-100">
-                    {item.step}
-                  </span>
+                  {/* =================================================
+                      CARD
+                  ================================================= */}
+
+                  <div
+                    className="
+                      relative
+                      mt-8
+                      w-full
+                      overflow-hidden
+                      rounded-3xl
+                      border
+                      border-slate-200
+                      bg-white
+                      px-7
+                      pb-7
+                      pt-9
+                      shadow-[0_10px_35px_rgba(15,23,42,0.06)]
+                      transition-all
+                      duration-300
+                      hover:-translate-y-1
+                      hover:border-orange-200
+                      hover:shadow-[0_20px_50px_rgba(15,23,42,0.10)]
+                    "
+                  >
+
+                    {/* Step ribbon */}
+                    <div
+                      className={`
+                        absolute
+                        left-0
+                        top-0
+                        flex
+                        h-16
+                        w-16
+                        items-start
+                        justify-start
+                        ${styles.ribbon}
+                      `}
+                      style={{
+                        clipPath: "polygon(0 0, 100% 0, 0 100%)",
+                      }}
+                    >
+                      <span
+                        className="
+                          ml-3
+                          mt-2
+                          text-lg
+                          font-bold
+                          text-white
+                        "
+                      >
+                        {step.number}
+                      </span>
+                    </div>
+
+                    <div className="text-center">
+
+                      <h3
+                        className="
+                          text-[23px]
+                          font-bold
+                          leading-tight
+                          tracking-[-0.025em]
+                          text-slate-950
+                        "
+                      >
+                        {step.title}
+                      </h3>
+
+                      <div
+                        className={`
+                          mx-auto
+                          mt-4
+                          h-1
+                          w-12
+                          rounded-full
+                          ${styles.underline}
+                        `}
+                      />
+
+                      <p
+                        className="
+                          mt-5
+                          min-h-[108px]
+                          text-[16px]
+                          leading-7
+                          text-slate-600
+                        "
+                      >
+                        {step.description}
+                      </p>
+
+                      <button
+                        type="button"
+                        onClick={() => setActiveFeature(step.feature)}
+                        className="
+                          group
+                          mt-5
+                          inline-flex
+                          items-center
+                          gap-2
+                          font-semibold
+                          text-orange-500
+                          transition-all
+                          duration-300
+                          hover:gap-3
+                          hover:text-orange-600
+                        "
+                      >
+                        Learn More
+
+                        <ArrowRight
+                          size={18}
+                          className="
+                            transition-transform
+                            duration-300
+                            group-hover:translate-x-1
+                          "
+                        />
+                      </button>
+
+                    </div>
+
+                  </div>
 
                 </div>
+              );
+            })}
 
-                {/* Content */}
+          </div>
+        </div>
 
-                <h3 className="mt-8 text-[30px] font-bold leading-[1.1] tracking-[-0.03em] text-slate-900">
-                  {item.title}
-                </h3>
+        {/* =====================================================
+            BOTTOM BRANDING STRIP
+        ===================================================== */}
 
-                <p className="mt-4 flex-grow text-[17px] leading-[1.75] text-slate-600">
-                  {item.description}
-                </p>
+        <div
+          className="
+            mx-auto
+            mt-14
+            flex
+            max-w-5xl
+            flex-col
+            items-center
+            gap-5
+            rounded-3xl
+            border
+            border-orange-100
+            bg-orange-50/40
+            px-6
+            py-6
+            text-center
+            sm:flex-row
+            sm:justify-center
+            sm:text-left
+          "
+        >
 
-                {/* Footer */}
+          <div
+            className="
+              flex
+              h-14
+              w-14
+              shrink-0
+              items-center
+              justify-center
+              rounded-full
+              bg-orange-100
+            "
+          >
+            <ShieldCheck
+              size={28}
+              className="text-orange-500"
+            />
+          </div>
 
-                <div className="mt-8 flex items-center gap-2 font-medium text-orange-500 transition-all duration-300 group-hover:gap-3">
+          <div className="h-px w-16 bg-orange-200 sm:h-12 sm:w-px" />
 
-                  Learn More
+          <p
+            className="
+              text-xl
+              font-medium
+              text-slate-600
+            "
+          >
+            Har Material ka{" "}
+            <span className="font-bold text-slate-900">
+              Sahi<span className="text-orange-500">Rate</span>
+            </span>
+            .
+          </p>
 
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
+          <div className="hidden h-12 w-px bg-orange-200 sm:block" />
 
-                </div>
-
-              </div>
-            );
-          })}
+          <p
+            className="
+              max-w-xl
+              text-base
+              leading-7
+              text-slate-600
+            "
+          >
+            Sahi jankari, Sahi comparison aur Sahi decision —
+            yahi hai smart construction ki pehchaan.
+          </p>
 
         </div>
 
       </div>
+      <FeatureDetailModal
+        feature={activeFeature}
+        onClose={() => setActiveFeature(null)}
+      />
     </section>
   );
 }
