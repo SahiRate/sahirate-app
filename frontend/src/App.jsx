@@ -20,6 +20,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 
 import SEO from "@/seo/SEO";
 import { Toaster } from "@/components/ui/sonner";
+import Careers from "./pages/Careers";
 
 const STORAGE_KEY = "sahirate-welcome-dismissed";
 
@@ -103,6 +104,11 @@ function App() {
             <Route
               path="/contact"
               element={<Contact />}
+            />
+
+            <Route
+              path="/careers"
+              element={<Careers />}
             />
 
             <Route
