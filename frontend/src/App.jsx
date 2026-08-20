@@ -18,9 +18,10 @@ import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 
-import SEO from "@/seo/SEO";
+import SEO from "@/components/SEO";
 import { Toaster } from "@/components/ui/sonner";
 import Careers from "./pages/Careers";
+import TermsAndConditions from "@/pages/TermsAndConditions";
 
 const STORAGE_KEY = "sahirate-welcome-dismissed";
 
@@ -114,6 +115,11 @@ function App() {
             <Route
               path="/privacy-policy"
               element={<PrivacyPolicy />}
+            />
+
+            <Route
+              path="/terms-and-conditions"
+              element={<TermsAndConditions />}
             />
 
             <Route

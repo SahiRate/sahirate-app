@@ -6,7 +6,7 @@ export default function Careers() {
       <SEO
         title="Careers | SahiRate"
         description="Join SahiRate and help build India's Building Material Intelligence Platform."
-        url="https://www.sahirate.in/careers"
+        path="/careers"
       />
 
       <div className="min-h-[70vh] bg-white">

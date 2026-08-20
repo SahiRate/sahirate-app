@@ -101,7 +101,7 @@ export default function MaterialsList() {
       <SEO
  title="Building Materials Price List | SahiRate"
  description="Check latest cement, steel, sand and construction material prices from trusted sources."
- url="https://www.sahirate.in/materials"
+ path="/materials"
 />
 
       {/* ================================================= */}

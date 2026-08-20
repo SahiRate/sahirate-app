@@ -72,7 +72,15 @@ export default function HeroContent() {
           />
         </Link>
 
-        <button className="group inline-flex items-center gap-2 rounded-[18px] border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10">
+        <button
+        type="button"
+        onClick={() =>
+          document.getElementById("how-it-works")?.scrollIntoView({
+            behavior: "smooth",
+          })
+        }
+        className="group inline-flex items-center gap-2 rounded-[18px] border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10"
+        >
 
           <PlayCircle
             size={18}

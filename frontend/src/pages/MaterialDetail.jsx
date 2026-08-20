@@ -497,7 +497,7 @@ export default function MaterialDetail() {
             {comparison.map((dealer, index) => (
 
               <div
-                key={`${dealer.dealer_id}-${index}`}
+                key={`${dealer.dealer_code}-${index}`}
                 className="rounded-3xl bg-white border border-slate-200 p-7 hover:shadow-xl transition"
               >
 
@@ -510,7 +510,7 @@ export default function MaterialDetail() {
                     <div className="flex flex-wrap items-center gap-3">
 
                       <Link
-                        to={`/dealers/${dealer.dealer_id}`}
+                        to={`/dealers/${dealer.dealer_code}`}
                         className="text-2xl font-bold text-[#0A192F] hover:text-[#FF6B00]"
                       >
                         {dealer.dealer_name}

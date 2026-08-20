@@ -65,7 +65,7 @@ export default function LivePrices({ onOpenSearch }) {
       <SEO
         title="Live Building Material Prices Today | SahiRate"
         description="Get daily updated construction material prices including cement, steel and more."
-        url="https://www.sahirate.in/prices"
+        path="/prices"
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">

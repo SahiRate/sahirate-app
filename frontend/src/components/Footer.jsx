@@ -6,6 +6,7 @@ import {
   Phone,
   Twitter,
   Youtube,
+  MessageCircle,
   ArrowRight,
 } from "lucide-react";
 
@@ -92,12 +93,12 @@ export default function Footer() {
             <div className="space-y-6">
 
               {[
-                ["About", "/about"],
-                ["Contact", "/contact"],
-                ["Careers", "/careers"],
-                ["Privacy Policy", "/privacy-policy"],
-                ["Terms & Conditions", "/terms-and-conditions"],
-              ].map(([title, link]) => (
+                  ["About", "/about"],
+                  ["Contact", "/contact"],
+                  ["Careers", "/careers"],
+                  ["Privacy Policy", "/privacy-policy"],
+                  ["Terms & Conditions", "/terms-and-conditions"],
+                ].map(([title, link]) => (
 
                 <Link
                   key={title}
@@ -176,19 +177,42 @@ export default function Footer() {
               Connect With Us
             </h4>
 
-            <div className="flex gap-5">
-
-              {[Instagram, Twitter, Youtube].map((Icon, i) => (
-
+            
+              <div className="flex gap-5">
                 <a
-                  key={i}
                   href="#"
+                  aria-label="Instagram"
                   className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 transition hover:border-[#FF6B00] hover:bg-[#FF6B00]"
                 >
-                  <Icon size={24} />
+                  <Instagram size={24} />
                 </a>
 
-              ))}
+                <a
+                  href="#"
+                  aria-label="X"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 transition hover:border-[#FF6B00] hover:bg-[#FF6B00]"
+                >
+                  <Twitter size={24} />
+                </a>
+
+                <a
+                  href="#"
+                  aria-label="YouTube"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 transition hover:border-[#FF6B00] hover:bg-[#FF6B00]"
+                >
+                  <Youtube size={24} />
+                </a>
+
+                <a
+                  href="https://wa.me/917870560445"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 transition hover:border-[#FF6B00] hover:bg-[#FF6B00]"
+                >
+                  <MessageCircle size={24} />
+                </a>
+              </div>
 
             </div>
 
@@ -196,11 +220,7 @@ export default function Footer() {
 
         </div>
 
-      </div>
-
-      {/* Bottom */}
-
-      <div
+        <div
           className="border-t"
           style={{
             borderImage:

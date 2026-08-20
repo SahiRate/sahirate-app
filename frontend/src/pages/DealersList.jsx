@@ -238,7 +238,7 @@ export default function DealersList() {
       <SEO
         title="Building Material Dealers Near You | SahiRate"
         description="Find verified building material dealers, compare current material prices, and connect with trusted suppliers."
-        url="https://www.sahirate.in/dealers"
+        path="/dealers"
       />
 
       {/* Hero */}

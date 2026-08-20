@@ -26,8 +26,10 @@ api.interceptors.request.use((config) => {
 
 // ---------------- Public ----------------
 
-export const fetchMaterials = () =>
-    api.get("/materials");
+export const fetchMaterials = async () => {
+    const response = await api.get("/materials");
+    return response.data;
+};
 
 export const fetchMaterial = (slug) =>
     api.get(`/materials/${slug}`);

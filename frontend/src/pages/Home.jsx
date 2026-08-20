@@ -11,13 +11,17 @@ export default function Home() {
   return (
     <>
       <Hero />
-  <IndustryTrust />
-  <WhySahiRate />
-  <DashboardShowcase />
-  <HowItWorks />
-  <TrustSection />
-  <LiveSearchDemo />
-  <VisionSection />
-</>
+      <IndustryTrust />
+      <WhySahiRate />
+      <DashboardShowcase />
+
+      <div id="how-it-works">
+        <HowItWorks />
+      </div>
+
+      <TrustSection />
+      <LiveSearchDemo />
+      <VisionSection />
+    </>
   );
 }

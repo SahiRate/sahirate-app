@@ -770,143 +770,151 @@ export default function AISearchDialog({ open, onOpenChange }) {
                   </div>
 
                   <div className="space-y-2.5">
-                    {result.dealers.map((d, index) => (
-                      <Link
-                        key={d.id}
-                        to={`/dealers/${d.id}`}
-                        onClick={() => onOpenChange(false)}
-                        className="
-                          group
-                          block
-                          rounded-2xl
-                          border border-slate-200
-                          bg-white
-                          p-4
-                          transition-all
-                          hover:-translate-y-[1px]
-                          hover:border-[#FFD0B8]
-                          hover:bg-[#FFFAF7]
-                          hover:shadow-[0_8px_25px_rgba(10,25,47,0.06)]
-                        "
-                      >
-                        <div className="flex items-start justify-between gap-4">
+                  {result.dealers.map((d, index) => (
+    <Link
+      key={d.dealer_code}
+      to={`/dealers/${d.dealer_code}`}
+      onClick={() => onOpenChange(false)}
+      className="
+        group
+        block
+        rounded-2xl
+        border border-slate-200
+        bg-white
+        p-4
+        transition-all
+        hover:-translate-y-[1px]
+        hover:border-[#FFD0B8]
+        hover:bg-[#FFFAF7]
+        hover:shadow-[0_8px_25px_rgba(10,25,47,0.06)]
+      "
+    >
+      <div className="flex items-start justify-between gap-4">
 
-                          <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1">
 
-                            {/* Dealer name + rank */}
-                            <div className="flex items-start gap-2">
-                              <span
-                                className="
-                                  mt-0.5
-                                  flex h-5 w-5 shrink-0
-                                  items-center justify-center
-                                  rounded-full
-                                  bg-slate-100
-                                  text-[9px]
-                                  font-bold
-                                  text-slate-500
-                                "
-                              >
-                                {index + 1}
-                              </span>
+          {/* Dealer name + rank */}
+          <div className="flex items-start gap-2">
 
-                              <div className="min-w-0">
-                                <p className="text-sm font-bold leading-5 text-[#0A192F]">
-                                  {d.name}
-                                </p>
+            <span
+              className="
+                mt-0.5
+                flex h-5 w-5 shrink-0
+                items-center justify-center
+                rounded-full
+                bg-slate-100
+                text-[9px]
+                font-bold
+                text-slate-500
+              "
+            >
+              {index + 1}
+            </span>
 
-                                <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500">
+            <div className="min-w-0">
 
-                                  <span className="inline-flex items-center gap-1">
-                                    <MapPin className="h-3.5 w-3.5" />
-                                    {d.area}
-                                  </span>
+              <p className="text-sm font-bold leading-5 text-[#0A192F]">
+                {d.name}
+              </p>
 
-                                  <span className="inline-flex items-center gap-1">
-                                    <Star className="h-3.5 w-3.5 fill-[#FF8A3D] text-[#FF8A3D]" />
-                                    <span className="font-semibold text-slate-700">
-                                      {d.rating}
-                                    </span>
-                                  </span>
+              <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500">
 
-                                </div>
-                              </div>
-                            </div>
+                <span className="inline-flex items-center gap-1">
+                  <MapPin className="h-3.5 w-3.5" />
+                  {d.area}
+                </span>
 
-                            {/* Badges */}
-                            <div className="mt-3 flex flex-wrap gap-2 pl-7">
+                <span className="inline-flex items-center gap-1">
+                  <Star className="h-3.5 w-3.5 fill-[#FF8A3D] text-[#FF8A3D]" />
+                  <span className="font-semibold text-slate-700">
+                    {d.rating}
+                  </span>
+                </span>
 
-                              {d.verified && (
-                                <span
-                                  className="
-                                    inline-flex items-center gap-1.5
-                                    rounded-full
-                                    bg-emerald-50
-                                    px-2.5 py-1
-                                    text-[10px]
-                                    font-semibold
-                                    text-emerald-700
-                                  "
-                                >
-                                  <ShieldCheck className="h-3.5 w-3.5" />
-                                  Verified
-                                </span>
-                              )}
+              </div>
 
-                              {d.delivery && (
-                                <span
-                                  className="
-                                    inline-flex items-center gap-1.5
-                                    rounded-full
-                                    bg-orange-50
-                                    px-2.5 py-1
-                                    text-[10px]
-                                    font-semibold
-                                    text-[#D85A25]
-                                  "
-                                >
-                                  <Package className="h-3.5 w-3.5" />
-                                  Home Delivery
-                                </span>
-                              )}
+            </div>
 
-                            </div>
-                          </div>
+          </div>
 
-                          {/* Price + arrow */}
-                          <div className="flex shrink-0 items-center gap-3">
+          {/* Badges */}
+          <div className="mt-3 flex flex-wrap gap-2 pl-7">
 
-                            <div className="text-right">
-                              <p className="text-[9px] uppercase tracking-[0.1em] text-slate-400">
-                                Listed
-                              </p>
+            {d.verified && (
+              <span
+                className="
+                  inline-flex items-center gap-1.5
+                  rounded-full
+                  bg-emerald-50
+                  px-2.5 py-1
+                  text-[10px]
+                  font-semibold
+                  text-emerald-700
+                "
+              >
+                <ShieldCheck className="h-3.5 w-3.5" />
+                Verified
+              </span>
+            )}
 
-                              <p className="mt-0.5 text-base font-bold text-[#0A192F]">
-                                ₹{d.price?.toLocaleString("en-IN")}
-                              </p>
-                            </div>
+            {d.delivery && (
+              <span
+                className="
+                  inline-flex items-center gap-1.5
+                  rounded-full
+                  bg-orange-50
+                  px-2.5 py-1
+                  text-[10px]
+                  font-semibold
+                  text-[#D85A25]
+                "
+              >
+                <Package className="h-3.5 w-3.5" />
+                Home Delivery
+              </span>
+            )}
 
-                            <div
-                              className="
-                                flex h-9 w-9
-                                items-center justify-center
-                                rounded-full
-                                border border-slate-200
-                                text-slate-400
-                                transition-all
-                                group-hover:border-[#FF5722]
-                                group-hover:bg-[#FFF4ED]
-                                group-hover:text-[#FF5722]
-                              "
-                            >
-                              <ArrowRight className="h-4 w-4" />
-                            </div>
+          </div>
 
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+        </div>
+
+        {/* Price + arrow */}
+        <div className="flex shrink-0 items-center gap-3">
+
+          <div className="text-right">
+
+            <p className="text-[9px] uppercase tracking-[0.1em] text-slate-400">
+              Listed
+            </p>
+
+            <p className="mt-0.5 text-base font-bold text-[#0A192F]">
+              ₹{d.price?.toLocaleString("en-IN")}
+            </p>
+
+          </div>
+
+          <div
+            className="
+              flex h-9 w-9
+              items-center justify-center
+              rounded-full
+              border border-slate-200
+              text-slate-400
+              transition-all
+              group-hover:border-[#FF5722]
+              group-hover:bg-[#FFF4ED]
+              group-hover:text-[#FF5722]
+            "
+          >
+            <ArrowRight className="h-4 w-4" />
+          </div>
+
+        </div>
+
+      </div>
+    </Link>
+  ))}
+</div>
                 </div>
               )}
 

@@ -21,7 +21,10 @@ export default function SEO({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content="SahiRate" />
-      <meta name="robots" content="index, follow, max-image-preview:large" />
+      <meta
+        name="robots"
+        content="index, follow, max-image-preview:large"
+      />
 
       <link rel="canonical" href={canonical} />
 
@@ -56,11 +59,6 @@ export default function SEO({
           "@type": "WebSite",
           name: "SahiRate",
           url: SITE_URL,
-          potentialAction: {
-            "@type": "SearchAction",
-            target: `${SITE_URL}/search?q={search_term_string}`,
-            "query-input": "required name=search_term_string",
-          },
         })}
       </script>
     </Helmet>
