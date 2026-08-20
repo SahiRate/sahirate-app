@@ -254,7 +254,7 @@ export default function MaterialsList() {
                     <div className="aspect-[16/10] overflow-hidden bg-slate-100">
 
                       <img
-                        src={m.image}
+                        src={`/images/materials/${m.image}`}
                         alt={m.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                       />
