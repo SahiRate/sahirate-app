@@ -196,6 +196,48 @@ def sahiai_local_response(query: str):
 # ==========================================================
 # DATABASE SEED
 # ==========================================================
+async def migrate_master_data():
+    """Update existing local material records with master catalog data."""
+
+    for material in MATERIALS:
+        if material["slug"] not in {"cement", "tmt-steel"}:
+            continue
+
+        await db.materials.update_one(
+            {"slug": material["slug"]},
+            {
+                "$set": {
+                    "brand_catalog": material.get(
+                        "brand_catalog",
+                        [],
+                    )
+                }
+            },
+        )
+
+async def migrate_dealer_codes():
+    """Backfill dealer_code for existing local dealer records."""
+
+    dealers = await db.dealers.find(
+        {
+            "dealer_code": {"$exists": False},
+            "id": {"$exists": True},
+        },
+        {
+            "_id": 1,
+            "id": 1,
+        },
+    ).to_list(500)
+
+    for dealer in dealers:
+        await db.dealers.update_one(
+            {"_id": dealer["_id"]},
+            {
+                "$set": {
+                    "dealer_code": dealer["id"],
+                }
+            },
+        )
 
 async def seed_if_empty():
     """Populate default collections only if empty."""
@@ -226,6 +268,9 @@ async def seed_if_empty():
 
 @app.on_event("startup")
 async def on_startup():
+    await seed_if_empty()
+    await migrate_master_data() 
+    await migrate_dealer_codes()
     app.state.mongodb = db
     app.state.secret_key = SECRET_KEY
 

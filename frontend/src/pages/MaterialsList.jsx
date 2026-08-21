@@ -84,9 +84,25 @@ export default function MaterialsList() {
 
       default:
 
-        data.sort((a, b) =>
-  (a?.name || "").localeCompare(b?.name || "")
-);
+  const materialOrder = [
+    "cement",
+    "tmt-steel",
+    "aggregate",
+    "river-sand",
+    "stone-chips",
+    "binding-wire",
+    "bricks",
+  ];
+
+  data.sort((a, b) => {
+    const aIndex = materialOrder.indexOf(a?.slug);
+    const bIndex = materialOrder.indexOf(b?.slug);
+
+    const aRank = aIndex === -1 ? 999 : aIndex;
+    const bRank = bIndex === -1 ? 999 : bIndex;
+
+    return aRank - bRank;
+  });
 
     }
 

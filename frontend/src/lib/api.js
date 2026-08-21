@@ -2,7 +2,9 @@ import axios from "axios";
 
 const BACKEND_URL =
     import.meta.env.VITE_BACKEND_URL ||
-    "https://sahirate-api.onrender.com";
+    (import.meta.env.DEV
+        ? "http://127.0.0.1:8000"
+        : "https://sahirate-api.onrender.com");
 
 const API = `${BACKEND_URL}/api`;
 
@@ -31,8 +33,10 @@ export const fetchMaterials = async () => {
     return response.data;
 };
 
-export const fetchMaterial = (slug) =>
-    api.get(`/materials/${slug}`);
+export const fetchMaterial = async (slug) => {
+    const response = await api.get(`/materials/${slug}`);
+    return response.data;
+};
 
 export const fetchDealers = (params) =>
     api.get("/dealers", { params });

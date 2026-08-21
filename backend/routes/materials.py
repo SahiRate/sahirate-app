@@ -36,10 +36,8 @@ async def migrate_material_images(db):
     Convert old external image URLs to the local
     SahiRate material image filenames.
 
-    Only external URLs are replaced.
-
-    If an admin has already selected a local image,
-    that selected image is NOT overwritten.
+    Missing images and old external URLs are replaced.
+    Existing local images are preserved.
     """
 
     for slug, filename in LOCAL_MATERIAL_IMAGES.items():
@@ -54,12 +52,16 @@ async def migrate_material_images(db):
 
         current_image = material.get("image")
 
-        # Only migrate old external URLs.
+        # Set local image when image is missing
+        # or when an old external URL is stored.
         if (
-            isinstance(current_image, str)
-            and (
-                current_image.startswith("http://")
-                or current_image.startswith("https://")
+            not current_image
+            or (
+                isinstance(current_image, str)
+                and (
+                    current_image.startswith("http://")
+                    or current_image.startswith("https://")
+                )
             )
         ):
             await db.materials.update_one(
@@ -70,8 +72,6 @@ async def migrate_material_images(db):
                     }
                 },
             )
-
-
 # ==========================================================
 # LIST MATERIALS
 # ==========================================================
@@ -104,8 +104,7 @@ async def material_detail(
 
     db = request.app.state.mongodb
 
-    # Migrate old image if this material still has
-    # an external image URL.
+    # Migrate missing or old external image
     if slug in LOCAL_MATERIAL_IMAGES:
 
         material_check = await db.materials.find_one(
@@ -118,10 +117,13 @@ async def material_detail(
             current_image = material_check.get("image")
 
             if (
-                isinstance(current_image, str)
-                and (
-                    current_image.startswith("http://")
-                    or current_image.startswith("https://")
+                not current_image
+                or (
+                    isinstance(current_image, str)
+                    and (
+                        current_image.startswith("http://")
+                        or current_image.startswith("https://")
+                    )
                 )
             ):
                 await db.materials.update_one(

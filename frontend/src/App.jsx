@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import "@/App.css";
 import { Routes, Route } from "react-router-dom";
 
@@ -7,21 +7,21 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import AISearchDialog from "@/components/AISearchDialog";
 import WelcomeOverlay from "@/components/WelcomeOverlay";
-
-import Home from "@/pages/Home";
-import MaterialsList from "@/pages/MaterialsList";
-import MaterialDetail from "@/pages/MaterialDetail";
-import DealersList from "@/pages/DealersList";
-import DealerDetail from "@/pages/DealerDetail";
-import LivePrices from "@/pages/LivePrices";
-import About from "@/pages/About";
-import Contact from "@/pages/Contact";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
+const Home = lazy(() => import("@/pages/Home"));
+const MaterialsList = lazy(() => import("@/pages/MaterialsList"));
+const MaterialDetail = lazy(() => import("@/pages/MaterialDetail"));
+const DealersList = lazy(() => import("@/pages/DealersList"));
+const DealerDetail = lazy(() => import("@/pages/DealerDetail"));
+const LivePrices = lazy(() => import("@/pages/LivePrices"));
+const About = lazy(() => import("@/pages/About"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const Careers = lazy(() => import("./pages/Careers"));
+const TermsAndConditions = lazy(() => import("@/pages/TermsAndConditions"));
 
 import SEO from "@/components/SEO";
 import { Toaster } from "@/components/ui/sonner";
-import Careers from "./pages/Careers";
-import TermsAndConditions from "@/pages/TermsAndConditions";
+
 
 const STORAGE_KEY = "sahirate-welcome-dismissed";
 
@@ -60,6 +60,16 @@ function App() {
           className="min-h-screen"
           data-testid="app-main"
         >
+          <Suspense
+            fallback={
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="text-sm text-slate-500">
+                  Loading...
+                </div>
+              </div>
+            }
+          >
+  
           <Routes>
             <Route
               path="/"
@@ -117,6 +127,7 @@ function App() {
               element={<PrivacyPolicy />}
             />
 
+           
             <Route
               path="/terms-and-conditions"
               element={<TermsAndConditions />}
@@ -137,6 +148,7 @@ function App() {
               }
             />
           </Routes>
+          </Suspense>
         </main>
 
         <Footer />

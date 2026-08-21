@@ -1,10 +1,8 @@
-SahiRate Project State
+SahiRate — Project State
 
-Purpose: Master checkpoint for the SahiRate project. Keep this file in the project root so development continuity does not depend only on chat history.
+Single source of truth for project continuity. Do not append duplicate full checkpoints.
 
-1. Project
-
-Project: SahiRate
+Project
 
 Website: https://www.sahirate.in
 
@@ -12,815 +10,409 @@ Repository: SahiRate/sahirate-app
 
 Product: India's Building Material Intelligence Platform
 
-Current phase: Frontend + Backend integration, UI finalization and production-readiness
+Primary market: Deoghar, Jharkhand
 
-Current verified working area: Live Prices
+Current phase: Phase 2 — Materials architecture, Deoghar market master data, integration and production stabilization
 
-2. Overall Current Status
+Git / Production
 
-Completed / verified recently
+Working/live branch: checkpoint-2026-08-19
 
-Main frontend pages/components have been substantially redesigned and are running on the current Vite setup.
+main: not overwritten
 
-About page UI has been balanced/finalized through the current sections:
+Latest pushed commit: 31fcbc7 — Fix material image paths
 
-Why SahiRate / Mission / Vision / Future
+Frontend: Vercel
 
-Problem / Why SahiRate
+Backend: Render
 
-Expansion Plan
+Production site: https://www.sahirate.in
 
-Core Values
+Production API: https://sahirate-api.onrender.com
 
-Final CTA
+Recent commits:
 
-Contact page UI and enquiry form are present and visually functional.
+496bcdb — Careers page
 
-Home page hero and CTA sections have been worked on; HeroContent.jsx and related home components are active.
+c8ab27c — Phase 2 materials data flow and homepage fixes
 
-Live Prices page is now successfully connected to the production backend.
-
-Production API endpoint has been directly verified from PowerShell with HTTP 200.
-
-Production CORS preflight has been verified for http://localhost:3000 with HTTP 200.
-
-Frontend Vite server is currently working with:
-npm.cmd run dev
-
-Current frontend local URL:
-http://localhost:3000/
-
-Current frontend is a Vite app; do not use the historical npm start instruction.
-
-Current Live Prices result
-
-The /prices page successfully displays live data from:
-https://sahirate-api.onrender.com/api/prices/daily
-
-Verified current board response includes:
-
-Aggregate — ₹60.46 avg — 13 dealers — trend down
-
-Cement — ₹420.40 avg — 15 dealers — trend flat
-
-Red Bricks — ₹8,530.14 avg — 14 dealers — trend down
-
-River Sand — ₹51.40 avg — 10 dealers — trend up
-
-Stone Chips — ₹68.91 avg — 11 dealers — trend flat
-
-TMT Steel — ₹6,866.77 avg — 13 dealers — trend down
-
-Live Prices status: DONE / VERIFIED.
-
-3. Current Frontend Architecture
-
-Stack
-
-React
-
-React Router
-
-Vite
-
-Axios
-
-Tailwind/CSS utility styling
-
-Lucide React icons
-
-Important frontend areas
-
-frontend/src/App.jsx
-
-frontend/src/components/Navbar.jsx
-
-frontend/src/components/Footer.jsx
-
-frontend/src/components/AISearchDialog.jsx
-
-frontend/src/components/WelcomeOverlay.jsx
-
-frontend/src/components/home/
-
-frontend/src/pages/Home.jsx
-
-frontend/src/pages/MaterialsList.jsx
-
-frontend/src/pages/MaterialDetail.jsx
-
-frontend/src/pages/DealersList.jsx
-
-frontend/src/pages/DealerDetail.jsx
-
-frontend/src/pages/LivePrices.jsx
-
-frontend/src/pages/About.jsx
-
-frontend/src/pages/Contact.jsx
-
-frontend/src/lib/api.js
-
-frontend/src/seo/SEO.jsx / current SEO component location must be verified before edits
-
-Current API configuration
-
-frontend/src/lib/api.js uses:
-
-const BACKEND_URL =
-  import.meta.env.VITE_BACKEND_URL ||
-  "https://sahirate-api.onrender.com";
-
-const API = `${BACKEND_URL}/api`;
-
-The frontend .env was corrected from the local-only backend URL to:
-
-VITE_BACKEND_URL=https://sahirate-api.onrender.com
-
-After changing .env, Vite must be restarted.
-
-Important: Do not revert this production API URL unless deliberately switching to a local backend test environment.
-
-4. Live Prices — Completed
+31fcbc7 — Fix material image paths
 
 Frontend
 
-frontend/src/pages/LivePrices.jsx now has:
+React + React Router + Vite + Axios + Tailwind/CSS + Lucide
 
-loading state
+Active SEO component: frontend/src/components/SEO.jsx
 
-API error state
+Old frontend/src/seo/SEO.jsx removed
 
-empty-data state
+Important pages/components include Home, Materials, Material Detail, Dealers, Dealer Detail, Live Prices, About, Contact, Careers, Terms & Conditions, Navbar, Footer, WelcomeOverlay and AISearchDialog.
 
-successful price-board rendering
+API Configuration
 
-60-second refresh interval
+Production frontend environment:
+VITE_BACKEND_URL=https://sahirate-api.onrender.com
 
-trend icons
+Do not replace this with localhost except for deliberate local backend testing.
 
-material detail links
+Completed / Verified
 
-Ask AI CTA
+Homepage
 
-The successful pattern is:
+Startup-style redesign substantially completed.
 
-const result = await fetchDailyPrices();
-setData(result);
+Hero, stats, dashboard showcase, How It Works, trust, live search/demo and vision sections active.
 
-with proper try/catch/finally handling.
+Explore Live Prices routes to /prices.
 
-Backend/API verification
+See How It Works uses smooth scrolling.
 
-Verified directly:
+Final responsive/functional QA remains pending.
 
-GET https://sahirate-api.onrender.com/api/prices/daily
-HTTP/1.1 200 OK
+Navigation / Footer
 
-The endpoint returns the expected JSON price board.
+Navbar and Footer updated.
 
-CORS verification
+Careers route added.
 
-Verified:
+Terms & Conditions route added.
 
-OPTIONS https://sahirate-api.onrender.com/api/prices/daily
-Origin: http://localhost:3000
-Access-Control-Request-Method: GET
-
-Response returned HTTP 200 and:
-
-access-control-allow-origin: http://localhost:3000
-access-control-allow-credentials: true
-
-Therefore the previously suspected CORS issue is resolved / not currently a blocker.
-
-5. Backend
-
-Stack
-
-FastAPI
-
-MongoDB
-
-Uvicorn
-
-JWT-based admin authentication
-
-API areas
+WhatsApp/contact entry added.
 
 Materials
 
-Dealers
+Production /api/materials returns material data.
 
-Prices
+fetchMaterials() correctly consumes API response.
 
-Search / AI search
+Materials cards render from production API.
 
-Admin
+Dealer links use dealer_code.
 
-Dealer onboarding
+Material detail routes use slugs.
 
-Current backend changes known from working tree
+Material Images
 
-Modified files previously observed include:
+Images were available in admin/public/images/materials/ and have also been added to:
+frontend/public/images/materials/
 
-backend/routes/dealers.py
+MaterialsList.jsx now uses:
+src={\/images/materials/${m.image}`}`
 
-backend/routes/materials.py
+Image fix was committed/pushed as 31fcbc7.
 
-backend/schemas/dealer.py
+Live Prices
 
-backend/schemas/material.py
+Status: DONE / VERIFIED
 
-backend/seed_data.py
+Production /api/prices/daily returns HTTP 200.
 
-backend/server.py
+Live board renders Aggregate, Cement, Red Bricks, River Sand, Stone Chips and TMT Steel.
 
-backend/routes/onboarding.py (new/untracked at the checkpoint)
+Loading/error/empty states, trend indicators, material links and 60-second refresh are implemented.
 
-backend/master/ (new/untracked at the checkpoint)
+Production CORS was verified during testing.
 
-backend/utils/ (new/untracked at the checkpoint)
+Current Materials Issues
 
-admin/ (new/untracked at the checkpoint)
+Materials cards still show:
 
-These files should be reviewed before commit. Do not blindly commit or discard them.
+Min = --
 
-CORS configuration
+Average = --
 
-backend/server.py includes allowed origins for:
+Max = --
 
-http://localhost:3000
+Dealer Count = 0
 
-http://127.0.0.1:3000
+Cause: /api/materials list response does not currently attach the required stats object.
 
-http://localhost:3001
+Required stats:
 
-http://127.0.0.1:3001
+stats.min
 
-http://localhost:5173
+stats.max
 
-http://127.0.0.1:5173
+stats.avg
 
-https://sahirate.in
+stats.dealer_count
 
-https://www.sahirate.in
+Do not break the existing material detail endpoint while fixing this.
 
-The production endpoint has already been verified against localhost:3000.
+AAC Blocks
 
-6. Vendor / Dealer Onboarding — PENDING
+ac-blocks exists but currently lacks the required image value.
 
-The intended workflow is:
+Required mapping:
+ac-blocks → AAC_Blocks.jpg
 
-Dealer/vendor submits onboarding information.
+Deoghar Market Master Data — PRIMARY PRIORITY
 
-Application remains controlled/pending.
+SahiRate must be designed around the Deoghar market first.
 
-Admin reviews application.
+Required hierarchy:
 
-Field verification is completed.
+Category → Material → Brand → Product / Sub-brand → Grade / Size / Variant → Dealer → Local Price
 
-Mobile OTP/claim verification is completed as required.
+Examples:
 
-Final approval is performed securely.
+Cement → Brand → Product → Grade
 
-Dealer ID is generated at the appropriate approval stage.
+TMT Steel → Brand → Product → Grade → Diameter
 
-Approved dealer becomes available in the intended dealer/public flow.
+Bricks → Type → Local Manufacturer/Brand → Size
 
-Previously verified
+AAC Blocks → Brand → Size
 
-Backend startup and health endpoint were verified locally.
+Plumbing → Brand → Product → Size/Specification
 
-Swagger/OpenAPI loaded successfully.
+Market rule
 
-Dealer onboarding creation endpoint was tested successfully.
+Do not create a generic India-wide brand list merely because a brand exists nationally.
 
-Public listing endpoint was tested successfully.
+Each brand/product should eventually be classified:
 
-Public-field allow-list was tested.
+DEOGAR_MARKET_ACTIVE
 
-Admin login returned HTTP 200 and a JWT.
+AVAILABLE_ON_ORDER
 
-OTP request API returned OTP_REQUESTED.
+NOT_YET_VERIFIED
 
-Still pending
+Prices must come from actual dealer/market data. Never fabricate local prices.
 
-Admin JWT authorization in Swagger/test client.
+Candidate master data should be based on:
 
-Successful field verification for test application:
-6a842267e5a70a1e92f32687
+Deoghar dealer evidence
 
-Final approval security test.
+Deoghar project/tender approved-make evidence
 
-Successful final approval and Dealer ID generation.
+Dealer-submitted products
 
-Verify approved dealer appears correctly in dealer/public flow.
+Actual local price observations
 
-Real mobile OTP delivery and OTP verification.
+Public Deoghar/Jharkhand evidence can identify candidates, but national availability alone is not proof of Deoghar stock.
 
-Production-grade validation and role/status testing.
+Target Data Model
 
-Important security rule
+The current brands: [...] array is useful for display but not sufficient for scalable price intelligence.
 
-Final approval must not mark a dealer as verified unless all required verification conditions are satisfied.
+Target logical entities:
 
-Do not weaken or bypass authentication merely to make the test pass.
+materials
 
-SMS status
+brands
 
-SpringEdge SMS testing is paused.
+products
 
-Real OTP delivery was not confirmed.
+variants
 
-Resume SMS provider integration separately; do not alter core OTP logic unnecessarily.
+dealer_prices
 
-7. Materials — NEXT PRIORITY
+Example:
+Cement → JK Cement → JK Super → PPC → Dealer X → local price
 
-Live Prices cards link to:
+First finalize the Deoghar master data; then implement schema changes in small, testable steps.
 
-/materials/{slug}
+Dealers / Vendor Onboarding
 
-Therefore the next practical frontend verification is:
+Intended workflow:
+Dealer submits → Pending → Admin review → Verification → OTP/claim where required → Final approval → Dealer ID → Public dealer flow
 
-Open /materials.
+Still pending full production-grade verification. Never bypass authentication or verification requirements.
 
-Verify material list loads from production API.
+Contact
 
-Open each material detail route.
+UI substantially complete.
 
-Verify data, price/unit, trend and dealer information.
+Pending:
 
-Verify broken/missing slug handling.
+end-to-end production submission test
 
-Check mobile layout.
+confirm delivery/storage mechanism
 
-Status: PENDING verification.
+production feedback capture workflow
 
-8. Dealers — PENDING VERIFICATION
+SahiAI / Ask AI
 
-Need to verify:
+NOT PRODUCTION READY
 
-/dealers list loads from backend.
+Keep hidden or clearly marked Coming Soon until backend, frontend, security/rate limiting, input handling and reliability are verified.
 
-Dealer cards display correctly.
+SEO
 
-Dealer detail route works.
+Approximately 70–75% complete.
 
-Search/filter/sort behavior works if implemented.
+Completed:
 
-Public fields do not expose private/admin data.
+central SEO component
 
-Approved/onboarded dealers integrate correctly with public dealer flow.
+titles/descriptions/keywords
 
-Mobile layout is acceptable.
+canonical URLs
 
-Status: PENDING.
+robots
 
-9. Contact — PARTIALLY COMPLETE / NEEDS FINAL TEST
+Open Graph basics
 
-Current Contact page includes:
+Twitter metadata
 
-Hero section
+basic Website JSON-LD
 
-Email information
+sitemap
 
-Location information
+robots.txt
 
-Business hours
+Google verification file
 
-Enquiry form
+page-level path corrections
 
-Name/email/message validation
+Remaining:
 
-Enquiry type selection
+Full public-page SEO audit
 
-Send Enquiry CTA
+Material Detail dynamic SEO
 
-The current UI has been visually corrected.
+Dealer Detail dynamic SEO
 
-Still pending
+Page-specific structured data
 
-Test the form end-to-end.
+Production canonical verification
 
-Confirm exactly how the enquiry is delivered/stored.
+Check for localhost/development URLs in metadata
 
-If it currently opens the user's default email application, decide whether production should retain that or use a backend/contact-service workflow.
+Final production indexing verification
 
-Add/verify Contact Us / Feedback capture for production.
+SEO remains a separate workstream after product/data architecture is stable.
 
-Status: UI DONE; production workflow PENDING.
+Responsive / QA
 
-10. Ask AI / SahiAI — NOT PRODUCTION READY
+Final QA remains pending for Home/About and the broader public site:
 
-Current UI contains Ask AI entry points, including the Live Prices page button.
+desktop 1440+
 
-Product decision remains:
+laptop ~1280
 
-Ask AI should remain hidden or be clearly shown as Coming Soon until fully tested and production-ready.
+tablet
 
-Pending
+mobile 390 / 430
 
-Verify current AI search backend behavior.
+navbar, hero, cards, buttons, typography, forms, footer, overflow, contrast, touch targets
 
-Verify frontend dialog behavior.
+Branding / Product Decisions
 
-Verify error/loading states.
+Positioning: India's Building Material Intelligence Platform
 
-Verify security/rate limiting/input handling.
+Tagline: Har Material ka SahiRate.
 
-Decide whether to expose the feature publicly.
+Supporting line: Sahi Jankari. Behtar Faisle.
 
-If not production-ready, replace active-looking CTA with Coming Soon rather than implying a working production feature.
+Communicate transparency, trust, market intelligence and smarter construction decisions.
 
-Status: PENDING / NOT PRODUCTION READY.
+Do not prominently identify Sangam Infra Resources on public SahiRate pages.
 
-11. Home Page — FINAL QA PENDING
+Do not change the logo without explicit decision.
 
-Home page has been substantially redesigned.
+Keep premium navy + orange visual language.
 
-Known active areas include:
+Environment
 
-Hero
-
-Hero stats
-
-Live price CTA
-
-How It Works
-
-Dashboard showcase
-
-Feature cards
-
-Live search/demo sections
-
-Trust/why SahiRate sections
-
-Vision/future content
-
-Important recent issue
-
-HeroContent.jsx previously produced:
-
-Uncaught ReferenceError: HeroStats is not defined
-
-The project contains HeroStats.jsx and the current HeroContent.jsx includes its import, but this should be rechecked after any further Home changes.
-
-Pending
-
-Test all Home CTAs.
-
-Verify Explore Live Prices navigates to /prices.
-
-Verify See How It Works opens/navigates to the intended How It Works behavior.
-
-Verify mobile responsiveness.
-
-Check contrast/readability of all sections.
-
-Remove or hide any unfinished functionality.
-
-Status: UI largely complete; final functional QA pending.
-
-12. About Page — UI WORK COMPLETED / FINAL QA PENDING
-
-Current About page includes:
-
-Why SahiRate
-
-Mission / Vision / Future cards
-
-Problem statement / Why better information
-
-Why SahiRate feature panel
-
-Expansion Plan: Deoghar → India
-
-Core Values
-
-Final CTA
-
-Recent corrections improved text visibility and visual balance, including the CTA heading:
-
-Ready to Build Smarter?
-
-Pending
-
-Final desktop/mobile QA.
-
-Check section spacing and overflow.
-
-Verify roadmap text contrast on mobile.
-
-Verify CTA links.
-
-Status: UI DONE; final QA PENDING.
-
-13. Branding / Product Decisions
-
-Main positioning:
-India's Building Material Intelligence Platform
-
-Main tagline:
-Har Material ka Sahi Rate.
-
-Supporting positioning:
-Sahi Jankari. Behtar Faisle.
-
-SahiRate should communicate transparency, trust, market intelligence and smarter construction decisions.
-
-Public SahiRate branding should not prominently identify Sangam Infra Resources as the developer.
-
-Logo should not be changed without an explicit decision.
-
-Keep the overall visual language around navy + orange, premium and clean.
-
-14. SEO — PENDING FINALIZATION
-
-SEO component exists and the site URL is:
-
-https://www.sahirate.in
-
-Pending
-
-Verify every page has correct title and description.
-
-Verify canonical URLs.
-
-Verify Open Graph metadata.
-
-Verify page-specific descriptions for Materials, Dealers, Prices, About and Contact.
-
-Verify sitemap/robots setup for production.
-
-Verify no development/local URLs are exposed in production metadata.
-
-Status: Needs final SEO audit.
-
-15. Responsive / Production QA — PENDING
-
-Before production release, verify at minimum:
-
-Desktop 1440px+
-
-Laptop ~1280px
-
-Tablet
-
-Mobile 390px / 430px
-
-Check:
-
-Navbar
-
-Hero
-
-Cards
-
-Buttons
-
-Typography
-
-Roadmap
-
-Forms
-
-Footer
-
-Horizontal overflow
-
-Text contrast
-
-Touch targets
-
-Status: PENDING.
-
-16. Git / Release Status
-
-The working tree previously contained multiple modified and untracked files. Do not assume everything is committed.
-
-Pending Git work
-
-Review git status from project root.
-
-Review important diffs.
-
-Separate intended project changes from accidental/unrelated files.
-
-Run frontend build:
-npm.cmd run build
-
-Run backend checks/tests as applicable.
-
-Commit in logical groups.
-
-Push to GitHub.
-
-Record the final commit hash here.
-
-Important: Earlier attempts to run git add backend/server.py while already inside backend caused a path error. Run Git commands from the project root when using root-relative paths.
-
-17. Current Environment Commands
-
-Frontend
-
-Current frontend is Vite.
-
-From:
-
+Frontend:
 C:\Users\sunil\Documents\GitHub\sahirate-app\frontend
 
-Use:
-
+Commands:
 npm.cmd run dev
+npm.cmd run build
 
-Current verified local URL:
-
+Current local URL:
 http://localhost:3000/
 
-Do not use the historical npm start instruction.
+Historical CRACO/npm-start issues should not be reopened unless a current test requires it.
 
-Backend
+Project Rules
 
-Project backend is FastAPI/Uvicorn.
+Do not repeat completed work unless verification shows a real problem.
 
-Use the actual configured Python launcher/environment after checking the current environment. Historical local command was:
+Do not guess current code state.
 
-py -m uvicorn server:app --reload
+Inspect files before editing.
 
-Verify current environment before running it.
+Make small, testable changes.
 
-18. Historical Environment Notes
+Update this state file after meaningful sessions.
 
-Earlier development encountered:
+Do not fabricate prices, dealer data, brand availability or local market facts.
 
-date-fns / react-day-picker dependency conflict.
+Do not expose unfinished AI as production-ready.
 
-CRACO ajv/dist/compile/codegen startup issue.
+Do not change CORS/API without demonstrated need.
 
-Old frontend setup used CRACO and npm start.
+Do not replace production API configuration with localhost unintentionally.
 
-These are historical. The current frontend is Vite and uses npm.cmd run dev.
+Keep checkpoint-2026-08-19 as active working/live branch unless explicitly changed.
 
-Do not reopen old dependency/setup work unless a current test demonstrates that it is necessary.
+Do not overwrite main without explicit approval.
 
-19. Rules for Continuing the Project
+Exact Next Development Order
 
-Do not repeat completed work unless verification shows it is necessary.
+Finalize Deoghar Material → Brand → Product/Sub-brand → Variant structure.
 
-Do not guess the current code state.
+Create initial Deoghar-relevant brand/product master.
 
-Before changing a file, inspect its current contents and related imports/routes.
+Implement compatible backend/database model.
 
-Make changes in small, testable steps.
+Fix Material Stats.
 
-After each meaningful change, update this state file.
+Fix AAC Blocks image/product mapping.
 
-Record important architecture and workflow decisions here.
+Complete Material Detail QA.
 
-Keep production/security considerations in mind for authentication, onboarding and admin approval.
+Verify Dealers.
 
-Do not expose unfinished AI functionality as production-ready.
+Finalize Contact production workflow.
 
-Prefer backward-compatible changes unless a breaking change is explicitly required.
+Keep SahiAI Coming Soon until production-ready.
 
-Do not change backend CORS or API code without a demonstrated need; production Live Prices API and CORS are currently verified.
+Complete SEO to 100%.
 
-Do not replace working production API configuration with localhost unless intentionally testing a local backend.
+Complete responsive QA.
 
-Keep the project checkpoint current before ending a major development session.
+Production build, Git review, push and smoke test.
 
-20. Current Session Checkpoint — 2026-08-18
+Current Checkpoint — 2026-08-21
 
-What was fixed / verified in this session
+Completed:
 
-Identified that npm start was invalid because the current frontend package uses Vite.
+Production frontend build verified.
 
-Verified npm.cmd run scripts:
+Materials production API verified.
 
-dev → vite
+Material image issue identified and fixed.
 
-build → vite build
+Material images added to frontend public assets.
 
-preview → vite preview
+MaterialsList.jsx image path fixed.
 
-lint → eslint src --ext js,jsx
+Image fix pushed as 31fcbc7.
 
-format → prettier --write .
+Remaining Materials issues isolated to stats and AAC Blocks mapping.
 
-Started Vite successfully with npm.cmd run dev.
+Decision made to prioritize Deoghar-focused Brand/Product/Sub-brand/Variant architecture before generic nationwide data.
 
-Verified Vite is serving the frontend at http://localhost:3000/.
+SEO confirmed incomplete and kept as a later workstream.
 
-Diagnosed Live Prices Network Error as an incorrect frontend .env backend URL.
+Current blockers:
 
-Correct production backend URL identified:
-https://sahirate-api.onrender.com
+Material stats missing on list cards.
 
-Correct frontend .env value:
-VITE_BACKEND_URL=https://sahirate-api.onrender.com
+AAC Blocks image mapping incomplete.
 
-Restarted/verified Vite after the environment correction.
+Deoghar market master data not finalized.
 
-Direct production API test returned HTTP 200 and the expected live price board.
+Brand/product/sub-brand/variant data model not yet implemented.
 
-CORS preflight from http://localhost:3000 returned HTTP 200 with the expected allow-origin header.
+Exact next action:
+Finalize the Deoghar master-data structure and initial Deoghar-relevant brand/product list before changing the backend schema.
 
-/prices now successfully renders the live material price cards.
+Single Source of Truth
 
-Current blocker
-
-There is no current blocker on Live Prices.
-
-Current exact next development step
-
-NEXT: Verify the Materials flow.
-
-Open http://localhost:3000/materials.
-
-Confirm material list loads from the production API.
-
-Open material detail pages from the Live Prices cards.
-
-Verify all slugs/data/links.
-
-Fix only demonstrated issues.
-
-Then move to Dealers verification.
-
-After Materials / Dealers
-
-Continue in this order:
-
-Materials verification/fixes
-
-Dealers verification/fixes
-
-Contact enquiry production workflow
-
-Ask AI decision/testing (Coming Soon until production-ready)
-
-Home CTA/functionality QA
-
-About final QA
-
-SEO audit
-
-Mobile/responsive QA
-
-Production build
-
-Git review/commit/push
-
-Final production smoke test
-
-Update this file with final release status and commit hash
-
-21. Change Log
-
-2026-08-18
-
-Created/maintained the master SahiRate project checkpoint.
-
-Continued dealer onboarding workflow checkpoint and recorded pending admin/OTP tests.
-
-Completed frontend UI corrections across Home/About/Contact areas during the current development cycle.
-
-Fixed Live Prices frontend state handling with loading/error/empty states.
-
-Verified production /api/prices/daily endpoint returns HTTP 200 and valid board data.
-
-Verified production CORS for localhost:3000.
-
-Corrected frontend VITE_BACKEND_URL from local http://127.0.0.1:8000 to https://sahirate-api.onrender.com.
-
-Verified Vite frontend starts with npm.cmd run dev and serves on localhost:3000.
-
-Verified /prices now displays live Aggregate, Cement, Red Bricks, River Sand, Stone Chips and TMT Steel data.
-
-Marked Live Prices as DONE/VERIFIED.
-
-Updated the next checkpoint to Materials verification.
-
-How to use this file
-
-At the end of each meaningful development session, update:
-
-Current file
-
-Current task
-
-What was completed
-
-Current error/problem
-
-Last change
-
-Exact next step
-
-Pending work
-
-Git/commit status
-
-This file should be committed to GitHub along with the project so the checkpoint stays with the codebase.
+This file supersedes older duplicated project-state sections. Do not append another full copy when updating it.
