@@ -71,6 +71,31 @@ export const MATERIAL_IMAGE_OPTIONS = [
 // to automatically actual folder filename use hoga.
 // ============================================================
 
+// ============================================================
+// DEFAULT IMAGE BY MATERIAL SLUG
+// ============================================================
+
+export const DEFAULT_MATERIAL_IMAGES = {
+  bricks: "redbricks.jpg",
+  "stone-chips": "Stone_Chips.jpg",
+  aggregate: "aggregate.jpg",
+  cement: "cement.jpg",
+  "tmt-steel": "tmt-steel.jpg",
+  sand: "river-sand.jpg",
+  "ac-blocks": "AAC_Blocks.jpg",
+
+  "binding-wire": "binding_wire.jpg",
+  nails: "nail.jpg",
+  "nariyal-rassi": "narival_rassi.jpg",
+
+  "plumbing-fittings": "Plumbing_Duct_Pipes_Fittings.jpg",
+  "plumbing-pipes": "plumbing_pipes_1.jpg",
+  "plumbing-pipes-2": "plumbing_pipes_2.jpg",
+
+  "aggregate-2": "aggregate_2.jpg",
+};
+
+
 const LEGACY_IMAGE_MAP = {
   "TMT_Rebars.jpg": "tmt-steel.jpg",
   "tmt_rebars.jpg": "tmt-steel.jpg",
@@ -136,4 +161,22 @@ export function getMaterialImagePath(image) {
   return `${MATERIAL_IMAGE_BASE_PATH}/${encodeURIComponent(
     resolvedFilename
   )}`;
+}
+
+// ============================================================
+// DEFAULT MATERIAL IMAGE
+// ============================================================
+
+export function getDefaultMaterialImage(slug) {
+  if (!slug) {
+    return "";
+  }
+
+  const filename = DEFAULT_MATERIAL_IMAGES[slug];
+
+  if (!filename) {
+    return "";
+  }
+
+  return getMaterialImagePath(filename);
 }

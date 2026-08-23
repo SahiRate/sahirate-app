@@ -21,8 +21,8 @@ import {
 import {
   MATERIAL_IMAGE_OPTIONS,
   getMaterialImagePath,
+  getDefaultMaterialImage,
 } from "../config/materialImages";
-
 
 // ============================================================
 // DEFAULT IMAGE BY MATERIAL SLUG
@@ -32,48 +32,9 @@ import {
 // to slug ke basis par SahiRate image library se image milegi.
 //
 
-const DEFAULT_MATERIAL_IMAGES = {
-  bricks: "redbricks.jpg",
-  "stone-chips": "Stone_Chips.jpg",
-  aggregate: "aggregate.jpg",
-  cement: "cement.jpg",
-  "tmt-steel": "tmt-steel.jpg",
-  sand: "river-sand.jpg",
-  "ac-blocks": "AAC_Blocks.jpg",
-
-  "binding-wire": "binding_wire.jpg",
-  nails: "nail.jpg",
-  "nariyal-rassi": "narival_rassi.jpg",
-
-  "plumbing-fittings": "Plumbing_Duct_Pipes_Fittings.jpg",
-  "plumbing-pipes": "plumbing_pipes_1.jpg",
-  "plumbing-pipes-2": "plumbing_pipes_2.jpg",
-
-  "aggregate-2": "aggregate_2.jpg",
-};
-
-
 // ============================================================
 // GET DEFAULT IMAGE
 // ============================================================
-
-function getDefaultMaterialImage(slug) {
-  if (!slug) {
-    return "";
-  }
-
-  const filename = DEFAULT_MATERIAL_IMAGES[slug];
-
-  if (!filename) {
-    return "";
-  }
-
-  return getMaterialImagePath(filename);
-}
-
-function getMaterialFallbackImage(slug) {
-  return getDefaultMaterialImage(slug);
-}
 
 // ============================================================
 // MATERIALS PAGE
