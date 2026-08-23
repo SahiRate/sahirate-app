@@ -1,4 +1,4 @@
-"""SahiRate — AI-powered Building Material Price Intelligence backend."""
+﻿"""SahiRate — AI-powered Building Material Price Intelligence backend."""
 
 import asyncio
 import logging
@@ -31,8 +31,8 @@ from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 
 from routes.materials import router as materials_router
+from master.materials import MATERIALS
 from seed_data import (
-    MATERIALS,
     build_dealers,
     compute_material_stats,
 )
@@ -855,3 +855,4 @@ async def health_check():
         "service": "SahiRate API",
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
+
