@@ -1,0 +1,362 @@
+{
+  "timestamp_utc": "2026-08-25T19:05:08.400098+00:00",
+  "source_records": 57,
+  "existing_before": 15,
+  "matched_existing": 3,
+  "inserted_new": 54,
+  "final_database_count": 69,
+  "backup_file": "C:\\Users\\sunil\\Documents\\GitHub\\sahirate-app\\data\\dealers\\backups\\dealers_before_real_import_20260825_190505.json",
+  "matches": [
+    {
+      "real_name": "R K Steel",
+      "existing_name": "Jss Traders",
+      "existing_id": "01M0X4ZMTH65PGDKTDEAKFXR29",
+      "dealer_code": "SR-DGR-001",
+      "reason": "PLUS_CODE",
+      "action": "UPDATED_EXISTING"
+    },
+    {
+      "real_name": "Shiv Tara Traders",
+      "existing_name": "Shiv Tara Traders",
+      "existing_id": "01M0X4ZNHQQ7ANNVTGTR9GP6T1",
+      "dealer_code": "SR-DGR-014",
+      "reason": "PLUS_CODE",
+      "action": "UPDATED_EXISTING"
+    },
+    {
+      "real_name": "SHRI GOPAL ENTERPRISES",
+      "existing_name": "SHRI GOPAL ENTERPRISES",
+      "existing_id": "01M0X4ZN8WX068V9W9VCT0DHKJ",
+      "dealer_code": "SR-DGR-009",
+      "reason": "PHONE",
+      "action": "UPDATED_EXISTING"
+    }
+  ],
+  "inserted": [
+    {
+      "name": "Jss Traders",
+      "id": "01M0X4ZMTH65PGDKTDEAKFXR29",
+      "dealer_code": "SR-DGR-001",
+      "plus_code": "FPRC+M2 Deoghar, Jharkhand"
+    },
+    {
+      "name": "Mukesh Enterprises",
+      "id": "01M0X4ZMWRK2XVRH4061K3727K",
+      "dealer_code": "SR-DGR-002",
+      "plus_code": "FQVC+36 Dumarthar, Jharkhand"
+    },
+    {
+      "name": "Roshan Enterprises",
+      "id": "01M0X4ZMYFJZKC11EF6MJVVA1J",
+      "dealer_code": "SR-DGR-003",
+      "plus_code": null
+    },
+    {
+      "name": "GUPTA TRADERS",
+      "id": "01M0X4ZN05FMXJH38TEQF6N0T8",
+      "dealer_code": "SR-DGR-004",
+      "plus_code": null
+    },
+    {
+      "name": "MAA CEMENT AND HARDWARE",
+      "id": "01M0X4ZN1WTZHSEHZYHHXKFF6H",
+      "dealer_code": "SR-DGR-005",
+      "plus_code": null
+    },
+    {
+      "name": "MAA LAXMI CEMENT AGENCY",
+      "id": "01M0X4ZN3MH2T371A9EV2WAW5G",
+      "dealer_code": "SR-DGR-006",
+      "plus_code": null
+    },
+    {
+      "name": "Shri Bishnu Cement Agency",
+      "id": "01M0X4ZN5C7K2V7K0CN0YSVSNC",
+      "dealer_code": "SR-DGR-007",
+      "plus_code": null
+    },
+    {
+      "name": "Shri Ganesham Enterprises",
+      "id": "01M0X4ZN75MG967HAJ3ZYNPDTC",
+      "dealer_code": "SR-DGR-008",
+      "plus_code": null
+    },
+    {
+      "name": "SHRI GOPAL ENTERPRISES",
+      "id": "01M0X4ZN8WX068V9W9VCT0DHKJ",
+      "dealer_code": "SR-DGR-009",
+      "plus_code": null
+    },
+    {
+      "name": "Shiv Enterprises",
+      "id": "01M0X4ZNAKMX4YH1FMGMQ4SARX",
+      "dealer_code": "SR-DGR-010",
+      "plus_code": null
+    },
+    {
+      "name": "SINGH TRADERS",
+      "id": "01M0X4ZNCBEHJMXQXKZ44RBJP2",
+      "dealer_code": "SR-DGR-011",
+      "plus_code": null
+    },
+    {
+      "name": "KRISHNA ENTERPRISES",
+      "id": "01M0X4ZNE9KD6TA8ZBFAH2CCM2",
+      "dealer_code": "SR-DGR-012",
+      "plus_code": null
+    },
+    {
+      "name": "Sk motors (JCB PARTS )",
+      "id": "01M0X4ZNFZHTZTQQEXHAN9BAB9",
+      "dealer_code": "SR-DGR-013",
+      "plus_code": "FPR9+HW Deoghar, Jharkhand"
+    },
+    {
+      "name": "Shiv Tara Traders",
+      "id": "01M0X4ZNHQQ7ANNVTGTR9GP6T1",
+      "dealer_code": "SR-DGR-014",
+      "plus_code": "GM2P+WC Deoghar, Jharkhand"
+    },
+    {
+      "name": "Shubh Labh",
+      "id": "01M0X4ZNKFS8H3N0CWKQTZPZ38",
+      "dealer_code": "SR-DGR-015",
+      "plus_code": "FMQW+CM Deoghar, Jharkhand"
+    },
+    {
+      "name": "SONA BRAND/JMA BRAND BRICKS",
+      "id": "01M0X4ZNNBNMW0T31X2KKJ756P",
+      "dealer_code": "SR-DGR-016",
+      "plus_code": "FMRM+97 Deoghar, Jharkhand"
+    },
+    {
+      "name": "Maa Bhawani Hardware & Sanitary",
+      "id": "01M0X4ZNQ49HYD9VJ2V4ZMJ38B",
+      "dealer_code": "SR-DGR-017",
+      "plus_code": "GM6R+GM Gidhni, Jharkhand"
+    },
+    {
+      "name": "Sharda Enterprises",
+      "id": "01M0X4ZNRXHYF6ER9XBWFMQR3D",
+      "dealer_code": "SR-DGR-018",
+      "plus_code": "FMXR+CV Deoghar, Jharkhand"
+    },
+    {
+      "name": "STEEL CRAFT",
+      "id": "01M0X4ZNTMGVQKR2A97BTJ41ZD",
+      "dealer_code": "SR-DGR-019",
+      "plus_code": "FPR5+47 Deoghar, Jharkhand"
+    },
+    {
+      "name": "Shree Durga Steels",
+      "id": "01M0X4ZNWAWRDD9NBFT3C19Q3K",
+      "dealer_code": "SR-DGR-020",
+      "plus_code": "FPR5+39 Deoghar, Jharkhand"
+    },
+    {
+      "name": "MAA ENTERPRISES",
+      "id": "01M0X4ZNY3K5CMQ9Y5YYZ59QAN",
+      "dealer_code": "SR-DGR-021",
+      "plus_code": null
+    },
+    {
+      "name": "Ambikesh Enterprises",
+      "id": "01M0X4ZNZVKY0R3HHPQE71FBWS",
+      "dealer_code": "SR-DGR-022",
+      "plus_code": "FPR3+62 Deoghar, Jharkhand"
+    },
+    {
+      "name": "LAXMI TRADING",
+      "id": "01M0X4ZP1J6TV6XQJMJD1KRZF4",
+      "dealer_code": "SR-DGR-023",
+      "plus_code": null
+    },
+    {
+      "name": "MAA KALI TRADING - Supreme Dealer",
+      "id": "01M0X4ZP3C48YHD8J0V5WDMGG8",
+      "dealer_code": "SR-DGR-024",
+      "plus_code": "FPR2+3V Deoghar, Jharkhand"
+    },
+    {
+      "name": "SHIV SHAKTE HARDWARE",
+      "id": "01M0X4ZP5N1A4F697K452KXBRS",
+      "dealer_code": "SR-DGR-025",
+      "plus_code": "GM4Q+C6 Deoghar, Jharkhand"
+    },
+    {
+      "name": "ESSCO Authorised Dealer - Mansarovar",
+      "id": "01M0X4ZP7B546HAJFNR98EN0X0",
+      "dealer_code": "SR-DGR-026",
+      "plus_code": "FPQ6+QG Deoghar, Jharkhand"
+    },
+    {
+      "name": "Sukrish Traders",
+      "id": "01M0X4ZP943P68PVC09KGF9VXA",
+      "dealer_code": "SR-DGR-027",
+      "plus_code": "GM2V+7W Deoghar, Jharkhand"
+    },
+    {
+      "name": "SRI GANESH STEEL",
+      "id": "01M0X4ZPAXX7CQYFJXJMY7TKDQ",
+      "dealer_code": "SR-DGR-028",
+      "plus_code": "FPR3+78 Deoghar, Jharkhand"
+    },
+    {
+      "name": "OM ROHINI TRADERS",
+      "id": "01M0X4ZPCKZGHCN0M2R9T3QFM0",
+      "dealer_code": "SR-DGR-029",
+      "plus_code": "FMMV+PQ Deoghar, Jharkhand"
+    },
+    {
+      "name": "SHIYARAM PLYWOOD",
+      "id": "01M0X4ZPEQTFHGSVVYMK1N5JYG",
+      "dealer_code": "SR-DGR-030",
+      "plus_code": "FMXP+W9 Deoghar, Jharkhand"
+    },
+    {
+      "name": "Shiv Shakti Traders",
+      "id": "01M0X4ZPGE5GNV3PD7D3PCB27N",
+      "dealer_code": "SR-DGR-031",
+      "plus_code": "FMV6+HR Deoghar, Jharkhand"
+    },
+    {
+      "name": "M/S SWASTIKA",
+      "id": "01M0X4ZPJ43Z38F3M6X2YZXKS1",
+      "dealer_code": "SR-DGR-032",
+      "plus_code": "FPH4+HP Deoghar, Jharkhand"
+    },
+    {
+      "name": "MPPC Steel Pvt Ltd",
+      "id": "01M0X4ZPKT1WM5DHF613RHYW1V",
+      "dealer_code": "SR-DGR-033",
+      "plus_code": "FPQ6+XX Deoghar, Jharkhand"
+    },
+    {
+      "name": "Raj Traders",
+      "id": "01M0X4ZPNG54NK4X856P0VG50R",
+      "dealer_code": "SR-DGR-034",
+      "plus_code": "GP44+PF Deoghar, Jharkhand"
+    },
+    {
+      "name": "First Square Feet",
+      "id": "01M0X4ZPQ58TJTC92A500BBZX1",
+      "dealer_code": "SR-DGR-035",
+      "plus_code": "FPR6+73 Deoghar, Jharkhand"
+    },
+    {
+      "name": "SANDEEP TRADERS",
+      "id": "01M0X4ZPSDJ65K89Z3F03CEY3V",
+      "dealer_code": "SR-DGR-036",
+      "plus_code": "FMRG+6W Deoghar, Jharkhand"
+    },
+    {
+      "name": "Shri Ganga Trading Company",
+      "id": "01M0X4ZPV6WBDH4TP1KQ89A2HS",
+      "dealer_code": "SR-DGR-037",
+      "plus_code": "FPR3+85W Deoghar, Jharkhand"
+    },
+    {
+      "name": "Jindal Panther TMT Dealer - Amar Chand Dwary",
+      "id": "01M0X4ZPWXPMAWA3BMMQ5RN44H",
+      "dealer_code": "SR-DGR-038",
+      "plus_code": "Gp45+7Fc Deoghar, Jharkhand"
+    },
+    {
+      "name": "OM SAI NATH SUPPLIERS",
+      "id": "01M0X4ZPYKWZRPJJ76HZF95RX2",
+      "dealer_code": "SR-DGR-039",
+      "plus_code": "GP36+QC Deoghar, Jharkhand"
+    },
+    {
+      "name": "Maa Tara Steel - ACC",
+      "id": "01M0X4ZQ0AGZ2FFDQM899HSM2H",
+      "dealer_code": "SR-DGR-040",
+      "plus_code": "FMQW+CQ Deoghar, Jharkhand"
+    },
+    {
+      "name": "Neha Enterprises",
+      "id": "01M0X4ZQ22EDC28QN737KRQCGA",
+      "dealer_code": "SR-DGR-041",
+      "plus_code": null
+    },
+    {
+      "name": "Mukesh Trading",
+      "id": "01M0X4ZQ3V848GNCDBY2D3CYNE",
+      "dealer_code": "SR-DGR-042",
+      "plus_code": "FPRF+GV Bandha, Jharkhand"
+    },
+    {
+      "name": "RISHABH TRADERS",
+      "id": "01M0X4ZQ5N9NB2M8XJPHN5DPGV",
+      "dealer_code": "SR-DGR-043",
+      "plus_code": null
+    },
+    {
+      "name": "Jaiswal and Sons",
+      "id": "01M0X4ZQ7G33E4WJX4YA672GX0",
+      "dealer_code": "SR-DGR-044",
+      "plus_code": null
+    },
+    {
+      "name": "Jhajharia & Sons",
+      "id": "01M0X4ZQAY8ZFC470TCTS60DAZ",
+      "dealer_code": "SR-DGR-045",
+      "plus_code": "FPRC+MR Deoghar, Jharkhand"
+    },
+    {
+      "name": "Rambha Traders",
+      "id": "01M0X4ZQCM4VFFEMSKS6AJ0KR3",
+      "dealer_code": "SR-DGR-046",
+      "plus_code": "GM62+PV Jasidih, Jharkhand"
+    },
+    {
+      "name": "MAA JAGDAMBA ENTERPRISES",
+      "id": "01M0X4ZQEAH7D4VBW2MN8371JF",
+      "dealer_code": "SR-DGR-047",
+      "plus_code": "GMPP+89 Gidhni, Jharkhand"
+    },
+    {
+      "name": "Gupta Hardware and Sanitary",
+      "id": "01M0X4ZQHRJSEXBV655A4SVRZR",
+      "dealer_code": "SR-DGR-048",
+      "plus_code": "FQVQ+J3 Deoghar, Jharkhand"
+    },
+    {
+      "name": "Maha Laxmi Traders",
+      "id": "01M0X4ZQKJ9MYRPEY0QJ34MS4Y",
+      "dealer_code": "SR-DGR-049",
+      "plus_code": null
+    },
+    {
+      "name": "Om Traders",
+      "id": "01M0X4ZQN8RX83NGJ5Y3EY38DT",
+      "dealer_code": "SR-DGR-050",
+      "plus_code": "FPRG+GW Deoghar, Jharkhand"
+    },
+    {
+      "name": "Satyam Traders",
+      "id": "01M0X4ZQQ1CEK27CB1VQ0C86WP",
+      "dealer_code": "SR-DGR-051",
+      "plus_code": "FPRM+CM Deoghar, Jharkhand"
+    },
+    {
+      "name": "SATYAM SHIVAM TRADERS",
+      "id": "01M0X4ZQRSVD4CMEG68PHQ9QGQ",
+      "dealer_code": "SR-DGR-052",
+      "plus_code": "FPX8+G2 Deoghar, Jharkhand"
+    },
+    {
+      "name": "SWAMI TRADERS",
+      "id": "01M0X4ZQTHQZG6RMRZ3TAE6FW1",
+      "dealer_code": "SR-DGR-053",
+      "plus_code": "GM2W+82 Deoghar, Jharkhand"
+    },
+    {
+      "name": "Mahadev Construction",
+      "id": "01M0X4ZQXWQB5SRX60GBKNJX1C",
+      "dealer_code": "SR-DGR-054",
+      "plus_code": "GP44+Q9 Deoghar, Jharkhand"
+    }
+  ],
+  "skipped": []
+}

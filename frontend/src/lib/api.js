@@ -1,4 +1,4 @@
-import axios from "axios";
+﻿import axios from "axios";
 
 const BACKEND_URL =
     import.meta.env.VITE_BACKEND_URL ||
@@ -53,6 +53,15 @@ export const aiSearch = (query) =>
     api.post("/search", {
         query,
     });
+
+export const calculateSmartBuild = async (purpose, inputs) => {
+    const response = await api.post("/smartbuild/calculate", {
+        purpose,
+        inputs,
+    });
+
+    return response.data;
+};
 
 // ---------------- Admin ----------------
 

@@ -1,4 +1,4 @@
-from typing import Optional
+﻿from typing import Optional
 
 from pydantic import BaseModel, EmailStr, Field
 
@@ -30,6 +30,13 @@ class DealerCreate(BaseModel):
     # Business Details
     years_in_business: int = 0
     description: Optional[str] = None
+
+    # Exact dealer location / future field verification
+    plus_code: Optional[str] = None
+    verification_status: str = "unverified"
+    verification_date: Optional[str] = None
+    verified_by: Optional[str] = None
+    last_updated: Optional[str] = None
 
     # Services
     delivery: bool = False
@@ -74,21 +81,30 @@ class DealerUpdate(BaseModel):
     state: str
     pincode: Optional[str] = None
 
-    years_in_business: int
+    years_in_business: int = 0
 
     description: Optional[str] = None
 
-    delivery: bool
-    whatsapp: bool
+    # Exact dealer location / future field verification
+    plus_code: Optional[str] = None
+    verification_status: str = "unverified"
+    verification_date: Optional[str] = None
+    verified_by: Optional[str] = None
+    last_updated: Optional[str] = None
 
-    verified: bool
-    status: str
+    delivery: bool = False
+    whatsapp: bool = False
 
-    rating: float
-    reviews_count: int
+    verified: bool = False
+    status: str = "UNVERIFIED"
+
+    rating: float = 0.0
+    reviews_count: int = 0
 
     logo: Optional[str] = None
     cover_image: Optional[str] = None
     gallery: list[str] = Field(default_factory=list)
 
     prices: list = Field(default_factory=list)
+
+

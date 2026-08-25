@@ -1,0 +1,182 @@
+﻿TOTAL DEALERS IN DATABASE: 15
+======================================================================
+
+[1]
+id: dealer_01
+name: Shree Balaji Building Materials
+area: Jasidih Road
+city: Deoghar
+state: Jharkhand
+rating: 4.7
+reviews_count: 111
+phone: +91 9398362082
+verified: True
+dealer_code: dealer_01
+
+[2]
+id: dealer_02
+name: Deoghar Cement Bhandar
+area: Castairs Town
+city: Deoghar
+state: Jharkhand
+rating: 4.5
+reviews_count: 41
+phone: +91 9149203558
+verified: True
+dealer_code: dealer_02
+
+[3]
+id: dealer_03
+name: Maa Tara Steel & Cement
+area: Baidyanath Chowk
+city: Deoghar
+state: Jharkhand
+rating: 4.8
+reviews_count: 121
+phone: +91 9389854268
+verified: True
+dealer_code: dealer_03
+
+[4]
+id: dealer_04
+name: Ganpati Construction Supplies
+area: Bompas Town
+city: Deoghar
+state: Jharkhand
+rating: 4.4
+reviews_count: 59
+phone: +91 9647099690
+verified: False
+dealer_code: dealer_04
+
+[5]
+id: dealer_05
+name: Jai Hind Traders
+area: Karnibad
+city: Deoghar
+state: Jharkhand
+rating: 4.6
+reviews_count: 111
+phone: +91 9219778234
+verified: True
+dealer_code: dealer_05
+
+[6]
+id: dealer_06
+name: Krishna Building House
+area: Rikhia Road
+city: Deoghar
+state: Jharkhand
+rating: 4.3
+reviews_count: 38
+phone: +91 9358633898
+verified: False
+dealer_code: dealer_06
+
+[7]
+id: dealer_07
+name: Trimurti Cement Agency
+area: Barmasia
+city: Deoghar
+state: Jharkhand
+rating: 4.7
+reviews_count: 54
+phone: +91 9366186631
+verified: True
+dealer_code: dealer_07
+
+[8]
+id: dealer_08
+name: Bharat Steel Corporation
+area: Tower Chowk
+city: Deoghar
+state: Jharkhand
+rating: 4.9
+reviews_count: 86
+phone: +91 9942478695
+verified: True
+dealer_code: dealer_08
+
+[9]
+id: dealer_09
+name: Shiv Shakti Enterprises
+area: Jasidih Station Road
+city: Deoghar
+state: Jharkhand
+rating: 4.5
+reviews_count: 142
+phone: +91 9368227631
+verified: True
+dealer_code: dealer_09
+
+[10]
+id: dealer_10
+name: New Deoghar Traders
+area: Court Road
+city: Deoghar
+state: Jharkhand
+rating: 4.2
+reviews_count: 99
+phone: +91 9333754555
+verified: False
+dealer_code: dealer_10
+
+[11]
+id: dealer_11
+name: Om Sai Building Materials
+area: Kunda
+city: Deoghar
+state: Jharkhand
+rating: 4.6
+reviews_count: 91
+phone: +91 9524971817
+verified: True
+dealer_code: dealer_11
+
+[12]
+id: dealer_12
+name: Radhe Radhe Steel
+area: Sarath Road
+city: Deoghar
+state: Jharkhand
+rating: 4.5
+reviews_count: 53
+phone: +91 9214929002
+verified: True
+dealer_code: dealer_12
+
+[13]
+id: dealer_13
+name: Vishwakarma Cement Store
+area: Chandan Nagar
+city: Deoghar
+state: Jharkhand
+rating: 4.4
+reviews_count: 62
+phone: +91 9685823118
+verified: False
+dealer_code: dealer_13
+
+[14]
+id: dealer_14
+name: Anand Construction Depot
+area: Deoghar Bypass
+city: Deoghar
+state: Jharkhand
+rating: 4.8
+reviews_count: 87
+phone: +91 9386480450
+verified: True
+dealer_code: dealer_14
+
+[15]
+id: dealer_15
+name: Ma Ganga Traders
+area: Bhagalpur Road
+city: Deoghar
+state: Jharkhand
+rating: 4.6
+reviews_count: 176
+phone: +91 9566609283
+verified: True
+dealer_code: dealer_15

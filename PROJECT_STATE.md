@@ -1,10 +1,11 @@
-SahiRate — Project State
+SahiRate — Master Project Continuity Checkpoint
 
-Single source of truth for project continuity.
+Last Updated: 26 August 2026
+Purpose: Single source of truth for project continuity. Update this file after every meaningful development session. Do not append duplicate full checkpoints.
 
-Do not append duplicate full checkpoints. Update the relevant section when the project state changes.
+1. Project Identity
 
-1. Project
+Project: SahiRate
 
 Website: https://www.sahirate.in
 
@@ -14,281 +15,104 @@ Product: India's Building Material Intelligence Platform
 
 Primary market: Deoghar, Jharkhand
 
-Expansion principle: Deoghar-first, India-scale
+Core positioning: Building Material Price Intelligence + Market Information + Dealer Discovery + Price Transparency + Construction Decision Support
 
-Current phase: Phase 0 — Architecture Inventory & Controlled Modularization Planning
-
-Core positioning
-
-Tagline: Har Material ka SahiRate.
+Tagline: Har Material ka Sahi Rate.
 
 Supporting line: Sahi Jankari. Behtar Faisle.
 
-Communicate transparency, trust, market intelligence and smarter construction decisions.
-
 Do not prominently identify Sangam Infra Resources on public SahiRate pages.
 
-Do not change the logo without explicit decision.
+Do not change the logo without explicit approval.
 
-Keep the premium navy + orange visual language.
+Current visual language: premium navy + orange.
 
-2. Git / Production
+Keep unfinished/experimental SahiAI functionality out of production until tested.
 
-Working/live branch: checkpoint-2026-08-19
+2. Current Development Status — IMPORTANT
 
-main: not overwritten
+Overall
 
-Frontend: Vercel
+The project is currently in an active functional-integration phase, not a redesign phase.
 
-Backend: Render
+Completed in the latest work
 
-Production site: https://www.sahirate.in
+SmartBuild calculation engine completed and regression-tested.
 
-Production API: https://sahirate-api.onrender.com
+SmartBuild frontend is now implemented at /smartbuild.
 
-Latest architecture commit
+SmartBuild civil icons were added:
 
-48d278f — docs: add SahiRate architecture map
+frontend/src/assets/smartbuild/plastering.png
 
-ARCHITECTURE_MAP.md has been committed and pushed to:
+frontend/src/assets/smartbuild/foundation.png
 
+SmartBuild UI was visually tested locally.
+
+Dealer master import completed.
+
+MongoDB dealer count verified at 69.
+
+Dealers page verified showing 69 dealers.
+
+Real dealer data is now flowing through MongoDB → backend → frontend.
+
+Dealer search/filter/sort UI already exists and currently exposes:
+
+dealer/area/material search
+
+material filter
+
+area filter
+
+sorting (including Rating)
+
+Plus Codes from the real dealer dataset were preserved where available.
+
+Current immediate priority
+
+Do not restart SmartBuild architecture or dealer import.
+
+Next work should focus on:
+
+Dealer data quality / missing-field workflow.
+
+Dealer search/sort/filter QA.
+
+Admin dealer management and future employee shop-visit workflow.
+
+SmartBuild functional QA and backend/API hardening.
+
+Only then broader UI/SEO/production polish.
+
+3. Git / Branch Context
+
+Working branch previously used:
 checkpoint-2026-08-19
 
-The push was verified:
+Important earlier commits:
 
-9fd255d..48d278f
-checkpoint-2026-08-19 -> checkpoint-2026-08-19
-
-Important recent commits
-
-496bcdb — Careers page
-c8ab27c — Phase 2 materials data flow and homepage fixes
-31fcbc7 — Fix material image paths
-9fd255d — Update SahiRate material pricing and brand assets
-d09246a — Add material market status and local images
 48d278f — docs: add SahiRate architecture map
 
-Production deployment history
+496bcdb — Add Careers page
 
-Commit 9fd255d was successfully pushed to GitHub and deployed to Vercel Production.
+c8ab27c — Phase 2 materials data flow and homepage fixes
 
-At that checkpoint:
+31fcbc7 — Fix material image paths
 
-Environment: Production
-Status: Ready
-Domain: www.sahirate.in
-Source branch: checkpoint-2026-08-19
-Source commit: 9fd255d
+9fd255d — Update SahiRate material pricing and brand assets
 
-The production site was opened and visually verified after that deployment.
+Git rule
 
-Current HEAD is now 48d278f; production deployment must be re-verified after the next production code change.
+Before committing:
 
-3. Architecture Status
+git status
 
-Approved architecture principle
+Do not overwrite main without explicit approval.
 
-Research discovers → Verification approves → Master Data defines → Database stores → Services calculate → API exposes → Frontend displays.
+Do not assume the working tree is clean.
 
-Deoghar is the first market, not the permanent architecture.
-
-Location/Market is a first-class domain so that future expansion can support:
-
-India
-├── Jharkhand
-│   ├── Deoghar
-│   ├── Ranchi
-│   └── ...
-├── Bihar
-│   ├── Patna
-│   └── ...
-└── Other states/cities
-
-Architecture reference
-
-ARCHITECTURE_MAP.md
-
-is the separate long-term architecture document.
-
-It defines:
-
-target folder/module structure
-
-domain boundaries
-
-location/market strategy
-
-research/evidence separation
-
-backend/frontend modularization
-
-image architecture
-
-Entity / Section / Block reference system
-
-one-source-of-truth rule
-
-controlled migration protocol
-
-Do not duplicate the full architecture document inside this file.
-
-4. Current Architecture Phase
-
-Phase 0 — Current Architecture Inventory
-
-The architecture has been approved conceptually.
-
-No mass modularization has been performed yet.
-
-Required sequence
-
-Current file inventory
-        ↓
-Dependency map
-        ↓
-KEEP / MOVE / SPLIT / MERGE / ARCHIVE
-        ↓
-Approved target structure
-        ↓
-Controlled one-module-at-a-time migration
-        ↓
-Compile / build / test
-        ↓
-Git commit
-
-Current next action
-
-Build the actual architecture inventory from the current project tree.
-
-The inventory must identify:
-
-File
-Current purpose
-Dependencies
-Duplicate responsibility
-Target module
-KEEP / MOVE / SPLIT / MERGE / ARCHIVE
-Risk
-
-Do not start mass refactoring before this inventory is approved.
-
-5. Modular Code Reference Standard
-
-Line numbers are secondary because they change when code moves.
-
-Primary future reference:
-
-FILE
-+
-SR-SECTION
-+
-SR-BLOCK / ENTITY
-
-Example:
-
-FILE:
-backend/data/brands/tmt.py
-
-SECTION:
-SR-SECTION: TMT-BRANDS
-
-BLOCK:
-SR-BLOCK: BRAND-TMT-JINDAL-PANTHER
-
-Standard section:
-
-# ==========================================================
-# SR-SECTION: TMT-BRANDS
-# PURPOSE: TMT brand master data
-# ==========================================================
-
-Standard block:
-
-# SR-BLOCK: BRAND-TMT-JINDAL-PANTHER
-
-Future code instructions should use:
-
-Path → Section → Block → Exact Change → Test
-
-Approximate line numbers may be supplied only as secondary navigation.
-
-6. Backend Current State
-
-Important current files already shared in this session
-
-backend/seed_data.py
-backend/routes/materials.py
-frontend/src/lib/api.js
-
-Do not unnecessarily request these files again during the current working session.
-
-backend/seed_data.py
-
-This is currently a large mixed-data file and is the first major modularization candidate.
-
-It currently contains material/master/brand/price/dealer-related seed logic and supporting calculations.
-
-Target direction:
-
-backend/data/
-├── locations/
-├── materials/
-├── brands/
-├── products/
-├── variants/
-├── dealers/
-├── prices/
-├── projects/
-└── manpower/
-
-seed_data.py should eventually become a small orchestration/compatibility layer rather than a giant source file.
-
-Do not split it blindly.
-
-First map its sections and dependencies.
-
-backend/routes/materials.py
-
-Current responsibilities:
-
-/materials
-
-/materials/{slug}
-
-local material image mapping
-
-migration of missing/external material images to local filenames
-
-material response
-
-dealer comparison
-
-material statistics through compute_material_stats
-
-This route should not be rewritten blindly during modularization.
-
-Backend services — target
-
-backend/services/
-├── material_service.py
-├── price_service.py
-├── dealer_service.py
-├── project_service.py
-└── manpower_service.py
-
-Routes should remain thin:
-
-request
-  ↓
-route
-  ↓
-service
-  ↓
-database
-  ↓
-response
-
-7. Frontend Current State
+4. Frontend
 
 Stack
 
@@ -300,906 +124,823 @@ Vite
 
 Axios
 
-Tailwind/CSS
+Tailwind/CSS utilities
 
-Lucide
+Lucide React
 
-Active SEO component
-
-frontend/src/components/SEO.jsx
-
-Old:
-
-frontend/src/seo/SEO.jsx
-
-has been removed.
-
-Important pages/components
-
-Home
-Materials
-Material Detail
-Dealers
-Dealer Detail
-Live Prices
-About
-Contact
-Careers
-Terms & Conditions
-Navbar
-Footer
-WelcomeOverlay
-AISearchDialog
-
-Current source structure includes:
-
-frontend/src/
-├── components/
-│   ├── home/
-│   └── ui/
-├── constants/
-├── context/
-├── hooks/
-├── layouts/
-├── lib/
-├── pages/
-├── App.css
-├── App.jsx
-├── index.css
-├── index.js
-└── main.jsx
-
-Future feature-oriented structure:
-
-components/
-├── common/
-├── materials/
-├── dealers/
-├── projects/
-└── manpower/
-
-Existing home/ and generic ui/ components should be evolved, not destroyed.
-
-Large pages such as MaterialDetail.jsx should eventually become page orchestration layers with feature components underneath.
-
-8. Frontend API Boundary
-
-Current:
-
-frontend/src/lib/api.js
-
-contains public and admin API operations.
-
-Public
-
-fetchMaterials
-fetchMaterial
-fetchDealers
-fetchDealer
-fetchDailyPrices
-aiSearch
-
-Admin
-
-adminLogin
-createMaterial
-updateMaterial
-deleteMaterial
-getAdminDealers
-createDealer
-updateDealer
-deleteDealer
-
-It also contains:
-
-backend URL resolution
-
-Axios client
-
-admin bearer-token interceptor
-
-This should initially remain the API boundary.
-
-If it becomes large enough later, it may be split into:
-
-lib/api/
-├── public.js
-├── materials.js
-├── dealers.js
-├── prices.js
-├── admin.js
-└── index.js
-
-Do not split merely for appearance.
-
-9. Material Master / Data Status
-
-Current material image migration
-
-backend/seed_data.py was updated in commit:
-
-d09246a
-Add material market status and local images
-
-Relevant brand records received:
-
-market_status: "NOT_YET_VERIFIED"
-
-Old external material image URLs were replaced by local filenames for the mapped materials.
-
-Current local mapping:
-
-bricks        → redbricks.jpg
-stone-chips   → Stone_Chips.jpg
-aggregate     → aggregate.jpg
-cement        → cement.jpg
-tmt-steel     → tmt-steel.jpg
-sand          → river-sand.jpg
-ac-blocks     → AAC_Blocks.jpg
-binding-wire  → binding_wire.jpg
-nails         → nail.jpg
-nariyal-rassi → narival_rassi.jpg
-
-Syntax verification
-
-Successfully checked with:
-
-py -m py_compile .\backend\seed_data.py
-
-No output = successful syntax check.
-
-The python command was not available through the Windows execution alias, while py worked correctly.
-
-10. Deoghar Market Master Data — Current Priority
-
-SahiRate is Deoghar-first, but the architecture must remain India-scale.
-
-Required logical hierarchy:
-
-Category
-  ↓
-Material
-  ↓
-Brand
-  ↓
-Product / Sub-brand
-  ↓
-Grade / Size / Variant
-  ↓
-Dealer
-  ↓
-Local Price
-
-Examples:
-
-Cement → Brand → Product → Grade
-TMT Steel → Brand → Product → Grade → Diameter
-Bricks → Type → Local Manufacturer/Brand → Size
-AAC Blocks → Brand → Size
-
-Market verification rule
-
-Do not create a generic India-wide market list merely because a brand exists nationally.
-
-Each market-specific brand/product should eventually be classified using evidence, for example:
-
-MARKET_ACTIVE
-AVAILABLE_ON_ORDER
-NOT_YET_VERIFIED
-
-Prices must come from actual dealer/market evidence.
-
-Never fabricate local prices.
-
-Candidate master data should be based on:
-
-Deoghar dealer evidence
-
-Deoghar project/tender approved-make evidence
-
-dealer-submitted products
-
-actual local price observations
-
-credible public Deoghar/Jharkhand evidence
-
-National availability alone is not proof of Deoghar stock.
-
-11. Research Architecture
-
-Research is evidence, not production master data.
-
-Target:
-
-research/
-├── markets/
-│   ├── IN-JH-DGR/
-│   ├── IN-JH-RNC/
-│   └── ...
-├── brands/
-├── dealers/
-├── projects/
-└── manpower/
-
-Research records should eventually support:
-
-source
-source_url
-research_date
-market
-entity
-evidence
-verification_status
-confidence
-last_verified
-
-Evidence states:
-
-UNVERIFIED
-VERIFIED
-REJECTED
-OUTDATED
-
-A research discovery must not become verified market intelligence merely because it was found online.
-
-12. Dealer / Vendor Ecosystem
-
-Intended workflow:
-
-Dealer submits
-    ↓
-Pending
-    ↓
-Admin review
-    ↓
-Verification
-    ↓
-OTP/claim where required
-    ↓
-Final approval
-    ↓
-Dealer ID
-    ↓
-Public dealer flow
-
-Production-grade verification remains pending.
-
-SahiRate is not a marketplace/checkout platform.
-
-Future dealer functionality includes:
-
-dealer registration
-
-onboarding
-
-admin approval
-
-dealer login/profile
-
-price submission/update
-
-verification
-
-dashboard
-
-13. Price Intelligence
-
-Current daily-price capability exists.
-
-Target future intelligence:
-
-Current price
-Min price
-Max price
-Average price
-Daily trend
-Historical data
-30-day history
-90-day history
-365-day history
-Price charts
-Material-wise movement
-Dealer-wise comparison
-Market insights
-
-Historical/deeper price intelligence is still pending.
-
-14. Construction Intelligence
-
-Future construction-intelligence domains:
-
-Cost Calculator
-
-Area input
-Material quantity estimation
-Cement calculation
-Steel calculation
-Sand calculation
-Aggregate calculation
-Bricks calculation
-Current-rate integration
-Estimated material cost
-
-Manpower Intelligence
-
-Future foundation:
-
-Manpower Supplier
-Manpower Team
-Worker
-Skill
-Trade
-Experience
-Availability
-Capacity
-Project History
-Verification
-Performance
-
-This is intended to support future large-project requirements.
-
-15. Project Intelligence
-
-Private foundation planned for future use.
-
-Target logical entities:
-
-Project
-Project Evidence
-Project Material Usage
-Project Brands
-Project Dealers
-Project Prices
-Project Documents
-Project Milestones
-
-Example relationship:
-
-Project
-  ↓
-Material
-  ↓
-Brand / Product
-  ↓
-Dealer
-  ↓
-Price Evidence
-
-Project evidence is not automatically equivalent to market-active evidence.
-
-This intelligence layer will initially remain private/admin-oriented and will not be exposed as a public marketing claim without sufficient verified evidence.
-
-16. Image / Asset Architecture
-
-Images are a first-class architecture domain.
-
-Current project has both:
-
-public/images/
-src/assets/
-
-with overlapping brand/material assets.
-
-Known current areas include:
-
-public/images/brands/cement/
-public/images/brands/tmt/
-public/images/materials/
-
-src/assets/brands/
-src/assets/brands/tmt/
-src/assets/
-
-Target public image structure
-
-public/
-└── images/
-    ├── brand/
-    │   ├── cement/
-    │   ├── tmt/
-    │   └── ...
-    ├── material/
-    │   ├── cement/
-    │   ├── tmt/
-    │   ├── bricks/
-    │   ├── sand/
-    │   ├── stone-chips/
-    │   ├── aggregate/
-    │   └── aac-blocks/
-    ├── projects/
-    ├── dealers/
-    ├── markets/
-    └── ui/
-
-Asset rules
-
-New filenames should be predictable and preferably lowercase/kebab-case.
-
-Do not use random filenames.
-
-Do not use external Unsplash URLs for production material images.
-
-Brand assets and material photographs are separate asset types.
-
-Project evidence images must not be mixed with generic material images.
-
-Market-specific imagery must not be confused with national brand assets.
-
-Before moving any existing image, search all imports/references.
-
-Delete duplicates only after reference verification.
-
-No image mass-move or deletion has been approved yet.
-
-First perform an asset inventory:
-
-filename
-location
-type
-import/reference
-duplicate status
-public vs bundled usage
-
-17. SEO Status
-
-SEO is approximately 70–75% complete.
-
-Completed
-
-central SEO component
-
-titles/descriptions/keywords
-
-canonical URLs
-
-robots
-
-Open Graph basics
-
-Twitter metadata
-
-basic Website JSON-LD
-
-sitemap
-
-robots.txt
-
-Google verification file
-
-page-level path corrections
-
-Remaining
-
-full public-page SEO audit
-
-Material Detail dynamic SEO
-
-Dealer Detail dynamic SEO
-
-page-specific structured data
-
-production canonical verification
-
-localhost/development URL check
-
-final production indexing verification
-
-SEO remains a separate workstream after product/data architecture is stable.
-
-18. SahiAI / Ask AI
-
-NOT PRODUCTION READY.
-
-Keep hidden or clearly marked Coming Soon until:
-
-backend is ready
-
-frontend is ready
-
-security/rate limiting is verified
-
-input handling is verified
-
-reliability is verified
-
-Do not expose unfinished AI as production-ready.
-
-19. Responsive / QA
-
-Final QA remains pending across the public site.
-
-Target checks:
-
-Desktop 1440+
-Laptop ~1280
-Tablet
-Mobile 390 / 430
-
-Check:
-
-navbar
-hero
-cards
-buttons
-typography
-forms
-footer
-overflow
-contrast
-touch targets
-404 handling
-API errors
-loading states
-empty states
-console errors
-network errors
-SEO
-production smoke test
-final regression
-
-20. Existing Work / Verified Foundation
-
-The current platform foundation includes:
-
-Home
-Materials
-Dealers
-Live Prices
-SahiAI architecture
-About
-Contact
-
-Also established:
-
-React frontend
-
-FastAPI backend
-
-MongoDB integration
-
-core material APIs
-
-dealer APIs
-
-daily price API
-
-AI Search architecture
-
-Admin/Auth foundation
-
-production deployment
-
-custom domain
-
-Careers page
-
-Terms & Conditions page
-
-Important completed material-detail work
-
-The latest working history records:
-
-Material Detail UI/data binding fix verified locally
-
-responsive hero image fit fixed using object-cover
-
-Market Overview layout updated
-
-Leading Brands section implemented using actual uploaded logos
-
-brand logo links connect to official brand websites
-
-cement catalog includes ACC, Ambuja, UltraTech, Shree Cement, Nuvoco, Dalmia and Emami
-
-local API performance improved by using local FastAPI during development instead of the Render API
-
-frontend Vite production build passed after those changes
-
-Do not redo these completed items unless regression testing reveals a real problem.
-
-21. Current Known Functional Issues
-
-The previous material checkpoint identified:
-
-Material Stats
-
-Material cards showed:
-
-Min = --
-Average = --
-Max = --
-Dealer Count = 0
-
-Expected stats:
-
-stats.min
-stats.max
-stats.avg
-stats.dealer_count
-
-Cause identified at that checkpoint: the /api/materials list response was not attaching the required stats object.
-
-Do not break the existing material detail endpoint while fixing this.
-
-AAC Blocks
-
-Required image mapping:
-
-ac-blocks → AAC_Blocks.jpg
-
-This mapping has been included in the current local image mapping work, but final end-to-end UI/API verification remains part of the pending QA.
-
-Deoghar Master Data
-
-Still needs finalization:
-
-Material
-→ Brand
-→ Product/Sub-brand
-→ Variant
-→ Dealer
-→ Local Price
-
-22. Feedback System
-
-PENDING — implementation later.
-
-Planned:
-
-simple Hindi/Hinglish feedback
-
-quick-click feedback
-
-optional text
-
-optional voice/audio
-
-record
-
-play
-
-re-record
-
-submit
-
-material/page context
-
-backend feedback + audio storage
-
-admin viewing/listening
-
-lightweight mobile UI
-
-Purpose:
-
-price accuracy
-
-dealer trust
-
-missing materials/brands
-
-user experience
-
-23. Original Roadmap
-
-Priority 1
-
-Existing functions — verify/fix completely.
-
-Priority 2
-
-Admin + Authentication.
-
-Priority 3
-
-Dealer onboarding + dealer price management.
-
-Priority 4
-
-Price History + deeper price intelligence.
-
-Priority 5
-
-Construction Cost Calculator.
-
-Priority 6
-
-Manpower Directory / Intelligence.
-
-Priority 7
-
-Alerts.
-
-Priority 8
-
-Mobile / PWA.
-
-Priority 9
-
-Multi-city expansion.
-
-Priority 10
-
-Final production QA.
-
-Final QA is not only a last step; smaller QA passes must happen after each phase as well.
-
-24. Geographic Expansion
-
-Current focus:
-
-Deoghar ✅
-
-Future:
-
-Ranchi ⚪
-Dhanbad ⚪
-Bokaro ⚪
-Other Jharkhand cities ⚪
-Other states ⚪
-
-Multi-city database architecture is being designed now so expansion does not require a fundamental rewrite.
-
-Do not jump to other cities operationally before the current Deoghar market is stable.
-
-25. API / Environment
-
-Production frontend environment:
-
-VITE_BACKEND_URL=https://sahirate-api.onrender.com
-
-Do not replace this with localhost except for deliberate local backend testing.
-
-Frontend local path:
+Frontend directory
 
 C:\Users\sunil\Documents\GitHub\sahirate-app\frontend
 
-Useful commands:
+Correct local command
 
+The frontend is a Vite app.
+
+cd C:\Users\sunil\Documents\GitHub\sahirate-app\frontend
 npm.cmd run dev
-npm.cmd run build
+
+Do NOT use:
+
+npm.cmd start
+
+npm run currently exposes:
+
+dev → vite
+
+build → vite build
+
+preview → vite preview
+
+lint
+
+format
+
+Local frontend
 
 Current local URL:
 
 http://localhost:3000/
 
-Historical CRACO/npm-start issues should not be reopened unless a current test requires it.
+Important pages:
 
-26. Project Rules
+/
+
+/materials
+
+/dealers
+
+/live-prices
+
+/about
+
+/contact
+
+/smartbuild
+
+Important files:
+
+frontend/src/App.jsx
+frontend/src/components/Navbar.jsx
+frontend/src/components/Footer.jsx
+frontend/src/components/AISearchDialog.jsx
+frontend/src/components/WelcomeOverlay.jsx
+frontend/src/pages/Home.jsx
+frontend/src/pages/MaterialsList.jsx
+frontend/src/pages/MaterialDetail.jsx
+frontend/src/pages/DealersList.jsx
+frontend/src/pages/DealerDetail.jsx
+frontend/src/pages/LivePrices.jsx
+frontend/src/pages/SmartBuild.jsx
+frontend/src/lib/api.js
+frontend/src/components/SEO.jsx
+
+5. Backend
+
+Backend directory
+
+C:\Users\sunil\Documents\GitHub\sahirate-app\backend
+
+Python
+
+Use:
+
+py
+
+Do not rely on the Windows python alias.
+
+Correct local backend command
+
+Run from the backend directory:
+
+cd C:\Users\sunil\Documents\GitHub\sahirate-app\backend
+py -m uvicorn server:app --host 0.0.0.0 --port 8000
+
+Verified successfully in the latest session:
+
+Application startup complete.
+Uvicorn running on http://0.0.0.0:8000
+
+The FastAPI on_event deprecation warnings are non-blocking. Do not refactor them unless deliberately scheduled.
+
+Swagger:
+
+http://127.0.0.1:8000/docs
+
+6. API Configuration
+
+Production frontend API must remain:
+
+https://sahirate-api.onrender.com
+
+frontend/src/lib/api.js is intended to use:
+
+const BACKEND_URL =
+  import.meta.env.VITE_BACKEND_URL ||
+  "https://sahirate-api.onrender.com";
+
+const API = `${BACKEND_URL}/api`;
+
+Do not replace production API configuration with localhost unintentionally.
+
+For local backend testing, use the deliberate local environment only.
+
+7. SmartBuild — CURRENT STATUS
+
+Purpose
+
+SmartBuild is a major SahiRate USP.
+
+Target value:
+
+Material Quantity
++
+Mason Requirement
++
+Helper/Labour Requirement
++
+Estimated Duration
++
+Material Cost
++
+Labour Cost
++
+Grand Estimate
++
+PDF / Share / WhatsApp
+
+The product should help users understand the complete construction requirement, not only material prices.
+
+Frontend status
+
+IMPLEMENTED
+
+Route:
+
+/smartbuild
+
+The SmartBuild page was opened and visually verified locally.
+
+Current supported construction purposes:
+
+Brick Wall
+
+RCC Slab
+
+PCC
+
+Plaster
+
+Foundation
+
+The SmartBuild UI displays material requirements, labour information, duration and estimate information.
+
+Important UI decision
+
+Do not redesign the whole SahiRate UI now.
+
+Functional integration and data correctness come first.
+
+8. SmartBuild Calculation Engine — COMPLETED
+
+Directory:
+
+backend/calculation/
+
+Key modules include:
+
+engine.py
+rules.py
+units.py
+labour.py
+cost.py
+schema.py
+registry.py
+reference_registry.py
+region_rules.py
+pcc.py
+pcc_engine.py
+plaster.py
+plaster_engine.py
+foundation.py
+foundation_engine.py
+aggregate_master.py
+aggregate_rates.py
+aggregate_provider.py
+sand_master.py
+brick_master.py
+cement_master.py
+tmt_master.py
+
+Implemented calculators:
+
+Brick Wall
+
+RCC Slab
+
+PCC
+
+Plaster
+
+Foundation
+
+Regression verification previously passed:
+
+CALCULATORS: 5
+SCHEMA: 1.0
+RULE VERSIONS: ['0.1.0']
+REFERENCE STATUS: ['PENDING_VERIFICATION']
+SMARTBUILD REGRESSION: PASS
+
+Each calculator returns:
+
+result
+
+schema version
+
+rule version
+
+reference status
+
+materials
+
+labour
+
+duration
+
+cost
+
+When rate data is incomplete:
+
+RATE_DATA_REQUIRED
+
+Calculations remain:
+
+PRELIMINARY_ESTIMATE
+
+Do not present preliminary productivity or engineering assumptions as guaranteed site requirements.
+
+9. SmartBuild Reference / Material Architecture
+
+Completed masters:
+
+Aggregate
+
+Sand
+
+Brick
+
+Cement
+
+TMT
+
+Architecture principle:
+
+Rule
+ ↓
+Reference
+ ↓
+Region
+ ↓
+Verification
+
+Current reference status:
+
+PENDING_VERIFICATION
+
+Deoghar is the first market, not a permanent hard-coded limitation.
+
+Important rules
+
+Do not mix research evidence with production master data.
+
+Do not fabricate local rates or availability.
+
+Do not automatically convert CFT ↔ tonne without a verified density basis.
+
+Catalog brand/source presence does not prove current Deoghar availability.
+
+Local aggregate/sand source names are identifiers until independently verified.
+
+10. Dealer Master — LATEST MAJOR COMPLETION
+
+Database result
+
+The real dealer import is COMPLETE.
+
+Import result:
+
+Real master records : 57
+Matched existing    : 3
+Inserted new        : 54
+Final dealer count  : 69
+
+Verified separately:
+
+DEALER COUNT: 69
+
+The public Dealers page was then verified locally and showed:
+
+69 Registered dealers
+69 dealers
+
+Real dealer cards were visible on the page.
+
+Dealer codes
+
+New real dealers received:
+
+SR-DGR-001
+...
+SR-DGR-054
+
+Existing dealer records were preserved.
+
+Three matched records
+
+R K Steel ↔ existing Jss Traders
+
+matched by Plus Code
+
+DATA QUALITY FLAG: name mismatch; do not silently rename without verification.
+
+Shiv Tara Traders
+
+matched by Plus Code.
+
+SHRI GOPAL ENTERPRISES
+
+matched by phone.
+
+Important
+
+Do not run the real dealer import again.
+
+The database is already at 69 dealers.
+
+11. Real Dealer Data / Future Employee Workflow
+
+The real dealer dataset is intended to become the foundation for an ongoing employee shop-visit process.
+
+Employees will later collect/update:
+
+actual decided dealer name
+
+business details
+
+phone / WhatsApp
+
+exact location / Plus Code
+
+area
+
+materials sold
+
+brands
+
+current rates
+
+delivery availability
+
+verification status
+
+verification date
+
+verified by
+
+last updated
+
+photos/logo/gallery where applicable
+
+reviews/rating data where legitimately sourced
+
+Missing data should be maintained as a separate fill-later list, not guessed.
+
+The system should remain scalable for future shop visits and admin updates.
+
+12. Dealer Search / Discovery Requirements
+
+The dealer experience should support:
+
+Alphabetical sorting
+
+Area-wise search/filter
+
+Material-wise search/filter
+
+Rating-wise sorting
+
+Review-count-aware sorting/filtering
+
+Dealer name search
+
+Exact-location navigation using Plus Code where available
+
+Current Dealers UI already contains:
+
+dealer/area/material search
+
+All materials filter
+
+All areas filter
+
+Filters control
+
+Sort control
+
+Rating sort
+
+Future work should QA these against all 69 records.
+
+13. Dealer Schema / Location Fields
+
+Dealer schema now contains defaults for optional operational data, including:
+
+years_in_business
+delivery
+whatsapp
+verified
+status
+rating
+reviews_count
+
+Location/verification fields added:
+
+plus_code
+verification_status
+verification_date
+verified_by
+last_updated
+
+Compilation verified with:
+
+py -m compileall .\backend\schemas\dealer.py
+
+Dealer ID generation uses ULID architecture in:
+
+backend/utils/id_generator.py
+
+from ulid import ULID
+
+def generate_uid() -> str:
+    return str(ULID())
+
+Do not replace existing ID strategy casually.
+
+14. Dealer Data Reference Files — KEEP FOR AUDIT / REFERENCE
+
+These files are useful for traceability and should NOT be treated as primary runtime data unless code explicitly uses them.
+
+Keep — REFERENCE ONLY
+
+backend/data/existing_dealers_snapshot.txt
+
+Purpose:
+
+snapshot of the original 15 database dealers before real import.
+
+historical comparison only.
+
+backend/data/dealers/backups/dealers_before_real_import_20260825_190505.json
+
+Purpose:
+
+pre-import database backup.
+
+recovery/audit reference.
+
+do not delete casually.
+
+backend/data/dealers/logs/real_dealer_import_20260825_190505.json
+
+Purpose:
+
+audit trail of the real dealer import.
+
+keep for traceability.
+
+backend/data/dealers/deoghar_real_dealers.json
+
+Purpose:
+
+real Deoghar dealer master/import source.
+
+this is the important project reference dataset for the real dealer records.
+
+future changes should preserve traceability.
+
+Historical / disposable scripts
+
+These were created during troubleshooting/import and should not be treated as the canonical workflow:
+
+backend/merge_real_dealers.py
+backend/check_dealer_count.py
+backend/import_real_deoghar_dealers.py
+
+If no longer required by the final application workflow, they may be moved to a clearly named tools/archive/ or removed after confirming no production/runtime dependency.
+
+Do not delete the import backup or import log.
+
+15. Existing Product Work — COMPLETED / EXISTING
+
+Existing SahiRate product areas:
+
+Homepage
+
+Main navigation
+
+Materials
+
+Material Detail
+
+Dealers
+
+Dealer Detail
+
+Live Prices
+
+About
+
+Contact
+
+Careers
+
+Privacy Policy
+
+Terms & Conditions
+
+Welcome Overlay
+
+SahiAI foundation
+
+Production deployment
+
+Production API
+
+Architecture map
+
+Do not rebuild these unless a real defect is demonstrated.
+
+16. Production Context
+
+Production:
+
+Website: https://www.sahirate.in
+API: https://sahirate-api.onrender.com
+Frontend hosting: Vercel
+Backend hosting: Render
+
+Do not reuse old displayed prices as current market truth without a fresh API/data check.
+
+17. Pending Work — CURRENT PRIORITY ORDER
+
+P0 — Functional QA
+
+Verify all 69 dealer records render correctly.
+
+Verify dealer search.
+
+Verify area filter.
+
+Verify material filter.
+
+Verify alphabetical sorting.
+
+Verify rating/review sorting.
+
+Verify Plus Code/location behavior.
+
+Investigate the R K Steel / Jss Traders identity mismatch.
+
+Verify dealer detail pages for newly imported records.
+
+Verify admin dealer edit/create flow with the expanded schema.
+
+P1 — Dealer data quality
+
+Build missing-data report.
+
+Separate unknown/missing fields from verified fields.
+
+Establish employee shop-visit update workflow.
+
+Add clear verification status handling.
+
+Add/update last-updated and verified-by workflow.
+
+P1 — SmartBuild
+
+Calculation foundation
+
+Brick Wall
+
+RCC Slab
+
+PCC
+
+Plaster
+
+Foundation
+
+Labour layer
+
+Cost layer
+
+Estimate schema
+
+Rule registry
+
+Reference registry
+
+Region rules
+
+Aggregate master
+
+Aggregate rate history/provider
+
+Sand master
+
+Brick master
+
+Cement master
+
+TMT master
+
+Regression testing
+
+SmartBuild frontend page
+
+Local visual verification
+
+SmartBuild backend API boundary hardening
+
+Unified Material Catalog
+
+Sand rate provider
+
+Brick rate provider
+
+Cement rate provider
+
+TMT rate provider
+
+Customer-friendly summary report
+
+PDF report
+
+WhatsApp/share flow
+
+Production QA
+
+P2 — Existing product
+
+Deoghar Material → Brand → Product/Sub-brand → Variant structure
+
+Initial Deoghar-relevant brand/product master
+
+Compatible backend/database model
+
+Material Stats QA
+
+AAC Blocks image/product mapping
+
+Material Detail QA
+
+SahiAI production readiness
+
+SEO completion
+
+Responsive QA
+
+Production build
+
+Git review
+
+Push
+
+Production smoke test
+
+18. Architecture / Safety Rules
 
 Do not repeat completed work unless verification shows a real problem.
-
-Do not guess current code state.
 
 Inspect files before editing.
 
 Make small, testable changes.
 
-Update this state file after meaningful sessions.
+Do not guess current code state.
 
 Do not fabricate prices, dealer data, brand availability or local market facts.
 
 Do not expose unfinished AI as production-ready.
 
-Do not change CORS/API configuration without demonstrated need.
+Do not change CORS/API without demonstrated need.
 
 Do not replace production API configuration with localhost unintentionally.
 
-Keep checkpoint-2026-08-19 as active working/live branch unless explicitly changed.
-
 Do not overwrite main without explicit approval.
 
-Do not blindly move/delete files or assets.
+Preserve backward compatibility unless a breaking change is explicitly required.
 
-Do not make Deoghar a hard-coded architectural dependency.
+Do not mass-move/delete assets without dependency/reference audit.
 
-Do not mix research evidence with production master data.
+Do not delete historical dealer backups/logs casually.
 
-Do not use line numbers as the only code reference.
+Do not rerun the real dealer import unless a deliberate re-import is required.
 
-One module at a time during modularization.
+Do not treat preliminary calculation rules as final engineering/design values.
 
-Test before moving to the next module.
+Do not automatically convert CFT ↔ tonne without verified density.
 
-Do not ask again for code already shared in the current session unless it has changed and the new version is required.
+Do not treat catalog brand/source entries as proof of current local availability.
 
-27. Current Phase Status
+Deoghar is the first market, not the permanent architectural limit.
 
-[✓] Existing project history preserved
-[✓] Deoghar-first / India-scale principle established
-[✓] Architecture direction approved
-[✓] ARCHITECTURE_MAP.md created
-[✓] ARCHITECTURE_MAP.md committed
-[✓] ARCHITECTURE_MAP.md pushed
-[✓] Entity / Section / Block reference strategy established
-[✓] Image architecture strategy established
-[✓] Material market_status changes committed
-[✓] Local material image migration committed
-[✓] seed_data.py syntax checked
+Keep this file as the single continuity checkpoint.
 
-[ ] Current architecture inventory
-[ ] Dependency map
-[ ] KEEP / MOVE / SPLIT / MERGE / ARCHIVE classification
-[ ] Final target folder map
-[ ] Backend data modularization
-[ ] Backend service/route modularization
-[ ] Asset/image dependency migration
-[ ] Frontend feature modularization
-[ ] Research verification integration
-[ ] Project intelligence foundation
-[ ] Manpower intelligence foundation
+When work pauses, update this file with:
 
-28. Exact Next Development Order
+current task
 
-Immediate — Architecture
+completed work
 
-Build current file inventory.
+current issue
 
-Build dependency map.
+exact next step
 
-Classify files:
+19. Exact Resume Point
 
-KEEP
-
-MOVE
-
-SPLIT
-
-MERGE
-
-ARCHIVE
-
-Approve final target structure.
-
-Modularize one safe module at a time.
-
-Compile/build/test.
-
-Inspect Git diff.
-
-Commit the completed module.
-
-After architecture baseline
-
-Finalize Deoghar Material → Brand → Product/Sub-brand → Variant structure.
-
-Create verified Deoghar-relevant brand/product master.
-
-Implement compatible backend/database model.
-
-Fix Material Stats.
-
-Verify AAC Blocks image/product mapping.
-
-Complete Material Detail QA.
-
-Verify Dealers.
-
-Finalize Contact production workflow.
-
-Keep SahiAI Coming Soon until production-ready.
-
-Complete SEO to 100%.
-
-Complete responsive QA.
-
-Production build, Git review, push and smoke test.
-
-29. Resume Point
+If the chat session is lost, do not restart from old SmartBuild calculation work or dealer import work.
 
 Resume from:
 
-Build the Current Architecture Inventory from the actual project tree, then classify every important source/asset file as KEEP / MOVE / SPLIT / MERGE / ARCHIVE before changing the project structure.
+Dealer + SmartBuild Functional QA
 
-Do not start mass refactoring before the inventory and dependency map are approved.
+First:
 
-30. Session Checkpoint Rule
+Confirm local backend is running with Uvicorn.
 
-Whenever SahiRate work is paused, record a short checkpoint containing:
+Confirm frontend is running with npm.cmd run dev.
 
-Current file/task
-Completed
-Current issue
-Exact next step
+Open /dealers and verify the 69-dealer dataset.
 
-This checkpoint must be concise and sufficient to resume work without losing continuity.
+Test search/filter/sort/location behavior.
+
+Review missing dealer fields.
+
+Review the R K Steel / Jss Traders Plus Code match.
+
+Then continue SmartBuild API/report work.
+
+Current verified local commands
+
+Backend:
+
+cd C:\Users\sunil\Documents\GitHub\sahirate-app\backend
+py -m uvicorn server:app --host 0.0.0.0 --port 8000
+
+Frontend:
+
+cd C:\Users\sunil\Documents\GitHub\sahirate-app\frontend
+npm.cmd run dev
+
+Database verification:
+
+DEALER COUNT: 69
+
+Dealer page verification:
+
+69 Registered dealers
+69 dealers
+
+20. Final Continuity Summary
+
+SahiRate is no longer at the old “15 dummy dealers + unfinished SmartBuild” state.
+
+Current reality:
+
+SahiRate core product exists.
+
+SmartBuild calculation engine is complete and tested.
+
+SmartBuild frontend exists at /smartbuild.
+
+Real Deoghar dealer data has been imported.
+
+Database contains 69 dealers.
+
+Dealers page displays 69 dealers.
+
+Real dealer codes use the SR-DGR-### sequence for newly inserted records.
+
+Plus Codes are preserved where provided.
+
+Dealer backups and import logs exist for audit/recovery.
+
+Local backend has been successfully run with Uvicorn.
+
+Local frontend runs through Vite using npm.cmd run dev.
+
+The next work is functional QA and data-quality workflow, not re-importing dealers or rebuilding SmartBuild.
+
+SahiRate — Har Material ka Sahi Rate.
+Sahi Jankari. Behtar Faisle.

@@ -10,6 +10,7 @@ from typing import Optional
 from routes.admin import router as admin_router
 from routes.dealers import router as dealers_router
 from routes.onboarding import router as onboarding_router
+from routes.smartbuild import router as smartbuild_router
 
 from dotenv import load_dotenv
 from fastapi import (
@@ -841,6 +842,8 @@ api.include_router(dealers_router)
 
 api.include_router(onboarding_router)
 
+api.include_router(smartbuild_router)
+
 app.include_router(api)
 
 
@@ -855,4 +858,5 @@ async def health_check():
         "service": "SahiRate API",
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
+
 

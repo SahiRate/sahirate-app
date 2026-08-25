@@ -1,0 +1,910 @@
+[
+  {
+    "_id": "6a7638f766cb203128e85570",
+    "id": "dealer_01",
+    "name": "Shree Balaji Building Materials",
+    "area": "Jasidih Road",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.7,
+    "reviews_count": 111,
+    "years_in_business": 8,
+    "phone": "+91 9398362082",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "cement",
+        "price": 442,
+        "previous_price": 438,
+        "trend": "up",
+        "updated_at": "2026-08-07T01:58:47.190536+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 65,
+        "previous_price": 69,
+        "trend": "down",
+        "updated_at": "2026-08-07T17:58:47.190567+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "bricks",
+        "price": 7991,
+        "previous_price": 7991,
+        "trend": "flat",
+        "updated_at": "2026-08-07T11:58:47.190582+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "stone-chips",
+        "price": 70,
+        "previous_price": 70,
+        "trend": "flat",
+        "updated_at": "2026-08-07T01:58:47.190594+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "sand",
+        "price": 49,
+        "previous_price": 55,
+        "trend": "down",
+        "updated_at": "2026-08-07T00:58:47.190605+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 7064,
+        "previous_price": 7056,
+        "trend": "up",
+        "updated_at": "2026-08-07T13:58:47.190617+00:00",
+        "in_stock": false
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190629+00:00",
+    "dealer_code": "dealer_01"
+  },
+  {
+    "_id": "6a7638f766cb203128e85571",
+    "id": "dealer_02",
+    "name": "Deoghar Cement Bhandar",
+    "area": "Castairs Town",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.5,
+    "reviews_count": 41,
+    "years_in_business": 12,
+    "phone": "+91 9149203558",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": false,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "bricks",
+        "price": 7998,
+        "previous_price": 8000,
+        "trend": "down",
+        "updated_at": "2026-08-07T07:58:47.190648+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "cement",
+        "price": 397,
+        "previous_price": 403,
+        "trend": "down",
+        "updated_at": "2026-08-07T01:58:47.190655+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "stone-chips",
+        "price": 76,
+        "previous_price": 80,
+        "trend": "down",
+        "updated_at": "2026-08-07T16:58:47.190661+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 7074,
+        "previous_price": 7076,
+        "trend": "down",
+        "updated_at": "2026-08-07T00:58:47.190668+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190676+00:00",
+    "dealer_code": "dealer_02"
+  },
+  {
+    "_id": "6a7638f766cb203128e85572",
+    "id": "dealer_03",
+    "name": "Maa Tara Steel & Cement",
+    "area": "Baidyanath Chowk",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.8,
+    "reviews_count": 121,
+    "years_in_business": 15,
+    "phone": "+91 9389854268",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": false,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "bricks",
+        "price": 8578,
+        "previous_price": 8578,
+        "trend": "flat",
+        "updated_at": "2026-08-07T04:58:47.190687+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "cement",
+        "price": 405,
+        "previous_price": 407,
+        "trend": "down",
+        "updated_at": "2026-08-07T07:58:47.190693+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 6993,
+        "previous_price": 6993,
+        "trend": "flat",
+        "updated_at": "2026-08-07T16:58:47.190699+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "stone-chips",
+        "price": 70,
+        "previous_price": 70,
+        "trend": "flat",
+        "updated_at": "2026-08-07T13:58:47.190705+00:00",
+        "in_stock": false
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190712+00:00",
+    "dealer_code": "dealer_03"
+  },
+  {
+    "_id": "6a7638f766cb203128e85573",
+    "id": "dealer_04",
+    "name": "Ganpati Construction Supplies",
+    "area": "Bompas Town",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.4,
+    "reviews_count": 59,
+    "years_in_business": 6,
+    "phone": "+91 9647099690",
+    "whatsapp": true,
+    "verified": false,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "stone-chips",
+        "price": 74,
+        "previous_price": 76,
+        "trend": "down",
+        "updated_at": "2026-08-07T06:58:47.190723+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 6683,
+        "previous_price": 6683,
+        "trend": "flat",
+        "updated_at": "2026-08-07T00:58:47.190729+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "bricks",
+        "price": 8235,
+        "previous_price": 8241,
+        "trend": "down",
+        "updated_at": "2026-08-07T06:58:47.190736+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "cement",
+        "price": 404,
+        "previous_price": 404,
+        "trend": "flat",
+        "updated_at": "2026-08-07T14:58:47.190741+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "sand",
+        "price": 57,
+        "previous_price": 57,
+        "trend": "flat",
+        "updated_at": "2026-08-07T00:58:47.190782+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 65,
+        "previous_price": 69,
+        "trend": "down",
+        "updated_at": "2026-08-07T07:58:47.190790+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190798+00:00",
+    "dealer_code": "dealer_04"
+  },
+  {
+    "_id": "6a7638f766cb203128e85574",
+    "id": "dealer_05",
+    "name": "Jai Hind Traders",
+    "area": "Karnibad",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.6,
+    "reviews_count": 111,
+    "years_in_business": 10,
+    "phone": "+91 9219778234",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "cement",
+        "price": 405,
+        "previous_price": 409,
+        "trend": "down",
+        "updated_at": "2026-08-06T23:58:47.190810+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 62,
+        "previous_price": 66,
+        "trend": "down",
+        "updated_at": "2026-08-06T23:58:47.190816+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 6920,
+        "previous_price": 6920,
+        "trend": "flat",
+        "updated_at": "2026-08-07T01:58:47.190822+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "bricks",
+        "price": 9193,
+        "previous_price": 9189,
+        "trend": "up",
+        "updated_at": "2026-08-07T01:58:47.190828+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190835+00:00",
+    "dealer_code": "dealer_05"
+  },
+  {
+    "_id": "6a7638f766cb203128e85575",
+    "id": "dealer_06",
+    "name": "Krishna Building House",
+    "area": "Rikhia Road",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.3,
+    "reviews_count": 38,
+    "years_in_business": 5,
+    "phone": "+91 9358633898",
+    "whatsapp": true,
+    "verified": false,
+    "delivery": false,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "tmt-steel",
+        "price": 6906,
+        "previous_price": 6904,
+        "trend": "up",
+        "updated_at": "2026-08-07T02:58:47.190845+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "sand",
+        "price": 56,
+        "previous_price": 56,
+        "trend": "flat",
+        "updated_at": "2026-08-07T02:58:47.190851+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "cement",
+        "price": 404,
+        "previous_price": 406,
+        "trend": "down",
+        "updated_at": "2026-08-07T13:58:47.190861+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "bricks",
+        "price": 9026,
+        "previous_price": 9028,
+        "trend": "down",
+        "updated_at": "2026-08-07T03:58:47.190868+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 57,
+        "previous_price": 59,
+        "trend": "down",
+        "updated_at": "2026-08-07T09:58:47.190874+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190880+00:00",
+    "dealer_code": "dealer_06"
+  },
+  {
+    "_id": "6a7638f766cb203128e85576",
+    "id": "dealer_07",
+    "name": "Trimurti Cement Agency",
+    "area": "Barmasia",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.7,
+    "reviews_count": 54,
+    "years_in_business": 11,
+    "phone": "+91 9366186631",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "cement",
+        "price": 444,
+        "previous_price": 442,
+        "trend": "up",
+        "updated_at": "2026-08-07T14:58:47.190892+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "sand",
+        "price": 54,
+        "previous_price": 52,
+        "trend": "up",
+        "updated_at": "2026-08-07T10:58:47.190898+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 59,
+        "previous_price": 59,
+        "trend": "flat",
+        "updated_at": "2026-08-07T09:58:47.190905+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "bricks",
+        "price": 9175,
+        "previous_price": 9177,
+        "trend": "down",
+        "updated_at": "2026-08-07T04:58:47.190910+00:00",
+        "in_stock": false
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190917+00:00",
+    "dealer_code": "dealer_07"
+  },
+  {
+    "_id": "6a7638f766cb203128e85577",
+    "id": "dealer_08",
+    "name": "Bharat Steel Corporation",
+    "area": "Tower Chowk",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.9,
+    "reviews_count": 86,
+    "years_in_business": 14,
+    "phone": "+91 9942478695",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "bricks",
+        "price": 8251,
+        "previous_price": 8243,
+        "trend": "up",
+        "updated_at": "2026-08-07T16:58:47.190925+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "cement",
+        "price": 409,
+        "previous_price": 405,
+        "trend": "up",
+        "updated_at": "2026-08-07T17:58:47.190930+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 6686,
+        "previous_price": 6686,
+        "trend": "flat",
+        "updated_at": "2026-08-07T10:58:47.190936+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 59,
+        "previous_price": 57,
+        "trend": "up",
+        "updated_at": "2026-08-07T00:58:47.190942+00:00",
+        "in_stock": false
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190948+00:00",
+    "dealer_code": "dealer_08"
+  },
+  {
+    "_id": "6a7638f766cb203128e85578",
+    "id": "dealer_09",
+    "name": "Shiv Shakti Enterprises",
+    "area": "Jasidih Station Road",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.5,
+    "reviews_count": 142,
+    "years_in_business": 9,
+    "phone": "+91 9368227631",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "tmt-steel",
+        "price": 6831,
+        "previous_price": 6835,
+        "trend": "down",
+        "updated_at": "2026-08-07T05:58:47.190957+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "cement",
+        "price": 441,
+        "previous_price": 433,
+        "trend": "up",
+        "updated_at": "2026-08-07T15:58:47.190965+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "stone-chips",
+        "price": 68,
+        "previous_price": 70,
+        "trend": "down",
+        "updated_at": "2026-08-07T15:58:47.190973+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "bricks",
+        "price": 8192,
+        "previous_price": 8192,
+        "trend": "flat",
+        "updated_at": "2026-08-07T01:58:47.190979+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 58,
+        "previous_price": 62,
+        "trend": "down",
+        "updated_at": "2026-08-07T13:58:47.190984+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.190990+00:00",
+    "dealer_code": "dealer_09"
+  },
+  {
+    "_id": "6a7638f766cb203128e85579",
+    "id": "dealer_10",
+    "name": "New Deoghar Traders",
+    "area": "Court Road",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.2,
+    "reviews_count": 99,
+    "years_in_business": 7,
+    "phone": "+91 9333754555",
+    "whatsapp": true,
+    "verified": false,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "stone-chips",
+        "price": 63,
+        "previous_price": 63,
+        "trend": "flat",
+        "updated_at": "2026-08-07T13:58:47.191000+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "cement",
+        "price": 426,
+        "previous_price": 432,
+        "trend": "down",
+        "updated_at": "2026-08-07T12:58:47.191005+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 56,
+        "previous_price": 54,
+        "trend": "up",
+        "updated_at": "2026-08-07T06:58:47.191010+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "bricks",
+        "price": 8599,
+        "previous_price": 8599,
+        "trend": "flat",
+        "updated_at": "2026-08-07T04:58:47.191016+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "sand",
+        "price": 52,
+        "previous_price": 58,
+        "trend": "down",
+        "updated_at": "2026-08-07T14:58:47.191022+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.191028+00:00",
+    "dealer_code": "dealer_10"
+  },
+  {
+    "_id": "6a7638f766cb203128e8557a",
+    "id": "dealer_11",
+    "name": "Om Sai Building Materials",
+    "area": "Kunda",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.6,
+    "reviews_count": 91,
+    "years_in_business": 8,
+    "phone": "+91 9524971817",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "aggregate",
+        "price": 56,
+        "previous_price": 62,
+        "trend": "down",
+        "updated_at": "2026-08-07T02:58:47.191037+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "stone-chips",
+        "price": 62,
+        "previous_price": 58,
+        "trend": "up",
+        "updated_at": "2026-08-07T13:58:47.191044+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "cement",
+        "price": 433,
+        "previous_price": 429,
+        "trend": "up",
+        "updated_at": "2026-08-07T11:58:47.191049+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "bricks",
+        "price": 8045,
+        "previous_price": 8045,
+        "trend": "flat",
+        "updated_at": "2026-08-07T00:58:47.191055+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 6967,
+        "previous_price": 6963,
+        "trend": "up",
+        "updated_at": "2026-08-07T05:58:47.191061+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "sand",
+        "price": 50,
+        "previous_price": 50,
+        "trend": "flat",
+        "updated_at": "2026-08-07T08:58:47.191067+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.191073+00:00",
+    "dealer_code": "dealer_11"
+  },
+  {
+    "_id": "6a7638f766cb203128e8557b",
+    "id": "dealer_12",
+    "name": "Radhe Radhe Steel",
+    "area": "Sarath Road",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.5,
+    "reviews_count": 53,
+    "years_in_business": 6,
+    "phone": "+91 9214929002",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": false,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "aggregate",
+        "price": 63,
+        "previous_price": 59,
+        "trend": "up",
+        "updated_at": "2026-08-07T16:58:47.191085+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "bricks",
+        "price": 8836,
+        "previous_price": 8836,
+        "trend": "flat",
+        "updated_at": "2026-08-07T14:58:47.191091+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "sand",
+        "price": 47,
+        "previous_price": 47,
+        "trend": "flat",
+        "updated_at": "2026-08-07T07:58:47.191096+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 6730,
+        "previous_price": 6736,
+        "trend": "down",
+        "updated_at": "2026-08-07T01:58:47.191101+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "cement",
+        "price": 434,
+        "previous_price": 426,
+        "trend": "up",
+        "updated_at": "2026-08-07T01:58:47.191110+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "stone-chips",
+        "price": 76,
+        "previous_price": 72,
+        "trend": "up",
+        "updated_at": "2026-08-07T14:58:47.191116+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.191122+00:00",
+    "dealer_code": "dealer_12"
+  },
+  {
+    "_id": "6a7638f766cb203128e8557c",
+    "id": "dealer_13",
+    "name": "Vishwakarma Cement Store",
+    "area": "Chandan Nagar",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.4,
+    "reviews_count": 62,
+    "years_in_business": 5,
+    "phone": "+91 9685823118",
+    "whatsapp": true,
+    "verified": false,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "tmt-steel",
+        "price": 6754,
+        "previous_price": 6754,
+        "trend": "flat",
+        "updated_at": "2026-08-07T02:58:47.191132+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "bricks",
+        "price": 8314,
+        "previous_price": 8306,
+        "trend": "up",
+        "updated_at": "2026-08-07T16:58:47.191138+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "stone-chips",
+        "price": 75,
+        "previous_price": 75,
+        "trend": "flat",
+        "updated_at": "2026-08-07T17:58:47.191143+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "sand",
+        "price": 51,
+        "previous_price": 49,
+        "trend": "up",
+        "updated_at": "2026-08-07T10:58:47.191148+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "cement",
+        "price": 442,
+        "previous_price": 448,
+        "trend": "down",
+        "updated_at": "2026-08-07T01:58:47.191154+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 64,
+        "previous_price": 56,
+        "trend": "up",
+        "updated_at": "2026-08-07T15:58:47.191159+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.191166+00:00",
+    "dealer_code": "dealer_13"
+  },
+  {
+    "_id": "6a7638f766cb203128e8557d",
+    "id": "dealer_14",
+    "name": "Anand Construction Depot",
+    "area": "Deoghar Bypass",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.8,
+    "reviews_count": 87,
+    "years_in_business": 13,
+    "phone": "+91 9386480450",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "stone-chips",
+        "price": 62,
+        "previous_price": 62,
+        "trend": "flat",
+        "updated_at": "2026-08-07T07:58:47.191178+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 61,
+        "previous_price": 61,
+        "trend": "flat",
+        "updated_at": "2026-08-07T11:58:47.191184+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 6831,
+        "previous_price": 6835,
+        "trend": "down",
+        "updated_at": "2026-08-06T23:58:47.191191+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "sand",
+        "price": 49,
+        "previous_price": 47,
+        "trend": "up",
+        "updated_at": "2026-08-07T13:58:47.191197+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "cement",
+        "price": 396,
+        "previous_price": 394,
+        "trend": "up",
+        "updated_at": "2026-08-07T08:58:47.191202+00:00",
+        "in_stock": false
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.191212+00:00",
+    "dealer_code": "dealer_14"
+  },
+  {
+    "_id": "6a7638f766cb203128e8557e",
+    "id": "dealer_15",
+    "name": "Ma Ganga Traders",
+    "area": "Bhagalpur Road",
+    "city": "Deoghar",
+    "state": "Jharkhand",
+    "rating": 4.6,
+    "reviews_count": 176,
+    "years_in_business": 9,
+    "phone": "+91 9566609283",
+    "whatsapp": true,
+    "verified": true,
+    "delivery": true,
+    "gst_registered": true,
+    "prices": [
+      {
+        "material_slug": "cement",
+        "price": 424,
+        "previous_price": 426,
+        "trend": "down",
+        "updated_at": "2026-08-07T09:58:47.191222+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "sand",
+        "price": 49,
+        "previous_price": 41,
+        "trend": "up",
+        "updated_at": "2026-08-07T12:58:47.191228+00:00",
+        "in_stock": false
+      },
+      {
+        "material_slug": "aggregate",
+        "price": 61,
+        "previous_price": 61,
+        "trend": "flat",
+        "updated_at": "2026-08-07T16:58:47.191233+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "tmt-steel",
+        "price": 6829,
+        "previous_price": 6833,
+        "trend": "down",
+        "updated_at": "2026-08-07T01:58:47.191238+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "stone-chips",
+        "price": 62,
+        "previous_price": 58,
+        "trend": "up",
+        "updated_at": "2026-08-07T10:58:47.191245+00:00",
+        "in_stock": true
+      },
+      {
+        "material_slug": "bricks",
+        "price": 8989,
+        "previous_price": 8989,
+        "trend": "flat",
+        "updated_at": "2026-08-07T17:58:47.191250+00:00",
+        "in_stock": true
+      }
+    ],
+    "created_at": "2026-08-07T19:58:47.191254+00:00",
+    "dealer_code": "dealer_15"
+  }
+]

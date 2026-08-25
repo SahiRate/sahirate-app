@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+﻿import { lazy, Suspense, useEffect, useState } from "react";
 import "@/App.css";
 import { Routes, Route } from "react-router-dom";
 
@@ -18,6 +18,7 @@ const Contact = lazy(() => import("@/pages/Contact"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const Careers = lazy(() => import("./pages/Careers"));
 const TermsAndConditions = lazy(() => import("@/pages/TermsAndConditions"));
+const SmartBuild = lazy(() => import("@/pages/SmartBuild"));
 
 import SEO from "@/components/SEO";
 import { Toaster } from "@/components/ui/sonner";
@@ -105,6 +106,11 @@ function App() {
                   onOpenSearch={openSearch}
                 />
               }
+            />
+
+            <Route
+              path="/smartbuild"
+              element={<SmartBuild />}
             />
 
             <Route
