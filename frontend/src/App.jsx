@@ -1,12 +1,4 @@
-﻿import { lazy, Suspense, useEffect, useState } from "react";
-import "@/App.css";
-import { Routes, Route } from "react-router-dom";
-
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
-import AISearchDialog from "@/components/AISearchDialog";
-import WelcomeOverlay from "@/components/WelcomeOverlay";
+﻿import { lazy, Suspense, useState, useEffect } from "react";
 const Home = lazy(() => import("@/pages/Home"));
 const MaterialsList = lazy(() => import("@/pages/MaterialsList"));
 const MaterialDetail = lazy(() => import("@/pages/MaterialDetail"));
@@ -20,6 +12,11 @@ const Careers = lazy(() => import("./pages/Careers"));
 const TermsAndConditions = lazy(() => import("@/pages/TermsAndConditions"));
 const SmartBuild = lazy(() => import("@/pages/SmartBuild"));
 
+const DeogharHub = lazy(() => import("@/pages/DeogharHub"));
+const CityMaterialPrice = lazy(
+  () => import("@/pages/CityMaterialPrice")
+);
+const NotFound = lazy(() => import("@/pages/NotFound"));
 import SEO from "@/components/SEO";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -72,88 +69,84 @@ function App() {
           >
   
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Home onOpenSearch={openSearch} />
-              }
-            />
+  <Route
+    path="/"
+    element={
+      <Home onOpenSearch={openSearch} />
+    }
+  />
 
-            <Route
-              path="/materials"
-              element={<MaterialsList />}
-            />
+  <Route
+    path="/materials"
+    element={<MaterialsList />}
+  />
 
-            <Route
-              path="/materials/:slug"
-              element={<MaterialDetail />}
-            />
+  <Route
+    path="/deoghar"
+    element={<DeogharHub />}
+  />
 
-            <Route
-              path="/dealers"
-              element={<DealersList />}
-            />
+  <Route
+    path="/deoghar/:materialPriceSlug"
+    element={<CityMaterialPrice />}
+  />
 
-            <Route
-              path="/dealers/:id"
-              element={<DealerDetail />}
-            />
+  <Route
+    path="/materials/:slug"
+    element={<MaterialDetail />}
+  />
 
-            <Route
-              path="/prices"
-              element={
-                <LivePrices
-                  onOpenSearch={openSearch}
-                />
-              }
-            />
+  <Route
+    path="/dealers"
+    element={<DealersList />}
+  />
 
-            <Route
-              path="/smartbuild"
-              element={<SmartBuild />}
-            />
+  <Route
+    path="/dealers/:id"
+    element={<DealerDetail />}
+  />
 
-            <Route
-              path="/about"
-              element={<About />}
-            />
+  <Route
+    path="/prices"
+    element={
+      <LivePrices
+        onOpenSearch={openSearch}
+      />
+    }
+  />
 
-            <Route
-              path="/contact"
-              element={<Contact />}
-            />
+  <Route
+    path="/smartbuild"
+    element={<SmartBuild />}
+  />
 
-            <Route
-              path="/careers"
-              element={<Careers />}
-            />
+  <Route
+    path="/about"
+    element={<About />}
+  />
 
-            <Route
-              path="/privacy-policy"
-              element={<PrivacyPolicy />}
-            />
+  <Route
+    path="/contact"
+    element={<Contact />}
+  />
 
-           
-            <Route
-              path="/terms-and-conditions"
-              element={<TermsAndConditions />}
-            />
+  <Route
+    path="/careers"
+    element={<Careers />}
+  />
 
-            <Route
-              path="*"
-              element={
-                <div className="min-h-[60vh] flex flex-col items-center justify-center px-6">
-                  <h1 className="text-5xl font-black text-[#0A192F]">
-                    404
-                  </h1>
+  <Route
+    path="/privacy-policy"
+    element={<PrivacyPolicy />}
+  />
 
-                  <p className="mt-3 text-slate-600">
-                    Page not found.
-                  </p>
-                </div>
-              }
-            />
-          </Routes>
+  <Route
+    path="/terms-and-conditions"
+    element={<TermsAndConditions />}
+  />
+
+  <Route path="*" element={<NotFound />} />
+</Routes>
           </Suspense>
         </main>
 
@@ -171,3 +164,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+

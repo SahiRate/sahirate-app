@@ -32,6 +32,7 @@ from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 
 from routes.materials import router as materials_router
+from routes.sitemap import router as sitemap_router
 from master.materials import MATERIALS
 from seed_data import (
     build_dealers,
@@ -68,6 +69,7 @@ db = client[DB_NAME]
 
 app = FastAPI(title="SahiRate API")
 api = APIRouter(prefix="/api")
+app.state.db = db
 
 # ==========================================================
 # SECURITY
@@ -834,17 +836,14 @@ app.add_middleware(
 # ==========================================================
 # ROUTERS
 # ==========================================================
-api.include_router(admin_router)
-
 api.include_router(materials_router)
-
+api.include_router(admin_router)
 api.include_router(dealers_router)
-
 api.include_router(onboarding_router)
-
 api.include_router(smartbuild_router)
 
 app.include_router(api)
+app.include_router(sitemap_router)
 
 
 # ==========================================================

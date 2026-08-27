@@ -114,10 +114,11 @@ export default function MaterialsList() {
 
     <>
 
-      <SEO
- title="Building Materials Price List | SahiRate"
- description="Check latest cement, steel, sand and construction material prices from trusted sources."
- path="/materials"
+<SEO
+  title="Building Material Prices in Deoghar | SahiRate"
+  description="Compare building material prices in Deoghar, including cement, TMT steel, bricks, sand and other construction materials."
+  keywords="building material prices Deoghar, Deoghar material price list, cement price Deoghar, TMT price Deoghar, brick price Deoghar, sand price Deoghar, construction material prices Jharkhand"
+  path="/materials"
 />
 
       {/* ================================================= */}

@@ -233,11 +233,12 @@ function SmartBuild() {
 
   return (
     <>
-      <SEO
-        title="SmartBuild Construction Calculator | SahiRate"
-        description="Estimate building material quantities, labour and construction duration with SahiRate SmartBuild."
-        path="/smartbuild"
-      />
+<SEO
+  title="Construction Cost Calculator | SmartBuild by SahiRate"
+  description="Estimate construction material quantities, labour requirements, duration and project cost with SahiRate SmartBuild."
+  keywords="construction cost calculator, building material calculator, construction estimate calculator, material quantity calculator, construction cost Deoghar, SmartBuild SahiRate"
+  path="/smartbuild"
+/>
 
       <main className="min-h-screen bg-[#F4F7FB] text-[#071A33]">
         {/* HERO — fixed two-column composition to keep the page visually balanced */}

@@ -397,11 +397,11 @@ export default function MaterialDetail() {
 
   return (
   <>
-    <SEO
-      title={`${data.name} Price in Deoghar | SahiRate`}
-      description={data.description}
-      path={`/materials/${slug}`}
-    />
+<SEO
+  title={`${data.name} Price in Deoghar | SahiRate`}
+  description={data.description}
+  path={`/materials/${slug}`}
+/>
 
     {/* ================================================= */}
     {/* HERO */}

@@ -62,11 +62,12 @@ export default function LivePrices({ onOpenSearch }) {
 
   return (
     <>
-      <SEO
-        title="Live Building Material Prices Today | SahiRate"
-        description="Get daily updated construction material prices including cement, steel and more."
-        path="/prices"
-      />
+<SEO
+  title="Live Building Material Prices in Deoghar | SahiRate"
+  description="Check current building material prices in Deoghar. Track cement, TMT steel and other construction material rates with SahiRate."
+  keywords="live building material prices Deoghar, today cement price Deoghar, today TMT price Deoghar, construction material rates Deoghar, building material rates Jharkhand"
+  path="/prices"
+/>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
 
