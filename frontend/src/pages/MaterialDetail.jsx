@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -708,19 +708,20 @@ export default function MaterialDetail() {
           <div>
 
             <h3 className="text-xl font-bold text-[#0A192F]">
-              TMT Brands
+              {slug === "tmt-steel" ? "TMT Brands" : `${data.name} Brands`}
             </h3>
 
             <p className="mt-2 text-xs leading-5 text-slate-500">
-              15 TMT brands available for this material
+              {slug === "tmt-steel" ? `${tmtBrands.length} TMT brands available for this material` : `${(data.brand_catalog || []).length} ${data.name} brands available for this material`}
             </p>
 
           </div>
 
         </div>
 
-        <div className="mt-4">
-
+        {(slug === "tmt-steel" || (data.brand_catalog || []).length > 0) && (
+          <div className="mt-4">
+            <>
           {slug === "tmt-steel" ? (
 
             <div className="grid grid-cols-3 gap-3">
@@ -750,8 +751,9 @@ export default function MaterialDetail() {
             </div>
 
           )}
-
-        </div>
+            </>
+          </div>
+        )}
 
       </div>
 
@@ -762,7 +764,7 @@ export default function MaterialDetail() {
 </section>
 
       {/* ================================================= */}
-      {/* DEALER COMPARISON — COMPACT TABS */}
+      {/* DEALER COMPARISON â€” COMPACT TABS */}
       {/* ================================================= */}
 
       <section className="py-10 bg-[#F8FAFC]">
@@ -869,7 +871,7 @@ export default function MaterialDetail() {
         </span>
 
         <span>
-          ⭐ {dealer.rating}
+          â­ {dealer.rating}
         </span>
 
         {dealer.delivery && (
@@ -1012,7 +1014,7 @@ export default function MaterialDetail() {
                         </div>
 
                         <div className="mt-1 font-bold text-[#0A192F]">
-                          ⭐ {dealer.rating}
+                          â­ {dealer.rating}
                         </div>
                       </div>
 
@@ -1167,3 +1169,6 @@ export default function MaterialDetail() {
     </>
   );
 }
+
+
+

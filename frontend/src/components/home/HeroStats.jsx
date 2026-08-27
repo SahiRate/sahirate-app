@@ -1,4 +1,4 @@
-import { Boxes, Store, MapPin, Activity } from "lucide-react";
+﻿import { Boxes, Store, MapPin, Activity } from "lucide-react";
 
 const stats = [
   {
@@ -25,7 +25,7 @@ const stats = [
 
 export default function HeroStats() {
   return (
-    <div className="mt-16 grid grid-cols-2 gap-5 lg:grid-cols-4">
+    <div className="mt-6 grid grid-cols-2 gap-4 lg:mt-16 lg:grid-cols-4 lg:gap-5">
       {stats.map((item) => {
         const Icon = item.icon;
 

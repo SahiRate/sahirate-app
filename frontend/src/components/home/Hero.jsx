@@ -1,4 +1,4 @@
-import HeroBackground from "./HeroBackground";
+﻿import HeroBackground from "./HeroBackground";
 import HeroDashboard from "./HeroDashboard";
 import HeroContent from "./HeroContent";
 
@@ -7,17 +7,28 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-[#081B33] text-white">
       <HeroBackground />
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-96px)] max-w-[1400px] items-center px-8 py-10 lg:px-10">
-        <div className="grid w-full items-center gap-14 lg:grid-cols-[1fr_1fr]">
+      <div className="relative mx-auto max-w-[1500px] px-5 pt-16 pb-12 sm:px-8 sm:pt-20 lg:px-10 lg:pt-20">
+        <div
+          className="
+            grid w-full items-start
+            gap-10
+            xl:grid-cols-[minmax(0,1fr)_500px]
+            2xl:grid-cols-[minmax(0,1fr)_520px]
+            2xl:gap-12
+          "
+        >
+          <div className="min-w-0">
+            <HeroContent />
+          </div>
 
-          <HeroContent />
-
-          {/* RIGHT SIDE */}
-
-          <HeroDashboard />
-
+          <div className="w-full min-w-0 xl:max-w-[500px] xl:justify-self-end 2xl:max-w-[520px]">
+            <HeroDashboard />
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
+

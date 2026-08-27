@@ -3,7 +3,7 @@ SahiRate — Master Project Continuity Checkpoint
 Last Updated: 26 August 2026
 Purpose: Single source of truth for project continuity. Update this file after every meaningful development session. Do not append duplicate full checkpoints.
 
-1. Project Identity
+Project Identity
 
 Project: SahiRate
 
@@ -29,51 +29,75 @@ Current visual language: premium navy + orange.
 
 Keep unfinished/experimental SahiAI functionality out of production until tested.
 
-2. Current Development Status — IMPORTANT
+Current Development Status — IMPORTANT
 
 Overall
 
-The project is currently in an active functional-integration phase, not a redesign phase.
+The project remains in an active functional-integration and QA phase, not a redesign phase.
 
-Completed in the latest work
+Completed / stable areas
 
 SmartBuild calculation engine completed and regression-tested.
 
-SmartBuild frontend is now implemented at /smartbuild.
+SmartBuild frontend implemented at /smartbuild.
 
-SmartBuild civil icons were added:
-
-frontend/src/assets/smartbuild/plastering.png
-
-frontend/src/assets/smartbuild/foundation.png
-
-SmartBuild UI was visually tested locally.
-
-Dealer master import completed.
-
-MongoDB dealer count verified at 69.
+Real Deoghar dealer import completed; database verified at 69 dealers.
 
 Dealers page verified showing 69 dealers.
 
-Real dealer data is now flowing through MongoDB → backend → frontend.
+Real dealer data flows MongoDB → backend → frontend.
 
-Dealer search/filter/sort UI already exists and currently exposes:
+Existing product pages and core navigation are already implemented.
 
-dealer/area/material search
+Latest UI/Responsive Work — 26–27 August 2026
 
-material filter
+Homepage Hero responsive work was actively adjusted.
 
-area filter
+Files involved:
 
-sorting (including Rating)
+frontend/src/components/home/Hero.jsx
 
-Plus Codes from the real dealer dataset were preserved where available.
+frontend/src/components/home/HeroContent.jsx
+
+frontend/src/components/home/HeroStats.jsx (inspected; no confirmed change should be assumed)
+
+frontend/src/components/home/HeroDashboard.jsx (existing component; do not modify unless a specific defect is demonstrated)
+
+Hero work completed in this session:
+
+Hero desktop/mobile positioning was corrected after several responsive regressions.
+
+Mobile horizontal overflow was reduced/fixed through width/min-width constraints.
+
+CTA layout was restructured so the three actions remain in a controlled mobile flow.
+
+“Explore Live Prices”, “See How It Works”, and “Calculate Estimate” are now vertically separated.
+
+“Instant Estimate” annotation was moved out of the previous CTA overlap on mobile.
+
+“Know Your Cost. Build With Confidence.” was positioned below Calculate Estimate.
+
+Decorative orange arrow was corrected to a proper visible arrowhead.
+
+Desktop positioning is protected with lg/desktop-specific rules and should not be casually changed.
+
+Latest mobile screenshot showed the CTA section in a substantially improved/stable state.
+
+Important current UI decision
+
+LOCK the Hero CTA unless a new, clearly demonstrated defect appears.
+
+Do not keep changing spacing/widths by trial and error. Inspect the actual current file before editing.
+
+The latest Hero UI work is separate from the functional priorities below; do not let responsive polish restart completed SmartBuild/dealer work.
 
 Current immediate priority
 
-Do not restart SmartBuild architecture or dealer import.
+Preserve the current Hero CTA/mobile state.
 
-Next work should focus on:
+If continuing Hero QA, compare desktop and 390×844 mobile side-by-side before making any change.
+
+Then return to functional QA:
 
 Dealer data quality / missing-field workflow.
 
@@ -81,11 +105,11 @@ Dealer search/sort/filter QA.
 
 Admin dealer management and future employee shop-visit workflow.
 
-SmartBuild functional QA and backend/API hardening.
+SmartBuild functional/API hardening.
 
-Only then broader UI/SEO/production polish.
+Only then continue broader UI/SEO/production polish.
 
-3. Git / Branch Context
+Git / Branch Context
 
 Working branch previously used:
 checkpoint-2026-08-19
@@ -112,7 +136,7 @@ Do not overwrite main without explicit approval.
 
 Do not assume the working tree is clean.
 
-4. Frontend
+Frontend
 
 Stack
 
@@ -194,7 +218,7 @@ frontend/src/pages/SmartBuild.jsx
 frontend/src/lib/api.js
 frontend/src/components/SEO.jsx
 
-5. Backend
+Backend
 
 Backend directory
 
@@ -213,7 +237,7 @@ Correct local backend command
 Run from the backend directory:
 
 cd C:\Users\sunil\Documents\GitHub\sahirate-app\backend
-py -m uvicorn server:app --host 0.0.0.0 --port 8000
+py -m uvicorn server --host 0.0.0.0 --port 8000
 
 Verified successfully in the latest session:
 
@@ -226,7 +250,7 @@ Swagger:
 
 http://127.0.0.1:8000/docs
 
-6. API Configuration
+API Configuration
 
 Production frontend API must remain:
 
@@ -235,16 +259,16 @@ https://sahirate-api.onrender.com
 frontend/src/lib/api.js is intended to use:
 
 const BACKEND_URL =
-  import.meta.env.VITE_BACKEND_URL ||
-  "https://sahirate-api.onrender.com";
+import.meta.env.VITE_BACKEND_URL ||
+"https://sahirate-api.onrender.com";
 
-const API = `${BACKEND_URL}/api`;
+const API = ${BACKEND_URL}/api;
 
 Do not replace production API configuration with localhost unintentionally.
 
 For local backend testing, use the deliberate local environment only.
 
-7. SmartBuild — CURRENT STATUS
+SmartBuild — CURRENT STATUS
 
 Purpose
 
@@ -300,7 +324,7 @@ Do not redesign the whole SahiRate UI now.
 
 Functional integration and data correctness come first.
 
-8. SmartBuild Calculation Engine — COMPLETED
+SmartBuild Calculation Engine — COMPLETED
 
 Directory:
 
@@ -379,7 +403,7 @@ PRELIMINARY_ESTIMATE
 
 Do not present preliminary productivity or engineering assumptions as guaranteed site requirements.
 
-9. SmartBuild Reference / Material Architecture
+SmartBuild Reference / Material Architecture
 
 Completed masters:
 
@@ -396,11 +420,11 @@ TMT
 Architecture principle:
 
 Rule
- ↓
+↓
 Reference
- ↓
+↓
 Region
- ↓
+↓
 Verification
 
 Current reference status:
@@ -421,7 +445,7 @@ Catalog brand/source presence does not prove current Deoghar availability.
 
 Local aggregate/sand source names are identifiers until independently verified.
 
-10. Dealer Master — LATEST MAJOR COMPLETION
+Dealer Master — LATEST MAJOR COMPLETION
 
 Database result
 
@@ -477,7 +501,7 @@ Do not run the real dealer import again.
 
 The database is already at 69 dealers.
 
-11. Real Dealer Data / Future Employee Workflow
+Real Dealer Data / Future Employee Workflow
 
 The real dealer dataset is intended to become the foundation for an ongoing employee shop-visit process.
 
@@ -517,7 +541,7 @@ Missing data should be maintained as a separate fill-later list, not guessed.
 
 The system should remain scalable for future shop visits and admin updates.
 
-12. Dealer Search / Discovery Requirements
+Dealer Search / Discovery Requirements
 
 The dealer experience should support:
 
@@ -551,7 +575,7 @@ Rating sort
 
 Future work should QA these against all 69 records.
 
-13. Dealer Schema / Location Fields
+Dealer Schema / Location Fields
 
 Dealer schema now contains defaults for optional operational data, including:
 
@@ -582,11 +606,11 @@ backend/utils/id_generator.py
 from ulid import ULID
 
 def generate_uid() -> str:
-    return str(ULID())
+return str(ULID())
 
 Do not replace existing ID strategy casually.
 
-14. Dealer Data Reference Files — KEEP FOR AUDIT / REFERENCE
+Dealer Data Reference Files — KEEP FOR AUDIT / REFERENCE
 
 These files are useful for traceability and should NOT be treated as primary runtime data unless code explicitly uses them.
 
@@ -640,7 +664,7 @@ If no longer required by the final application workflow, they may be moved to a 
 
 Do not delete the import backup or import log.
 
-15. Existing Product Work — COMPLETED / EXISTING
+Existing Product Work — COMPLETED / EXISTING
 
 Existing SahiRate product areas:
 
@@ -680,7 +704,7 @@ Architecture map
 
 Do not rebuild these unless a real defect is demonstrated.
 
-16. Production Context
+Production Context
 
 Production:
 
@@ -691,7 +715,7 @@ Backend hosting: Render
 
 Do not reuse old displayed prices as current market truth without a fresh API/data check.
 
-17. Pending Work — CURRENT PRIORITY ORDER
+Pending Work — CURRENT PRIORITY ORDER
 
 P0 — Functional QA
 
@@ -819,7 +843,7 @@ Push
 
 Production smoke test
 
-18. Architecture / Safety Rules
+Architecture / Safety Rules
 
 Do not repeat completed work unless verification shows a real problem.
 
@@ -867,64 +891,77 @@ current issue
 
 exact next step
 
-19. Exact Resume Point
+Exact Resume Point
 
-If the chat session is lost, do not restart from old SmartBuild calculation work or dealer import work.
+Latest pause point: 27 August 2026.
 
-Resume from:
+Homepage Hero CTA/mobile responsive work has been brought to a substantially better state and should now be treated as LOCKED unless a specific new defect is demonstrated.
 
-Dealer + SmartBuild Functional QA
+Do not:
 
-First:
+Rebuild HeroContent from scratch again.
 
-Confirm local backend is running with Uvicorn.
+Randomly adjust mt/pt/pb/top/bottom values.
 
-Confirm frontend is running with npm.cmd run dev.
+Change desktop lg/xl/2xl layout while fixing a mobile-only issue.
 
-Open /dealers and verify the 69-dealer dataset.
+Revisit the CTA merely because spacing can be cosmetically tweaked.
 
-Test search/filter/sort/location behavior.
+Treat a successful build as proof of visual correctness; visual QA is still required.
+
+If Hero QA is resumed:
+
+Inspect the current Hero.jsx and HeroContent.jsx before editing.
+
+Compare desktop against the known live-site reference.
+
+Check mobile at 390×844.
+
+Change only the smallest confirmed defect.
+
+Rebuild and visually verify both breakpoints.
+
+Then resume the broader project priority:
+
+Dealer + SmartBuild Functional QA.
+
+Verify all 69 dealer records.
+
+Test dealer search/filter/sort/location behavior.
 
 Review missing dealer fields.
 
 Review the R K Steel / Jss Traders Plus Code match.
 
-Then continue SmartBuild API/report work.
+Verify dealer detail pages and admin dealer edit/create flow.
+
+Continue SmartBuild API/report hardening.
 
 Current verified local commands
 
 Backend:
-
 cd C:\Users\sunil\Documents\GitHub\sahirate-app\backend
-py -m uvicorn server:app --host 0.0.0.0 --port 8000
+py -m uvicorn server --host 0.0.0.0 --port 8000
 
 Frontend:
-
 cd C:\Users\sunil\Documents\GitHub\sahirate-app\frontend
 npm.cmd run dev
 
-Database verification:
+Production build:
+cd C:\Users\sunil\Documents\GitHub\sahirate-app\frontend
+npm.cmd run build
 
-DEALER COUNT: 69
+Final Continuity Summary
 
-Dealer page verification:
+SahiRate current reality:
 
-69 Registered dealers
-69 dealers
-
-20. Final Continuity Summary
-
-SahiRate is no longer at the old “15 dummy dealers + unfinished SmartBuild” state.
-
-Current reality:
-
-SahiRate core product exists.
+Core SahiRate product exists.
 
 SmartBuild calculation engine is complete and tested.
 
 SmartBuild frontend exists at /smartbuild.
 
-Real Deoghar dealer data has been imported.
+Real Deoghar dealer data is imported.
 
 Database contains 69 dealers.
 
@@ -936,11 +973,13 @@ Plus Codes are preserved where provided.
 
 Dealer backups and import logs exist for audit/recovery.
 
-Local backend has been successfully run with Uvicorn.
+Local backend runs with Uvicorn.
 
-Local frontend runs through Vite using npm.cmd run dev.
+Local frontend runs with Vite via npm.cmd run dev.
 
-The next work is functional QA and data-quality workflow, not re-importing dealers or rebuilding SmartBuild.
+Homepage Hero responsive/CTA work was improved on 26–27 August and is currently treated as a locked area.
+
+The current next phase is functional QA and data quality, not repeated UI trial-and-error, dealer re-import, or SmartBuild recalculation.
 
 SahiRate — Har Material ka Sahi Rate.
 Sahi Jankari. Behtar Faisle.
