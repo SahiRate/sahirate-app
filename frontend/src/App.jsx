@@ -1,4 +1,9 @@
-﻿import ScrollToTop from "@/components/ScrollToTop";
+﻿import WelcomeOverlay from "@/components/WelcomeOverlay";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AISearchDialog from "@/components/AISearchDialog";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import ScrollToTop from "@/components/ScrollToTop";
 import { lazy, Suspense, useState, useEffect } from "react";
 const Home = lazy(() => import("@/pages/Home"));
 const MaterialsList = lazy(() => import("@/pages/MaterialsList"));
@@ -165,6 +170,9 @@ function App() {
 }
 
 export default App;
+
+
+
 
 
 
