@@ -1,4 +1,5 @@
-﻿import { lazy, Suspense, useState, useEffect } from "react";
+﻿import ScrollToTop from "@/components/ScrollToTop";
+import { lazy, Suspense, useState, useEffect } from "react";
 const Home = lazy(() => import("@/pages/Home"));
 const MaterialsList = lazy(() => import("@/pages/MaterialsList"));
 const MaterialDetail = lazy(() => import("@/pages/MaterialDetail"));
@@ -164,6 +165,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
