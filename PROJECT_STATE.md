@@ -1,6 +1,98 @@
+Latest Production / Runtime QA — 28 August 2026
+
+Production deployment from main successfully completed on Vercel after repairing missing App.jsx runtime imports.
+
+Latest relevant commits:
+
+9d2e4a6 — Fix SEO, sitemap and frontend runtime issues
+
+1bff38c — Fix missing ScrollToTop import
+
+078e4d3 — Fix App runtime imports
+
+Runtime status
+
+Local production build: PASS
+
+Vite app: PASS
+
+Earlier blank-page errors were caused by missing component imports in App.jsx.
+
+App.jsx now includes the required imports for WelcomeOverlay, AISearchDialog, Footer, Navbar, ScrollToTop, SEO, Toaster, and React Router.
+
+PageSpeed Insights — 28 August 2026
+
+Production URL tested: https://www.sahirate.in/
+
+Mobile
+
+Performance: 69/100
+
+Accessibility: 100/100
+
+Best Practices: 100/100
+
+SEO: 100/100
+
+FCP: 3.1s
+
+LCP: 18.7s
+
+TBT: 0ms
+
+CLS: 0
+
+Desktop
+
+Performance: 82/100
+
+Accessibility: 100/100
+
+Best Practices: 100/100
+
+SEO: 100/100
+
+FCP: 0.7s
+
+LCP: 3.1s
+
+TBT: 0ms
+
+CLS: 0
+
+Current performance issue
+
+SEO is now verified at 100/100 on both mobile and desktop. Accessibility and Best Practices are also 100/100.
+
+The remaining major issue is image delivery/LCP. PageSpeed reports approximately 2.7 MB potential image-delivery savings.
+
+Known large assets from the production build:
+
+welcome.png — approximately 1.27 MB
+
+construction-bg.jpg — approximately 1.90 MB
+
+Next exact task
+
+Audit actual references to the large images before editing.
+
+Optimize the images safely, preferably with WebP/AVIF where appropriate.
+
+Do not change SEO, routing, API configuration, dealer data, SmartBuild calculation logic, or the locked Hero CTA while fixing performance.
+
+Run the production build.
+
+Verify the site visually.
+
+Deploy only after runtime/build verification.
+
+Re-run PageSpeed on mobile and desktop.
+
+Important: npm peer-dependency warnings are not the current blank-page cause. The earlier blank page was caused by missing React imports and has been addressed.
+
 SahiRate — Master Project Continuity Checkpoint
 
-Last Updated: 26 August 2026
+Last Updated: 28 August 2026
 Purpose: Single source of truth for project continuity. Update this file after every meaningful development session. Do not append duplicate full checkpoints.
 
 Project Identity

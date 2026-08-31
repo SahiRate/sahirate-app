@@ -1,4 +1,5 @@
-﻿import { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { calculateSmartBuild } from "@/lib/api";
 import plasteringIcon from "../assets/smartbuild/plastering.png";
@@ -186,6 +187,7 @@ function unitLabel(unit) {
 }
 
 function SmartBuild() {
+  const navigate = useNavigate();
   const [purpose, setPurpose] = useState("brick_wall");
   const [values, setValues] = useState(DEFAULT_VALUES.brick_wall);
   const [result, setResult] = useState(null);
@@ -218,6 +220,13 @@ function SmartBuild() {
     try {
       const inputs = Object.fromEntries(Object.entries(values).map(([key, value]) => [key, Number.isFinite(Number(value)) && value !== "" ? Number(value) : value]));
       const data = await calculateSmartBuild(purpose, inputs);
+
+      sessionStorage.setItem(
+        "sahirate-smartbuild-estimate",
+        JSON.stringify(data)
+      );
+      navigate("/smartbuild/estimate");
+
       setResult(data);
       setDetailsOpen(false);
     } catch (err) {
@@ -728,6 +737,12 @@ function SmartBuild() {
 }
 
 export default SmartBuild;
+
+
+
+
+
+
 
 
 

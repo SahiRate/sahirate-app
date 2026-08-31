@@ -82,7 +82,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
     normalized === "how are you?"
   ) {
     instantAnswer =
-      "Hello! I’m SahiAI — your building material intelligence assistant. I can help you check prices, compare dealers and understand the Deoghar construction market.";
+      "Hello! I’m SahiAI � your building material intelligence assistant. I can help you check prices, compare dealers and understand the Deoghar construction market.";
   }
 
   // ======================================================
@@ -661,7 +661,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
 
                         <div className="mt-2 flex items-baseline gap-2">
                           <span className="text-3xl font-bold tracking-tight">
-                            ₹{result.dealers[0].price?.toLocaleString("en-IN")}
+                            ?{result.dealers[0].price?.toLocaleString("en-IN")}
                           </span>
 
                           <span className="text-xs text-white/60">
@@ -693,7 +693,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
 
                           <div className="mt-3 flex items-baseline gap-2">
                             <span className="text-xl font-bold text-[#0A192F]">
-                              ₹{result.market.min?.toLocaleString("en-IN")}
+                              ?{result.market.min?.toLocaleString("en-IN")}
                             </span>
 
                             <span className="text-xs text-slate-400">
@@ -701,7 +701,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
                             </span>
 
                             <span className="text-xl font-bold text-[#0A192F]">
-                              ₹{result.market.max?.toLocaleString("en-IN")}
+                              ?{result.market.max?.toLocaleString("en-IN")}
                             </span>
                           </div>
 
@@ -711,7 +711,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
                                 Average
                               </p>
                               <p className="mt-1 text-sm font-bold text-[#0A192F]">
-                                ₹{result.market.avg?.toLocaleString("en-IN")}
+                                ?{result.market.avg?.toLocaleString("en-IN")}
                               </p>
                             </div>
 
@@ -888,7 +888,7 @@ export default function AISearchDialog({ open, onOpenChange }) {
             </p>
 
             <p className="mt-0.5 text-base font-bold text-[#0A192F]">
-              ₹{d.price?.toLocaleString("en-IN")}
+              ?{d.price?.toLocaleString("en-IN")}
             </p>
 
           </div>

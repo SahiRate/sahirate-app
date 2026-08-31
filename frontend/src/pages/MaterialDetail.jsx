@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -104,7 +104,7 @@ function PriceCard({
         }`}
       >
         {value !== undefined && value !== null && value !== 0
-          ? `₹${value}`
+          ? `\u20B9${value}`
           : "NA"}
       </div>
     </div>
@@ -557,7 +557,7 @@ export default function MaterialDetail() {
                   {data.stats?.avg !== undefined &&
                   data.stats?.avg !== null &&
                   data.stats?.avg !== 0
-                    ? `₹${data.stats.avg}`
+                    ? `\u20B9${data.stats.avg}`
                     : "NA"}
                 </div>
 
@@ -666,7 +666,7 @@ export default function MaterialDetail() {
               <div className="mt-6">
 
                 <div className="text-4xl font-black text-[#FF6B00]">
-                  ₹{cheapest.price}
+                  {"\u20B9"}{cheapest.price}
                 </div>
 
                 <div className="mt-1 text-xs text-slate-400">
@@ -764,7 +764,7 @@ export default function MaterialDetail() {
 </section>
 
       {/* ================================================= */}
-      {/* DEALER COMPARISON â€” COMPACT TABS */}
+      {/* DEALER COMPARISON ï¿½ COMPACT TABS */}
       {/* ================================================= */}
 
       <section className="py-10 bg-[#F8FAFC]">
@@ -897,7 +897,7 @@ export default function MaterialDetail() {
       </div>
 
       <div className="mt-1 text-4xl font-black text-[#0A192F] whitespace-nowrap">
-        ₹{dealer.price}
+        {"\u20B9"}{dealer.price}
       </div>
 
       <div className="mt-1 text-xs text-slate-500 whitespace-nowrap">
@@ -1024,7 +1024,7 @@ export default function MaterialDetail() {
                         </div>
 
                         <div className="mt-1 font-bold text-[#0A192F]">
-                          ₹{dealer.price}
+                          {"\u20B9"}{dealer.price}
                         </div>
                       </div>
 
@@ -1169,6 +1169,8 @@ export default function MaterialDetail() {
     </>
   );
 }
+
+
 
 
 

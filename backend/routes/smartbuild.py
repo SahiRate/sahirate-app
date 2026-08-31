@@ -1,9 +1,12 @@
 ﻿from typing import Any
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from calculation.engine import CalculationEngine
+from calculation.dealer_market_provider import (
+    DealerMarketPriceProvider,
+)
 
 
 router = APIRouter(
@@ -11,7 +14,7 @@ router = APIRouter(
     tags=["SmartBuild"],
 )
 
-engine = CalculationEngine()
+# Engine is created per request so it receives fresh dealer-market data.
 
 
 class SmartBuildRequest(BaseModel):
@@ -20,11 +23,41 @@ class SmartBuildRequest(BaseModel):
 
 
 @router.post("/calculate")
-async def calculate_smartbuild(request: SmartBuildRequest):
+async def calculate_smartbuild(
+    request: SmartBuildRequest,
+    http_request: Request,
+):
+    db = http_request.app.state.mongodb
+
+    dealers = await db.dealers.find(
+        {},
+        {"_id": 0},
+    ).to_list(500)
+
+    price_provider = DealerMarketPriceProvider(
+        dealers
+    )
+
+    engine = CalculationEngine(
+        price_provider=price_provider
+    )
+
     try:
         result = engine.calculate(
             request.purpose,
             request.inputs,
+        )
+
+        result["market_pricing"] = (
+            price_provider.market_summary(
+                [
+                    item.get("slug")
+                    for item in result.get(
+                        "materials",
+                        []
+                    )
+                ]
+            )
         )
     except Exception as exc:
         raise HTTPException(
@@ -39,3 +72,4 @@ async def calculate_smartbuild(request: SmartBuildRequest):
         )
 
     return result
+

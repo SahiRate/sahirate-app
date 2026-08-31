@@ -1,4 +1,4 @@
-﻿import WelcomeOverlay from "@/components/WelcomeOverlay";
+import WelcomeOverlay from "@/components/WelcomeOverlay";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AISearchDialog from "@/components/AISearchDialog";
 import Footer from "@/components/Footer";
@@ -34,6 +34,10 @@ function App() {
   const [welcomeClosed, setWelcomeClosed] = useState(true);
 
   const openSearch = () => setSearchOpen(true);
+
+  const SmartBuildEstimate = lazy(
+  () => import("@/pages/SmartBuildEstimate")
+  );
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem(STORAGE_KEY);
@@ -127,6 +131,11 @@ function App() {
   />
 
   <Route
+  path="/smartbuild/estimate"
+  element={<SmartBuildEstimate />}
+  />
+
+  <Route
     path="/about"
     element={<About />}
   />
@@ -170,6 +179,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

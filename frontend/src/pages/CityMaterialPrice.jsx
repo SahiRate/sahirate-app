@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -513,3 +513,4 @@ function PriceCard({ label, value, unit }) {
     </div>
   );
 }
+

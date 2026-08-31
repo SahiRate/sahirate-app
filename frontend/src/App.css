@@ -152,3 +152,144 @@ font-size:1rem;
 }
 
 }
+/* =========================================================
+   SAHIRATE SMARTBUILD — FINAL TEXT CONTRAST FIX
+   ========================================================= */
+
+.sahirate-estimate-page .sahirate-dark-hero h1,
+.sahirate-estimate-page .sahirate-dark-hero h2,
+.sahirate-estimate-page .sahirate-dark-hero h3,
+.sahirate-estimate-page .sahirate-dark-hero p,
+.sahirate-estimate-page .sahirate-dark-hero span {
+  color: #FFFFFF !important;
+}
+
+/* Hero supporting text */
+.sahirate-estimate-page .sahirate-dark-hero
+.text-slate-300 {
+  color: #D7E0EC !important;
+}
+
+.sahirate-estimate-page .sahirate-dark-hero
+.text-slate-400 {
+  color: #A9B8CA !important;
+}
+
+/* Hero main heading */
+.sahirate-estimate-page .sahirate-dark-hero h1 {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+}
+
+/* Estimated material cost */
+.sahirate-estimate-page .sahirate-dark-hero
+.text-4xl,
+.sahirate-estimate-page .sahirate-dark-hero
+.text-5xl {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+}
+
+/* Dark hero card — force readable text */
+.sahirate-estimate-page .sahirate-dark-hero > div > div:last-child,
+.sahirate-estimate-page .sahirate-dark-hero > div > div:last-child * {
+  color: #FFFFFF !important;
+}
+
+/* Small description inside dark card */
+.sahirate-estimate-page .sahirate-dark-hero
+.text-slate-400 {
+  color: #A9B8CA !important;
+}
+
+/* Orange observation line */
+.sahirate-estimate-page .sahirate-dark-hero
+.text-orange-300 {
+  color: #FDBA74 !important;
+}
+
+/* Green estimate badge */
+.sahirate-estimate-page .sahirate-dark-hero
+.text-emerald-300 {
+  color: #6EE7B7 !important;
+}
+
+/* =========================================================
+   LIGHT BACKGROUND — NEVER USE WHITE TEXT
+   ========================================================= */
+
+.sahirate-estimate-page > div > section:not(.sahirate-dark-hero)
+.text-white {
+  color: #071A33 !important;
+}
+
+/* All important light-card numbers */
+.sahirate-estimate-page .bg-white
+.font-black {
+  color: #071A33 !important;
+}
+
+/* Light-card supporting text */
+.sahirate-estimate-page .bg-white
+.text-slate-400 {
+  color: #64748B !important;
+}
+
+.sahirate-estimate-page .bg-white
+.text-slate-500 {
+  color: #475569 !important;
+}
+
+/* =========================================================
+   DARK BACKGROUND — GENERAL SAFETY NET
+   ========================================================= */
+
+/* Any explicitly dark SahiRate card */
+.sahirate-estimate-page
+.bg-\[\#071A33\] {
+  color: #FFFFFF !important;
+}
+
+.sahirate-estimate-page
+.bg-\[\#071A33\] h1,
+.sahirate-estimate-page
+.bg-\[\#071A33\] h2,
+.sahirate-estimate-page
+.bg-\[\#071A33\] h3,
+.sahirate-estimate-page
+.bg-\[\#071A33\] p,
+.sahirate-estimate-page
+.bg-\[\#071A33\] span {
+  color: #FFFFFF !important;
+}
+
+/* =========================================================
+   CONSTRUCTION-PRODUCT TYPOGRAPHY
+   ========================================================= */
+
+.sahirate-estimate-page h1 {
+  letter-spacing: -0.035em !important;
+}
+
+.sahirate-estimate-page h2 {
+  letter-spacing: -0.025em !important;
+}
+
+.sahirate-estimate-page .text-3xl {
+  font-weight: 900 !important;
+}
+
+.sahirate-estimate-page .text-2xl {
+  font-weight: 850 !important;
+}
+
+/* Don't make labels look like a novel/editorial layout */
+.sahirate-estimate-page .uppercase {
+  letter-spacing: 0.08em !important;
+  font-weight: 800 !important;
+}
+
+/* Better readable body text */
+.sahirate-estimate-page .text-sm {
+  line-height: 1.55 !important;
+}

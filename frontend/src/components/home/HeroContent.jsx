@@ -1,4 +1,4 @@
-﻿import { ArrowRight, PlayCircle, Calculator } from "lucide-react";
+import { ArrowRight, PlayCircle, Calculator } from "lucide-react";
 import HeroStats from "./HeroStats";
 import { Link } from "react-router-dom";
 
@@ -14,11 +14,11 @@ export default function HeroContent() {
 
       {/* Heading */}
       <h1 className="mt-6 max-w-[600px]">
-        <span className="mt-2 block font-logo text-[50px] font-bold leading-[0.95] tracking-[-0.03em] text-white lg:text-[64px]">
+        <span className="mt-2 block font-logo text-[38px] font-bold leading-[0.95] tracking-[-0.04em] text-white sm:text-[44px] lg:text-[64px]">
           Har Material ka
         </span>
 
-        <span className="mt-0 block font-logo text-[54px] font-extrabold leading-[0.88] tracking-[-0.05em] text-[#FF6B00] lg:text-[66px]">
+        <span className="mt-0 block font-logo text-[42px] font-extrabold leading-[0.9] tracking-[-0.05em] text-[#FF6B00] sm:text-[48px] lg:text-[66px]">
           SahiRate
         </span>
       </h1>
@@ -30,12 +30,12 @@ export default function HeroContent() {
       </p>
 
       {/* CTA AREA */}
-      <div className="mt-8 flex w-full flex-col gap-5 lg:flex-row lg:flex-nowrap lg:items-center lg:gap-3">
+      <div className="mt-8 grid w-full grid-cols-1 gap-5 lg:grid-cols-3 lg:items-center lg:gap-3">
 
         {/* Explore Live Prices */}
         <Link
           to="/prices"
-          className="group inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-[18px] bg-[#FF6B00] px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E55F00] hover:shadow-xl lg:w-auto lg:px-8"
+          className="group inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-[18px] bg-[#FF6B00] px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E55F00] hover:shadow-xl lg:w-full lg:px-4"
         >
           <span className="whitespace-nowrap">
             Explore Live Prices
@@ -55,7 +55,7 @@ export default function HeroContent() {
               behavior: "smooth",
             })
           }
-          className="group inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-[18px] border border-white/20 px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10 lg:w-auto lg:px-8"
+          className="group inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-[18px] border border-white/20 px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10 lg:w-full lg:px-4"
         >
           <PlayCircle
             size={18}
@@ -74,7 +74,7 @@ export default function HeroContent() {
               Mobile: normal flow
               Desktop: floating annotation
           */}
-          <div className="mb-4 flex flex-col items-center text-center lg:absolute lg:-top-[82px] lg:left-1/2 lg:mb-0 lg:-translate-x-1/2">
+          <div className="mb-4 flex flex-col items-center text-center lg:absolute lg:-top-[58px] lg:left-1/2 lg:mb-0 lg:-translate-x-1/2">
             <div className="whitespace-nowrap font-[cursive] text-[14px] font-bold italic leading-tight text-white lg:text-[15px]">
               Instant Estimate
             </div>
@@ -84,7 +84,7 @@ export default function HeroContent() {
             </div>
 
             <svg
-              className="mt-1 h-9 w-14 overflow-visible text-[#FF6B00] lg:h-10"
+              className="mt-1 h-8 w-14 -translate-y-2 overflow-visible text-[#FF6B00] lg:h-9"
               viewBox="0 0 56 40"
               fill="none"
               aria-hidden="true"
@@ -110,7 +110,7 @@ export default function HeroContent() {
           <Link
             to="/smartbuild"
             data-testid="home-smartbuild-cta"
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-[18px] border border-[#FF6B00] bg-[#FF6B00]/5 px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6B00]/10 hover:shadow-[0_0_24px_rgba(255,107,0,0.22)] lg:w-auto lg:px-8"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-[18px] border border-[#FF6B00] bg-[#FF6B00]/5 px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6B00]/10 hover:shadow-[0_0_24px_rgba(255,107,0,0.22)] lg:w-full lg:px-4"
           >
             <Calculator
               size={18}
@@ -158,3 +158,10 @@ export default function HeroContent() {
     </div>
   );
 }
+
+
+
+
+
+
+

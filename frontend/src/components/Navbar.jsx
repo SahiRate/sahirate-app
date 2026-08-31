@@ -54,7 +54,9 @@ export default function Navbar({ onOpenSearch }) {
                 <ChartNoAxesCombined size={20} />
               )}
 
-              {item.label}
+              <span className={item.label === "Live Prices" ? "whitespace-nowrap" : ""}>
+                {item.label}
+              </span>
             </NavLink>
           ))}
         </nav>

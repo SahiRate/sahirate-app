@@ -204,3 +204,269 @@ h6 {
 
 }
 
+/* SahiRate Hero Layout */
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.hero-content-column {
+  min-width: 0;
+  width: 100%;
+}
+
+.hero-dashboard-column {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 1280px) {
+  .hero-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .hero-content-column {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+
+  .hero-dashboard-column {
+    flex: 0 0 500px;
+    width: 500px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-layout {
+    gap: 48px;
+  }
+
+  .hero-dashboard-column {
+    flex-basis: 520px;
+    width: 520px;
+  }
+}
+/* ---------- Hero Responsive Gutter Fix ---------- */
+
+.hero-inner {
+  width: 100%;
+  max-width: 1500px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .hero-inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-inner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+/* ---------- Hero Mobile Side Gutter ---------- */
+
+.hero-inner {
+  width: calc(100% - 32px);
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 640px) {
+  .hero-inner {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-inner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* =========================================================
+   SmartBuild Estimate — Hero Text Visibility
+   Keep dark hero typography clearly readable.
+   ========================================================= */
+
+.smartbuild-hero .smartbuild-hero-title {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+}
+
+.smartbuild-hero .smartbuild-hero-amount {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+}
+
+.smartbuild-hero h1 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.smartbuild-hero p {
+  opacity: 1;
+}
+
+.smartbuild-hero .text-slate-200 {
+  color: #e2e8f0 !important;
+}
+
+.smartbuild-hero .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+
+/* =========================================================
+   SAHIRATE SMARTBUILD — CONTRAST SYSTEM
+   Scoped to SmartBuild estimate page.
+   ========================================================= */
+
+/* ---------- DARK SURFACES ---------- */
+
+.smartbuild-dark,
+[class*="bg-[#071A33]"] {
+  color: #ffffff;
+}
+
+/* Main headings on dark surfaces */
+.smartbuild-dark h1,
+.smartbuild-dark h2,
+.smartbuild-dark h3,
+[class*="bg-[#071A33]"] h1,
+[class*="bg-[#071A33]"] h2,
+[class*="bg-[#071A33]"] h3 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Important values */
+.smartbuild-dark .smartbuild-primary-value,
+[class*="bg-[#071A33]"] .smartbuild-primary-value {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Normal text */
+.smartbuild-dark p,
+.smartbuild-dark span,
+[class*="bg-[#071A33]"] p,
+[class*="bg-[#071A33]"] span {
+  opacity: 1;
+}
+
+/* Keep muted text muted but visible */
+.smartbuild-dark .text-slate-300,
+[class*="bg-[#071A33]"] .text-slate-300 {
+  color: #cbd5e1 !important;
+}
+
+.smartbuild-dark .text-slate-400,
+[class*="bg-[#071A33]"] .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+.smartbuild-dark .text-slate-500,
+[class*="bg-[#071A33]"] .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+/* White text must remain white on dark cards */
+.smartbuild-dark .text-white,
+[class*="bg-[#071A33]"] .text-white {
+  color: #ffffff !important;
+}
+
+/* ---------- LIGHT SURFACES ---------- */
+
+.smartbuild-light,
+.smartbuild-light h1,
+.smartbuild-light h2,
+.smartbuild-light h3 {
+  color: #071A33;
+}
+
+/* Prevent accidental white text on white/light cards */
+.smartbuild-light .text-white {
+  color: #071A33 !important;
+}
+
+/* Primary light-surface text */
+.smartbuild-light .text-[#071A33] {
+  color: #071A33 !important;
+}
+
+/* Secondary text */
+.smartbuild-light .text-slate-500 {
+  color: #475569 !important;
+}
+
+.smartbuild-light .text-slate-400 {
+  color: #64748b !important;
+}
+
+/* ---------- HIGH-VISIBILITY NUMBERS ---------- */
+
+.smartbuild-primary-value {
+  font-weight: 900 !important;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- ORANGE / STATUS COLORS ---------- */
+
+.smartbuild-dark .text-orange-300,
+[class*="bg-[#071A33]"] .text-orange-300 {
+  color: #fdba74 !important;
+}
+
+.smartbuild-dark .text-emerald-300,
+[class*="bg-[#071A33]"] .text-emerald-300 {
+  color: #6ee7b7 !important;
+}
+
+
+/* SmartBuild Estimate - visibility fix */
+.smartbuild-estimate-visible-cost {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.smartbuild-estimate-visible-observations {
+  color: #fdba74 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

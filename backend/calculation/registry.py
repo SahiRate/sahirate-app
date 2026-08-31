@@ -4,6 +4,9 @@ SahiRate SmartBuild - Rule & Reference Registry
 Every calculation rule must carry a version and reference status.
 Values marked PRELIMINARY must not be presented as final engineering
 or statutory values.
+
+Reference fields remain empty until independently verified against
+the applicable primary source.
 """
 
 RULE_REGISTRY = {
@@ -13,6 +16,20 @@ RULE_REGISTRY = {
         "status": "PRELIMINARY",
         "reference_status": "PENDING_VERIFICATION",
         "reference_codes": [],
+        "reference": {
+            "authority": None,
+            "document": None,
+            "edition": None,
+            "item_code": None,
+            "clause": None,
+            "revision": None,
+            "verified_on": None,
+        },
+        "basis": {
+            "quantity_unit": None,
+            "labour_basis": None,
+            "scope": None,
+        },
         "notes": (
             "Preliminary quantity-estimation rule. "
             "Verify applicable specifications before production use."
@@ -24,6 +41,20 @@ RULE_REGISTRY = {
         "status": "PRELIMINARY",
         "reference_status": "PENDING_VERIFICATION",
         "reference_codes": [],
+        "reference": {
+            "authority": None,
+            "document": None,
+            "edition": None,
+            "item_code": None,
+            "clause": None,
+            "revision": None,
+            "verified_on": None,
+        },
+        "basis": {
+            "quantity_unit": None,
+            "labour_basis": None,
+            "scope": None,
+        },
         "notes": (
             "Preliminary RCC quantity estimation. "
             "Final structural quantities must follow approved design."
@@ -35,6 +66,20 @@ RULE_REGISTRY = {
         "status": "PRELIMINARY",
         "reference_status": "PENDING_VERIFICATION",
         "reference_codes": [],
+        "reference": {
+            "authority": None,
+            "document": None,
+            "edition": None,
+            "item_code": None,
+            "clause": None,
+            "revision": None,
+            "verified_on": None,
+        },
+        "basis": {
+            "quantity_unit": None,
+            "labour_basis": None,
+            "scope": None,
+        },
         "notes": (
             "Preliminary PCC quantity estimation."
         ),
@@ -45,6 +90,20 @@ RULE_REGISTRY = {
         "status": "PRELIMINARY",
         "reference_status": "PENDING_VERIFICATION",
         "reference_codes": [],
+        "reference": {
+            "authority": None,
+            "document": None,
+            "edition": None,
+            "item_code": None,
+            "clause": None,
+            "revision": None,
+            "verified_on": None,
+        },
+        "basis": {
+            "quantity_unit": None,
+            "labour_basis": None,
+            "scope": None,
+        },
         "notes": (
             "Preliminary plaster quantity estimation."
         ),
@@ -55,6 +114,20 @@ RULE_REGISTRY = {
         "status": "PRELIMINARY",
         "reference_status": "PENDING_VERIFICATION",
         "reference_codes": [],
+        "reference": {
+            "authority": None,
+            "document": None,
+            "edition": None,
+            "item_code": None,
+            "clause": None,
+            "revision": None,
+            "verified_on": None,
+        },
+        "basis": {
+            "quantity_unit": None,
+            "labour_basis": None,
+            "scope": None,
+        },
         "notes": (
             "Preliminary foundation estimation. "
             "Structural design remains authoritative."

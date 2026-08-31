@@ -106,11 +106,11 @@ export default function DealersList() {
     Promise.all([fetchDealers(), fetchMaterials()])
       .then(([dealerRes, materialRes]) => {
         setDealers(
-          Array.isArray(dealerRes.data) ? dealerRes.data : []
+          Array.isArray(dealerRes) ? dealerRes : []
         );
 
         setMaterials(
-          Array.isArray(materialRes.data) ? materialRes.data : []
+          Array.isArray(materialRes) ? materialRes : []
         );
       })
       .catch((err) => {
@@ -716,3 +716,4 @@ function FilterButton({
     </button>
   );
 }
+

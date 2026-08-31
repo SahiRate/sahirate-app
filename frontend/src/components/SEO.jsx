@@ -1,4 +1,4 @@
-﻿import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 
 const SITE_URL = "https://www.sahirate.in";
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -368,3 +368,4 @@ export default function SEO({
     </Helmet>
   );
 }
+

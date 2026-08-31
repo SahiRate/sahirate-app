@@ -124,7 +124,7 @@ ${message}
                 </p>
 
                 <span className="mt-5 inline-block font-semibold text-[#FF6B00]">
-                  Send Email →
+                  Send Email ?
                 </span>
               </a>
 
@@ -146,7 +146,7 @@ ${message}
                 </p>
 
                 <span className="mt-5 inline-block font-semibold text-[#FF6B00]">
-                  Call Us →
+                  Call Us ?
                 </span>
               </a>
 
@@ -176,7 +176,7 @@ ${message}
                 </h3>
 
                 <p className="mt-3 text-slate-600">
-                  Monday – Saturday
+                  Monday � Saturday
                 </p>
 
                 <p className="mt-1 text-sm text-slate-500">
@@ -349,7 +349,7 @@ ${message}
                 type="submit"
                 className="mt-7 w-full rounded-xl bg-[#FF6B00] px-8 py-4 text-base font-bold text-white transition hover:bg-[#e65f00] active:scale-[0.99]"
               >
-                Send Enquiry →
+                Send Enquiry ?
               </button>
 
               <p className="mt-4 text-center text-sm text-slate-500">

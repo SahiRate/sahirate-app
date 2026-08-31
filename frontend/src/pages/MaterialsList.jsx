@@ -11,7 +11,7 @@ import {
   TrendingUp
 } from "lucide-react";
 import SEO from "../components/SEO";
-import { fetchMaterials } from "@/lib/api";
+import { fetchMaterials, fetchDailyPrices } from "@/lib/api";
 
 export default function MaterialsList() {
 
@@ -22,28 +22,63 @@ export default function MaterialsList() {
   const [sortBy, setSortBy] = useState("name");
 
   useEffect(() => {
+    let active = true;
 
-    fetchMaterials()
-  .then((data) => {
+    const loadMaterials = async () => {
+      try {
+        const [materialsData, dailyData] = await Promise.all([
+          fetchMaterials(),
+          fetchDailyPrices(),
+        ]);
 
-    console.log("Materials API:", data);
+        const materialList = Array.isArray(materialsData)
+          ? materialsData.filter(Boolean)
+          : [];
 
-    setMaterials(Array.isArray(data) ? data.filter(Boolean) : []);
+        const priceBoard = Array.isArray(dailyData?.board)
+          ? dailyData.board
+          : [];
 
-    setLoading(false);
+        const statsBySlug = new Map(
+          priceBoard.map((item) => [
+            item.slug,
+            {
+              min: item.min ?? null,
+              avg: item.avg ?? null,
+              max: item.max ?? null,
+              trend: item.trend ?? "flat",
+              dealer_count: item.dealer_count ?? 0,
+            },
+          ])
+        );
 
-  })
+        const merged = materialList.map((material) => ({
+          ...material,
+          stats:
+            statsBySlug.get(material.slug) ||
+            material.stats ||
+            {},
+        }));
 
-  .catch((err) => {
+        if (active) {
+          setMaterials(merged);
+          setLoading(false);
+        }
+      } catch (err) {
+        console.error("Unable to load materials:", err);
 
-    console.error(err);
+        if (active) {
+          setMaterials([]);
+          setLoading(false);
+        }
+      }
+    };
 
-    setMaterials([]);
+    loadMaterials();
 
-    setLoading(false);
-
-  });
-
+    return () => {
+      active = false;
+    };
   }, []);
 
   const filtered = useMemo(() => {
@@ -247,7 +282,7 @@ export default function MaterialsList() {
           ) : (
 
             <div
-              className="grid md:grid-cols-2 xl:grid-cols-3 gap-8"
+              className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 [&>*:last-child]:xl:col-start-2"
               data-testid="materials-grid"
             >
               {filtered.map((m) => {
@@ -334,7 +369,7 @@ export default function MaterialsList() {
 
                           </span>
 
-                          {" "}Verified Dealers
+                          {" "}Listed Dealers
 
                         </div>
 
@@ -438,3 +473,4 @@ function Stat({ label, value, tone }) {
   );
 
 }
+

@@ -5,25 +5,25 @@ export default function About() {
   const phases = [
     {
       number: "01",
-      title: "Phase 1 — Launch",
+      title: "Phase 1 � Launch",
       place: "Deoghar",
       text: "Pilot Market • Dealer Onboarding • Product Testing",
     },
     {
       number: "02",
-      title: "Phase 2 — Regional",
+      title: "Phase 2 � Regional",
       place: "Godda, Dumka, Banka",
       text: "District Level Expansion • Brand Building",
     },
     {
       number: "03",
-      title: "Phase 3 — State",
-      place: "Bihar–Jharkhand Corridor",
+      title: "Phase 3 � State",
+      place: "Bihar�Jharkhand Corridor",
       text: "Full Feature Launch • Regional Market Expansion",
     },
     {
       number: "04",
-      title: "Phase 4 — National",
+      title: "Phase 4 � National",
       place: "Pan-India Platform",
       text: "Enterprise Partnerships • Complete Ecosystem",
     },
@@ -62,7 +62,7 @@ export default function About() {
       <main className="min-h-screen bg-white">
 
         {/* =====================================================
-            01 — ABOUT HERO
+            01 � ABOUT HERO
         ====================================================== */}
         <section className="relative overflow-hidden bg-[#071426]">
           <div className="absolute inset-0 opacity-40">
@@ -116,7 +116,7 @@ export default function About() {
         </section>
 
         {/* =====================================================
-            02 — WHY SAHIRATE
+            02 � WHY SAHIRATE
         ====================================================== */}
         <section className="bg-slate-50 py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -165,7 +165,7 @@ export default function About() {
                 </p>
 
                 <div className="mt-7 font-semibold text-[#FF6B00]">
-                  SahiRate →
+                  SahiRate ?
                 </div>
               </div>
 
@@ -193,7 +193,7 @@ export default function About() {
                 </p>
 
                 <div className="mt-7 font-semibold text-[#FF6B00]">
-                  SahiRate →
+                  SahiRate ?
                 </div>
               </div>
 
@@ -220,7 +220,7 @@ export default function About() {
                 </p>
 
                 <div className="mt-7 font-semibold text-[#FF6B00]">
-                  SahiRate →
+                  SahiRate ?
                 </div>
               </div>
 
@@ -229,7 +229,7 @@ export default function About() {
         </section>
 
         {/* =====================================================
-            03 — THE PROBLEM
+            03 � THE PROBLEM
         ====================================================== */}
         <section className="bg-white py-24">
           <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-10">
@@ -290,7 +290,7 @@ export default function About() {
         </section>
 
         {/* =====================================================
-            04 — VISION STATEMENT
+            04 � VISION STATEMENT
         ====================================================== */}
         <section className="bg-slate-50 py-20">
           <div className="mx-auto max-w-5xl px-6 text-center lg:px-10">
@@ -316,7 +316,7 @@ export default function About() {
         </section>
 
         {/* =====================================================
-            05 — EXPANSION PLAN
+            05 � EXPANSION PLAN
         ====================================================== */}
         <section className="relative overflow-hidden bg-[#071426] py-24">
           <div
@@ -343,7 +343,7 @@ export default function About() {
               </h2>
 
               <p className="mx-auto mt-5 max-w-3xl text-lg text-slate-300">
-                We will grow market by market — learning, improving and
+                We will grow market by market � learning, improving and
                 building trust along the way.
               </p>
             </div>
@@ -403,7 +403,7 @@ export default function About() {
         </section>
 
         {/* =====================================================
-            06 — CORE VALUES
+            06 � CORE VALUES
         ====================================================== */}
         <section className="bg-white py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -433,7 +433,7 @@ export default function About() {
                     </span>
 
                     <span className="text-xl text-slate-300 transition group-hover:text-[#FF6B00]">
-                      →
+                      ?
                     </span>
                   </div>
 
@@ -454,7 +454,7 @@ export default function About() {
         </section>
 
         {/* =====================================================
-            07 — FINAL CTA
+            07 � FINAL CTA
         ====================================================== */}
         <section className="bg-slate-50 py-20">
           <div className="mx-auto max-w-6xl px-6 lg:px-10">
@@ -481,7 +481,7 @@ export default function About() {
                   to="/materials"
                   className="rounded-xl bg-[#FF6B00] px-8 py-4 font-bold text-white transition hover:bg-[#e65f00]"
                 >
-                  Explore Materials →
+                  Explore Materials ?
                 </Link>
 
                 <Link

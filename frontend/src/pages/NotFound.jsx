@@ -1,4 +1,4 @@
-﻿import SEO from "@/components/SEO";
+import SEO from "@/components/SEO";
 
 export default function NotFound() {
   return (
@@ -22,3 +22,4 @@ export default function NotFound() {
     </>
   );
 }
+

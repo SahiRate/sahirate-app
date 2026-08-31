@@ -1,4 +1,4 @@
-﻿import { Boxes, Store, MapPin, Activity } from "lucide-react";
+import { Boxes, Store, MapPin, Activity } from "lucide-react";
 
 const stats = [
   {
@@ -51,3 +51,4 @@ export default function HeroStats() {
     </div>
   );
 }
+

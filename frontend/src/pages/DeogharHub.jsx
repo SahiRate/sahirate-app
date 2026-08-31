@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { fetchMaterials } from "@/lib/api";
@@ -333,3 +333,4 @@ function InfoCard({ title, text }) {
     </div>
   );
 }
+

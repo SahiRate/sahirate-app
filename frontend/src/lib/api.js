@@ -1,4 +1,4 @@
-﻿import axios from "axios";
+import axios from "axios";
 
 const BACKEND_URL =
     import.meta.env.VITE_BACKEND_URL ||
@@ -38,11 +38,15 @@ export const fetchMaterial = async (slug) => {
     return response.data;
 };
 
-export const fetchDealers = (params) =>
-    api.get("/dealers", { params });
+export const fetchDealers = async (params) => {
+    const response = await api.get("/dealers", { params });
+    return response.data;
+};
 
-export const fetchDealer = (id) =>
-    api.get(`/dealers/${id}`);
+export const fetchDealer = async (id) => {
+    const response = await api.get(`/dealers/${id}`);
+    return response.data;
+};
 
 export const fetchDailyPrices = async () => {
     const response = await api.get("/prices/daily");
@@ -94,3 +98,4 @@ export const deleteDealer = (dealerCode) =>
     api.delete(`/admin/dealers/${dealerCode}`);
 
 export default api;
+

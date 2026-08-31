@@ -1,4 +1,4 @@
-﻿import HeroBackground from "./HeroBackground";
+import HeroBackground from "./HeroBackground";
 import HeroDashboard from "./HeroDashboard";
 import HeroContent from "./HeroContent";
 
@@ -7,12 +7,12 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-[#081B33] text-white">
       <HeroBackground />
 
-      <div className="relative mx-auto max-w-[1500px] px-5 pt-16 pb-12 sm:px-8 sm:pt-20 lg:px-10 lg:pt-20">
+      <div className="relative mx-auto max-w-[1500px] px-6 pt-16 pb-12 sm:px-8 sm:pt-20 lg:px-10 lg:pt-20">
         <div
           className="
             grid w-full items-start
             gap-10
-            xl:grid-cols-[minmax(0,1fr)_500px]
+            lg:grid-cols-[minmax(0,1fr)_460px] xl:grid-cols-[minmax(0,1fr)_500px]
             2xl:grid-cols-[minmax(0,1fr)_520px]
             2xl:gap-12
           "
@@ -21,7 +21,7 @@ export default function Hero() {
             <HeroContent />
           </div>
 
-          <div className="w-full min-w-0 xl:max-w-[500px] xl:justify-self-end 2xl:max-w-[520px]">
+          <div className="w-full min-w-0 lg:max-w-[460px] lg:justify-self-end xl:max-w-[500px] 2xl:max-w-[520px]">
             <HeroDashboard />
           </div>
         </div>
@@ -29,6 +29,9 @@ export default function Hero() {
     </section>
   );
 }
+
+
+
 
 
 

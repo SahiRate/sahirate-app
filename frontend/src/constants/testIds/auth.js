@@ -31,3 +31,4 @@ export const REGISTER = {
 export const LOGOUT = {
 	button: 'logout-button',
 };
+
